@@ -4,7 +4,7 @@ import {
   AnimateSharedLayout,
   AnimatePresence,
   MotionConfig
-} from "framer-motion";
+} from "framer-motion/dist/framer-motion";
 import { useLocation } from "react-router-dom";
 import files from "../../files";
 import "./ProjectPage.scss";

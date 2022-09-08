@@ -14,6 +14,7 @@
   "devDependencies": {
     "@types/react": "^18.0.18",
     "@types/sass": "^1.43.1",
+    "react-intersection-observer": "^9.4.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "^4.0.3",
     "typescript": "3.8.3"

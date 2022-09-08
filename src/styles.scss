@@ -16,6 +16,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+iframe {
+  display: none;
+}
+
 main {
   font-family: sans-serif;
   text-align: center;

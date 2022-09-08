@@ -5,11 +5,8 @@ import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import Projects from "./pages/Projects/Projects";
 import {
-  motion,
   AnimateSharedLayout,
-  AnimatePresence,
-  MotionConfig
-} from "framer-motion";
+} from "framer-motion/dist/framer-motion";
 
 import "./styles.scss";
 

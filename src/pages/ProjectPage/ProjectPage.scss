@@ -1,0 +1,29 @@
+.item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  backface-visibility: hidden;
+  background-color: white;
+  // overflow-y: hidden;
+
+  .item-title{
+    height: 40vh;
+  }
+
+  .container{
+    background-color: white;
+    .item-image{
+      width: 100%;
+      height: 100%;
+      img{
+        width: 100%;
+        height: 100%;
+      }
+    }
+    
+  }
+  
+}

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   motion,
   AnimateSharedLayout,
@@ -10,12 +10,16 @@ import files from "../../files";
 import "./ProjectPage.scss";
 
 const ProjectPage = () => {
+  const [i, setI] = useState();
   const location = useLocation();
   const id = location.state.id;
+  const selected = location.state.selected;
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    setI(id);
     console.log(id);
+    console.log(selected);
   },[location]);
   
   return (
@@ -39,11 +43,12 @@ const ProjectPage = () => {
                 key={`file-${id}`}
                 className="container"
                 layoutId={`file-${id}`}
+                // layout="position"
                 transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
                 style={{
                   borderRadius: 0,
-                  height: files[id].height,
-                  width: files[id].width,
+                  height: "100vh",
+                  width: "100%",
                 }}
               >
                 <motion.div className="item-image">
@@ -53,7 +58,7 @@ const ProjectPage = () => {
               </motion.div>
               {/* </motion.div> */}
             </motion.div>
-          }
+  }
         </AnimatePresence>
   )
 }

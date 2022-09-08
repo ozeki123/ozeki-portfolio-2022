@@ -7,6 +7,7 @@
   justify-content: center;
   backface-visibility: hidden;
   background-color: white;
+  position: relative;
   // overflow-y: hidden;
 
   .item-title{
@@ -14,6 +15,10 @@
   }
 
   .container{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 40vh;
     background-color: white;
     .item-image{
       width: 100%;

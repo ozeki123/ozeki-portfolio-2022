@@ -1,5 +1,5 @@
 import {
-  motion, useAnimation
+  motion, useAnimation, AnimatePresence
 } from "framer-motion/dist/framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
@@ -25,9 +25,13 @@ const Projects = () => {
     <div className="projects-container">
         <motion.div className="items" >
           <motion.div className="items-content">
-            {files.map((file, i) => (
-              <Project file={file} i={i}/>
-            ))}
+            <AnimatePresence exitBeforeEnter>
+              {files.map((file, i) => (
+                <Project file={file} i={i} key={i}/>
+              ))}
+            </AnimatePresence>
+              
+            
           </motion.div>
         </motion.div>
     </div>

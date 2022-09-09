@@ -17,13 +17,10 @@ const ProjectPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-    setI(id);
-    console.log(id);
-    console.log(selected);
   },[location]);
   
   return (
-    <AnimatePresence>
+    <AnimatePresence exitBeforeEnter>
           {
             <motion.div
               className="item"

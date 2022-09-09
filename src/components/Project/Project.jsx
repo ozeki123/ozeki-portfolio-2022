@@ -1,31 +1,59 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate} from "react-router-dom";
 import {
   motion, useAnimation
 } from "framer-motion/dist/framer-motion";
+import SplitType from 'split-type'
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
   const [subTitleView, setSubTitleView] = useState(false);
+  const [descView1, setDescView1] = useState(false);
+  const [descView2, setDescView2] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
+  const descRef1 = useRef();
+  const descRef2 = useRef();
+  const navigate = useNavigate();
 
+  //Check if title is in view
   useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    const titleObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         setTitleView(entry.isIntersecting);
       });
     });
-    observer.observe(titleRef.current);
-  }, [])
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
+    titleObserver.observe(titleRef.current);
+
+    //Check if subtitle is in view
+    const subTitleObserver = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         setSubTitleView(entry.isIntersecting);
       });
     });
-    observer.observe(subTitleRef.current);
+    subTitleObserver.observe(subTitleRef.current);
+
+    
   }, [])
+
+  useEffect(() => {
+//Check if first line of description is in view
+  const descObserver1 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      setDescView1(entry.isIntersecting);
+    });
+  });
+  descObserver1.observe(descRef1.current);
+
+  //Check if fsecond line of description is in view
+  const descObserver2 = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      setDescView2(entry.isIntersecting);
+    });
+  });
+  descObserver2.observe(descRef2.current);
+  }, [])
+  
 
   const titleVariant = {
     hidden: {
@@ -37,9 +65,11 @@ const Project = ({file, i}) => {
       skewY: 0,
       transition:{ duration: 0.8, 
         ease: "easeOut", 
-        delay: 0.4}
-      }
+        delay: 0.2}
+      },
+      exit: {y: 135, opacity: 0}
     }
+    
   const subTitleVariant = {
     hidden: {
       y: 135, 
@@ -50,11 +80,40 @@ const Project = ({file, i}) => {
       skewY: 0,
       transition:{ duration: 0.8, 
         ease: "easeOut", 
-        delay: 0.6}
-      }
+        delay: 0.3}
     }
+  }
+  const descVariant1 = {
+    hidden: {
+      y: 25, 
+    },
+    visible: {
+      y: 0,
+      transition:{ duration: 0.6, 
+        ease: "easeOut", 
+        delay: 0.9}
+    }
+  }
+  const descVariant2 = {
+    hidden: {
+      y: 25 , 
+    },
+    visible: {
+      y: 0,
+      transition:{ duration: 0.6, 
+        ease: "easeOut", 
+        delay: 1}
+    }
+  }
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    setTimeout(() => {
+      navigate(`/projects/${file.id}`, {state:{id:i}})
+    }, 1000);
+  }
+
   return (
-    <Link to={`/projects/${file.id}`} state={{id:i}}>
       <motion.div
         key={i}
         layoutId={ `file-${i}`}
@@ -62,8 +121,8 @@ const Project = ({file, i}) => {
         // layout="position"
         style={{
           background: "white",
-          width: "70vw",
-          height: "70vh",
+          width: "75vw",
+          height: "78vh",
           // top: 0
         }}
       >
@@ -72,10 +131,12 @@ const Project = ({file, i}) => {
           <motion.div className="project-text">
             <motion.div className="title" >
               <motion.h2 
+              key={`title-${i}`}
               ref={titleRef}
               initial="hidden"
               animate={titleView && "visible"}
               variants={titleVariant}
+              exit="exit"
               >
                 {file.name}
               </motion.h2>
@@ -91,14 +152,22 @@ const Project = ({file, i}) => {
                   {file.subtitle}
                 </motion.h2>
             </div>
-            
-            <p>{file.description}</p>
+            <div className="description-text">
+              <motion.div className="description">
+                <motion.p ref={descRef1} variants={descVariant1} initial="hidden" animate={descView1 && "visible"}>{file.description1}</motion.p>
+              </motion.div>
+              <motion.div className="description">
+                <motion.p ref={descRef2} variants={descVariant2} initial="hidden" animate={descView2 && "visible"}>{file.description2}</motion.p>
+              </motion.div>
+            </div>
           </motion.div>
-          <motion.img src={file.src} />
+          <Link to={`/projects/${file.id}`} state={{id:i}} onClick={handleClick}>
+            <motion.img src={file.src} />
+          </Link>
+          
         </motion.div>
         
       </motion.div>
-    </Link>
   )
 }
 

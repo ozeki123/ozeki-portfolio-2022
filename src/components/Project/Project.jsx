@@ -2,8 +2,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import {
   motion, useAnimation
-} from "framer-motion/dist/framer-motion";
-import SplitType from 'split-type'
+} from "framer-motion";
+// import { AnimatePresence } from "framer-motion";
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
@@ -15,6 +15,7 @@ const Project = ({file, i}) => {
   const descRef1 = useRef();
   const descRef2 = useRef();
   const navigate = useNavigate();
+
 
   //Check if title is in view
   useEffect(() => {
@@ -80,7 +81,8 @@ const Project = ({file, i}) => {
       skewY: 0,
       transition:{ duration: 0.8, 
         ease: "easeOut", 
-        delay: 0.3}
+        delay: 0.3},
+      exit: {y: 135, opacity: 0}
     }
   }
   const descVariant1 = {
@@ -106,12 +108,12 @@ const Project = ({file, i}) => {
     }
   }
 
-  const handleClick = (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-      navigate(`/projects/${file.id}`, {state:{id:i}})
-    }, 1000);
-  }
+  // const handleClick = (e, i) => {
+  //   e.preventDefault();
+  //   setTimeout(() => {
+  //     navigate(`/projects/${i}`);
+  //   }, 1000);
+  // }
 
   return (
       <motion.div
@@ -123,7 +125,6 @@ const Project = ({file, i}) => {
           background: "white",
           width: "75vw",
           height: "78vh",
-          // top: 0
         }}
       >
       
@@ -136,21 +137,24 @@ const Project = ({file, i}) => {
               initial="hidden"
               animate={titleView && "visible"}
               variants={titleVariant}
-              exit="exit"
+              exit="hidden"
               >
                 {file.name}
               </motion.h2>
             </motion.div>
             <div className="subtitle">
-              <motion.h2 
-                ref={subTitleRef}
-                className="italic"
-                initial="hidden"
-                animate={subTitleView && "visible"}
-                variants={subTitleVariant}
-                >
-                  {file.subtitle}
+                <motion.h2 
+                  key={`title-${i}`}
+                  ref={subTitleRef}
+                  className="italic"
+                  initial="hidden"
+                  animate={subTitleView && "visible"}
+                  variants={subTitleVariant}
+                  exit="exit"
+                  >
+                    {file.subtitle}
                 </motion.h2>
+              
             </div>
             <div className="description-text">
               <motion.div className="description">
@@ -161,7 +165,7 @@ const Project = ({file, i}) => {
               </motion.div>
             </div>
           </motion.div>
-          <Link to={`/projects/${file.id}`} state={{id:i}} onClick={handleClick}>
+          <Link to={`/projects/${i}`}>
             <motion.img src={file.src} />
           </Link>
           

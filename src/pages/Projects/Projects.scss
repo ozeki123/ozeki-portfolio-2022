@@ -9,14 +9,12 @@
     width: 100%;
     position: relative;
     padding-top: 0vh;
-
     .items-content{
       width: 100%;
       height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-
       a{
         padding-top: 5vh;
       }
@@ -27,6 +25,12 @@
         //   justify-content: center;
         // margin: 0 auto;
         // padding-top: 5vh;
+        &:hover{
+          img{
+            filter: brightness(95%) !important;
+          }
+          
+        }
         .project-image{
           width: 100%;
           height: 100%;
@@ -126,6 +130,7 @@
         img{
           width: 100%;
           height: 100%;
+          
         }
       }
       

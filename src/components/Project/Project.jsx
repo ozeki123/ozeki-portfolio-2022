@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
   motion, useAnimation
-} from "framer-motion/dist/framer-motion";
+} from "framer-motion";
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
@@ -40,10 +40,15 @@ const Project = ({file, i}) => {
         delay: 0.4}
       }
     }
+    const transition = { duration: 0.8, 
+      ease: "easeOut", 
+      delay: 0.6}
+    
   const subTitleVariant = {
     hidden: {
       y: 135, 
-      skewY:12
+      skewY:12,
+      
     },
     visible: {
       y: 0,
@@ -54,12 +59,16 @@ const Project = ({file, i}) => {
       }
     }
   return (
-    <Link to={`/projects/${file.id}`} state={{id:i}}>
+    <Link to={`/projects/${i}`} state={{id:i}}>
       <motion.div
         key={i}
         layoutId={ `file-${i}`}
         className="thumb"
-        // layout="position"
+        layout
+        transition={{ 
+          duration: 0.8, 
+          ease: "easeInOut", 
+        }}
         style={{
           background: "white",
           width: "70vw",
@@ -76,6 +85,11 @@ const Project = ({file, i}) => {
               initial="hidden"
               animate={titleView && "visible"}
               variants={titleVariant}
+              exit="hidden"
+              transition={{ 
+                duration: 0.8, 
+                ease: "easeInOut", 
+                delay: 0.1}}
               >
                 {file.name}
               </motion.h2>
@@ -85,8 +99,13 @@ const Project = ({file, i}) => {
                 ref={subTitleRef}
                 className="italic"
                 initial="hidden"
-                animate={subTitleView && "visible"}
+                animate={titleView && "visible"}
                 variants={subTitleVariant}
+                exit="hidden"
+                transition={{ 
+                  duration: 0.8, 
+                  ease: "easeInOut", 
+                  delay: 0.2}}
                 >
                   {file.subtitle}
                 </motion.h2>

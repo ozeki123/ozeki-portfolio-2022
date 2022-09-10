@@ -1,6 +1,6 @@
 import {
   motion, useAnimation
-} from "framer-motion/dist/framer-motion";
+} from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import files from "../../files";

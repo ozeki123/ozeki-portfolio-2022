@@ -1,14 +1,19 @@
 .item {
-  width: 95%;
+  width: 90%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   backface-visibility: hidden;
-  position: relative;
   text-align: start;
+  z-index: 9999;
+  background: none;
   // overflow-y: hidden;
+  .item-top{
+    width: 100%;
+    height: 100%;
+  }
 
   .item-heading{
     height: 100%;
@@ -19,13 +24,14 @@
       font-family: "Basis", sans-serif;
       font-size: 10rem;
       font-weight: 500;
-      letter-spacing: -3px;
+      letter-spacing: -5px;
       margin: 0;
       text-transform: uppercase;
       color: rgb(39, 39, 39);
+      min-width: 0.3ch;
       
     }
-    .item-nav{
+    .item-nav-prev{
       overflow: hidden;
     }
     .item-title{
@@ -72,6 +78,7 @@
           width: 100%;
           height: 100%;
           filter: brightness(75%);
+          
         }
       }
       

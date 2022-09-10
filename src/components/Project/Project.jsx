@@ -83,10 +83,9 @@ const Project = ({file, i}) => {
   return (
     <Link to={`/projects/${i}`} state={{id:i}}>
       <motion.div
-        key={i}
         layoutId={ `file-${i}`}
         className="thumb"
-        layout
+        layoutScroll
         transition={{ 
           duration: 0.8, 
           ease: "easeInOut", 

@@ -3,6 +3,7 @@
   width: 100%;
   height: 100%;
   position: relative;
+  background: none;
   .items {
     height: 100%;
     width: 100%;
@@ -20,10 +21,8 @@
         padding-top: 5vh;
       }
       .thumb {
-        background-color: #f7fafc;
         cursor: pointer;
         // overflow: hidden;
-        background-color: white;
         // display: flex;
         //   justify-content: center;
         // margin: 0 auto;
@@ -97,6 +96,7 @@
             width: 100%;
             height: 100%;
             filter: brightness(75%);
+            transition: all .5s;
           }
         }
       }

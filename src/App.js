@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState , useLayoutEffect} from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
@@ -13,6 +13,14 @@ import {
 
 import "./styles.scss";
 
+// const Wrapper = ({children}) => {
+//   const location = useLocation();
+//   useLayoutEffect(() => {
+//     document.documentElement.scrollTo(0, 0);
+//   }, [location.pathname]);
+//   return children
+// }
+
 function App() {
   const location = useLocation();
   return (
@@ -20,11 +28,12 @@ function App() {
       <Navbar />
       <AnimateSharedLayout>
         <AnimatePresence exitBeforeEnter>
-          <Routes location={location} key={location.pathname}>
-            <Route path="/" element={<Projects/>}/>
-            <Route path="/projects" element={<Projects/>}/>
-            <Route path="/projects/:id" element={<ProjectPage/>}/>
-          </Routes>
+            <Routes location={location} key={location.pathname}>
+              <Route path="/" element={<Projects/>}/>
+              <Route path="/projects" element={<Projects/>}/>
+              <Route path="/projects/:id" element={<ProjectPage/>}/>
+            </Routes>
+          
         </AnimatePresence>
         
       </AnimateSharedLayout>

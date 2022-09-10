@@ -1,42 +1,74 @@
 .item {
-  width: 85%;
+  width: 95%;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   backface-visibility: hidden;
-  background-color: white;
   position: relative;
   text-align: start;
-
   // overflow-y: hidden;
 
   .item-heading{
+    height: 100%;
     width: 100%;
-    padding-top: 15vh;
+    padding-top: 10vh;
+    padding-bottom: 3.5vh;
     h2{
-      font-family: "Helvetica", sans-serif;
-      font-size: 6rem;
+      font-family: "Basis", sans-serif;
+      font-size: 10rem;
       font-weight: 500;
       letter-spacing: -3px;
       margin: 0;
       text-transform: uppercase;
-      color: rgb(27, 27, 27);
+      color: rgb(39, 39, 39);
       
+    }
+    .item-nav{
+      overflow: hidden;
     }
     .item-title{
+      overflow: hidden;
+      .title{
+        display: flex;
+      }
+    }
+    .item-description{
+      padding-top: 1vh;
+      overflow: hidden;
+      p{
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 0.5px;
+      }
+    }
+
+    .item-link{
+      padding-top: 1vh;
+      overflow: hidden;
+      h3{
+        font-size: 1.45rem;
+        text-transform: uppercase;
+        font-family: "Basis", sans-serif;
+        font-weight: 500;
+        margin: 0;
+      }
       
     }
+    
   }
     .container{
+      z-index: 999;
       // position: absolute;
+      // top: 40vh;
       // top: 0;
-      background-color: white;
+      // background-color: white;
       .item-image{
         width: 100%;
         height: 100%;
         img{
+          // object-fit: cover;
           width: 100%;
           height: 100%;
           filter: brightness(75%);

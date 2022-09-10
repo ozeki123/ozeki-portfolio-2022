@@ -4,6 +4,8 @@ import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import Projects from "./pages/Projects/Projects";
+import 'locomotive-scroll/dist/locomotive-scroll.css';
+
 import {
   AnimatePresence,
   AnimateSharedLayout,

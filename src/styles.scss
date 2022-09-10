@@ -8,7 +8,7 @@ body {
 }
 
 body {
-  background: white;
+  background: #ECECEC;
   background-repeat: no-repeat;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -65,8 +65,51 @@ a{
 @font-face {
   font-family: 'Helvetica';
   src:
+      url('./fonts/HelveticaNeue-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src:
       url('./fonts/HelveticaNeue-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src:
+      url('./fonts/HelveticaNeue-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Basis';
+  src:
+      url('./fonts/BasisGrotesqueArabicPro-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Basis';
+  src:
+      url('./fonts/BasisGrotesqueArabicPro-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Basis';
+  src:
+      url('./fonts/BasisGrotesqueArabicPro-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Basis';
+  src:
+      url('./fonts/BasisGrotesqueArabicPro-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 

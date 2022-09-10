@@ -58,6 +58,28 @@ const Project = ({file, i}) => {
         delay: 0.6}
       }
     }
+    const descVariant1 = {
+      hidden: {
+        y: 25, 
+      },
+      visible: {
+        y: 0,
+        transition:{ duration: 0.6, 
+          ease: "easeOut", 
+          delay: 0.9}
+      }
+    }
+    const descVariant2 = {
+      hidden: {
+        y: 25 , 
+      },
+      visible: {
+        y: 0,
+        transition:{ duration: 0.6, 
+          ease: "easeOut", 
+          delay: 1}
+      }
+    }
   return (
     <Link to={`/projects/${i}`} state={{id:i}}>
       <motion.div
@@ -68,12 +90,11 @@ const Project = ({file, i}) => {
         transition={{ 
           duration: 0.8, 
           ease: "easeInOut", 
+          delay: 0
         }}
         style={{
-          background: "white",
           width: "70vw",
-          height: "70vh",
-
+          height: "75vh",
         }}
       >
       
@@ -89,7 +110,7 @@ const Project = ({file, i}) => {
               transition={{ 
                 duration: 0.8, 
                 ease: "easeInOut", 
-                delay: 0.1}}
+                delay: 0.5}}
               >
                 {file.name}
               </motion.h2>
@@ -105,13 +126,26 @@ const Project = ({file, i}) => {
                 transition={{ 
                   duration: 0.8, 
                   ease: "easeInOut", 
-                  delay: 0.2}}
+                  delay: 0.3}}
                 >
                   {file.subtitle}
                 </motion.h2>
             </div>
             
-            <p>{file.description}</p>
+            <div className="description-text">
+              <motion.div className="description">
+                <motion.p variants={descVariant1} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
+                  duration: 0.3, 
+                  ease: "easeIn", 
+                  delay: 0.1}}>{file.description1}</motion.p>
+              </motion.div>
+              <motion.div className="description">
+                <motion.p variants={descVariant2} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
+                  duration: 0.3, 
+                  ease: "easeIn", 
+                  delay: 0}}>{file.description2}</motion.p>
+              </motion.div>
+            </div>
           </motion.div>
           <motion.img src={file.src} />
         </motion.div>

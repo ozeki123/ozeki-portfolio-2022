@@ -33,6 +33,7 @@
           height: 100%;
           position: relative;
           .project-text{
+            width: 100%;
             position: absolute;
             top: 60%;
             left: 50%;
@@ -46,6 +47,23 @@
             .subtitle{
               height: 11vh;
               line-height: 1;
+            }
+            .description-text{
+              width: 100%;
+              padding-top: 3vh;
+            }
+            .description{
+              width: 100%;
+              overflow: hidden;
+              margin: 0;
+              // padding: 0;
+              p{
+                font-family: "Helvetica";
+                height: 3vh;
+                padding: 0;
+                font-weight: 300;
+                letter-spacing: px;
+              }
             }
             .italic{
               font-family: orpheuspro,serif;

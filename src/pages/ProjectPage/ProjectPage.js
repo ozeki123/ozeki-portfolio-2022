@@ -12,17 +12,10 @@ import "./ProjectPage.scss";
 const ProjectPage = () => {
   const params = useParams();
   let id = params.id;
-
-  useEffect(() => {
-    // window.scrollTo(0, 0);
-    // setI(id);
-    // console.log(id);
-    // console.log(selected);
-  },[location]);
   
   return (
           
-            <div
+            <motion.div
               className="item"
               // onClick={(e) => {
               //   e.target === e.currentTarget && setSelected(false);
@@ -33,7 +26,7 @@ const ProjectPage = () => {
                   <motion.h2 
                     initial={{opacity:0}} 
                     animate={{opacity:1}} 
-                    transition={{delay:1, duration: 1}} 
+                    transition={{duration: 1}} 
                     exit={{opacity:0, transition:{delay:0}}}
                   >
                     {files[id].title}
@@ -45,7 +38,6 @@ const ProjectPage = () => {
               </section>
               
               
-              <section className="item-contents">
                 <motion.div
                   key={`file-${id}`}
                   className="container"
@@ -64,8 +56,7 @@ const ProjectPage = () => {
                   </motion.div>
                   
                 </motion.div>
-              </section>
-            </div>
+            </motion.div>
   
   )
 }

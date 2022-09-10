@@ -73,7 +73,7 @@ const Project = ({file, i}) => {
           background: "white",
           width: "70vw",
           height: "70vh",
-          // top: 0
+
         }}
       >
       

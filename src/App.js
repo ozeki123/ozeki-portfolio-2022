@@ -16,7 +16,7 @@ function App() {
   return (
     <main>
       <Navbar />
-      <AnimateSharedLayout type="switch">
+      <AnimateSharedLayout>
         <AnimatePresence exitBeforeEnter>
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Projects/>}/>

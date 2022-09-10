@@ -1,5 +1,5 @@
 .item {
-  width: 100%;
+  width: 85%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -8,35 +8,50 @@
   backface-visibility: hidden;
   background-color: white;
   position: relative;
+  text-align: start;
+
   // overflow-y: hidden;
 
   .item-heading{
-    height: 40vh;
+    width: 100%;
+    padding-top: 15vh;
     h2{
-      font-size: 3vw;
-      font-weight: 400;
+      font-family: "Helvetica", sans-serif;
+      font-size: 6rem;
+      font-weight: 500;
+      letter-spacing: -3px;
+      margin: 0;
+      text-transform: uppercase;
+      color: rgb(27, 27, 27);
+      
     }
     .item-title{
       
     }
   }
-
-  .container{
-    height: 100%;
+  .item-contents{
     width: 100%;
-    position: absolute;
-    top: 40vh;
-    background-color: white;
-    .item-image{
-      width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    // position: absolute;
+    .container{
       height: 100%;
-      img{
+      width: 100%;
+      position: absolute;
+      background-color: white;
+      .item-image{
         width: 100%;
         height: 100%;
-        filter: brightness(75%);
+        img{
+          width: 100%;
+          height: 100%;
+          filter: brightness(75%);
+        }
       }
+      
     }
-    
   }
+  
   
 }

@@ -15,6 +15,7 @@ export default [
     width: "100%",
     height: "70%",
     src: holo,
+    website: "Sportify.com"
   },
   {
     id: 2,
@@ -28,6 +29,7 @@ export default [
     width: "100%",
     height: "70%",
     src: mfm,
+    website: "Americanhome.com"
   },
   {
     id: 3,
@@ -41,6 +43,6 @@ export default [
     width: "100%",
     height: "70%",
     src: mfw,
-    ratio: 1.5
+    website: "Americanhome.com"
   }
 ];

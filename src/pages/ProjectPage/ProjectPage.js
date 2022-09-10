@@ -21,15 +21,14 @@ const ProjectPage = () => {
   },[location]);
   
   return (
-    <AnimatePresence>
-          {
-            <motion.div
+          
+            <div
               className="item"
               // onClick={(e) => {
               //   e.target === e.currentTarget && setSelected(false);
               // }}
             >
-              <div className="item-heading">
+              <section className="item-heading">
                 <div className="item-title">
                   <motion.h2 
                     initial={{opacity:0}} 
@@ -40,35 +39,34 @@ const ProjectPage = () => {
                     {files[id].title}
                   </motion.h2>
                 </div>
-                <div className="item-category">
-                  <h2>{files[id].category}</h2>
+                <div className="item-description">
+                  <p>{files[id].description}</p>
                 </div>
-              </div>
+              </section>
               
               
-              {/* <motion.div className="invert"> */}
-              <motion.div
-                key={`file-${id}`}
-                className="container"
-                layoutId={`file-${id}`}
-                // layout="position"
-                transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
-                style={{
-                  borderRadius: 0,
-                  height: "90vh",
-                  width: "85vw",
-                  top: "40vh"
-                }}
-              >
-                <motion.div className="item-image">
-                  <motion.img src={files[id].src} />
+              <section className="item-contents">
+                <motion.div
+                  key={`file-${id}`}
+                  className="container"
+                  layoutId={`file-${id}`}
+                  // layout="position"
+                  transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
+                  style={{
+                    borderRadius: 0,
+                    height: "90vh",
+                    width: "85vw",
+                    top: "40vh"
+                  }}
+                >
+                  <motion.div className="item-image">
+                    <motion.img src={files[id].src} />
+                  </motion.div>
+                  
                 </motion.div>
-                
-              </motion.div>
-              {/* </motion.div> */}
-            </motion.div>
-  }
-        </AnimatePresence>
+              </section>
+            </div>
+  
   )
 }
 

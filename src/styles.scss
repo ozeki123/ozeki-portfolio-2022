@@ -53,4 +53,20 @@ a{
   font-weight: 400;
   font-style: normal;
 }
+@font-face {
+  font-family: 'Helvetica-Now';
+  src:
+      url('./fonts/HelveticaNowText-Medium.woff2') format('woff2'),
+      url('./fonts/HelveticaNowText-Medium.woff') format('woff'),
+      url('./fonts/HelveticaNowText-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Helvetica';
+  src:
+      url('./fonts/HelveticaNeue-Regular.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
 

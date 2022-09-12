@@ -1,17 +1,19 @@
-import React, { useState , useLayoutEffect} from "react";
+import React, { useState , useEffect, useLayoutEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import Projects from "./pages/Projects/Projects";
 import 'locomotive-scroll/dist/locomotive-scroll.css';
-
+import LocomotiveScroll from "locomotive-scroll";
+import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import {
   AnimatePresence,
   AnimateSharedLayout,
 } from "framer-motion";
 
 import "./styles.scss";
+import SmoothScroll from "./hooks/SmoothScroll";
 
 // const Wrapper = ({children}) => {
 //   const location = useLocation();
@@ -23,22 +25,69 @@ import "./styles.scss";
 
 function App() {
   const location = useLocation();
+  const { pathname } = useLocation();
+  const containerRef = useRef();
+
+  // const scroll = () => {
+  //   const scroll = new LocomotiveScroll({
+  //     el: containerRef.current,
+  //     smooth: true
+  //   }); 
+  //   scroll.init()
+  // }
+  
+  // useEffect(() => {
+  //   // const scroll = new LocomotiveScroll({
+  //   //   el: containerRef.current,
+  //   //   smooth: true
+  //   // });
+  //   // scroll();
+  //   // // scroll.update()
+  //   // return () => {
+  //   //   if (scroll) scroll.destroy();
+  //   // }
+  //   scroll();
+
+  // }, [location.pathname])
+  
   return (
-    <main>
-      <Navbar />
-      <AnimateSharedLayout>
-        <AnimatePresence exitBeforeEnter>
-            <Routes location={location} key={location.pathname}>
-              <Route path="/" element={<Projects/>}/>
-              <Route path="/projects" element={<Projects/>}/>
-              <Route path="/projects/:id" element={<ProjectPage/>}/>
-            </Routes>
-          
-        </AnimatePresence>
-        
-      </AnimateSharedLayout>
+    <div className="app-container">
+      <LocomotiveScrollProvider
+        options={
+          {
+            smooth: true,
+            // ... all available Locomotive Scroll instance options 
+          }
+        }
+        watch={
+          [
+            pathname
+          ]
+        }
+        location={pathname}
+        containerRef={containerRef}
+        onLocationChange={scroll => scroll.init()} // If you want to reset the scroll position to 0 for example
+        onUpdate={() => console.log('Updated, but not on location change!')}
+      >
+        <main ref={containerRef} data-scroll-container>
+            <Navbar />
+            <AnimateSharedLayout>
+              <AnimatePresence exitBeforeEnter>
+                  <Routes location={location} key={location.pathname}>
+                    <Route path="/" element={<Projects/>}/>
+                    <Route path="/projects" element={<Projects/>}/>
+                    <Route path="/projects/:id" element={<ProjectPage/>}/>
+                  </Routes>
+                
+              </AnimatePresence>
+              
+            </AnimateSharedLayout>
+            
+        </main>
+      </LocomotiveScrollProvider>
       
-    </main>
+    </div>
+      
   );
 };
 

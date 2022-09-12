@@ -51,6 +51,7 @@ const ProjectPage = () => {
   
   return (
     <motion.div
+      data-scroll-section
       className="item"
       initial={{ backgroundColor: "rgba( 236, 236, 236, 0 )" }}
       animate={{ backgroundColor: "rgba( 236, 236, 236, 1 )" }}
@@ -59,7 +60,7 @@ const ProjectPage = () => {
       //   e.target === e.currentTarget && setSelected(false);
       // }}
     >
-      <section className="item-top">
+      <section className="item-top" data-scroll-section>
         <div className="item-heading">
           <div className="item-nav-prev">
             <Link to="/projects">
@@ -100,7 +101,6 @@ const ProjectPage = () => {
           layout
           transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
           style={{
-            borderRadius: 0,
             height: "95vh",
             width: "90vw",
           }}

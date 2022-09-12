@@ -2,7 +2,7 @@ import {
   motion, useAnimation
 } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import files from "../../files";
 import "./Projects.scss";
 import { useInView } from "react-intersection-observer";
@@ -10,6 +10,7 @@ import Project from "../../components/Project/Project";
 
 const Projects = () => {
   const [selected, setSelected] = useState(false);
+  const navigate = useNavigate();
   
   useEffect(() => {
     console.log(selected);
@@ -17,18 +18,21 @@ const Projects = () => {
 
   
   return (
-    <div className="projects-container">
-        <motion.div className="items" >
+    <div className="projects-container" data-scroll-section>
+        <motion.div className="items">
           <motion.div className="items-content">
-            <motion.div 
+            <motion.div
+              className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:-100, opacity: 0}} 
               transition={{duration: 0.7, ease: "easeInOut"}} 
-              onClick={() => setSelected(0)}>
+              onClick={() => setSelected(0)}
+              >
                 <Project file={files[0]} i={0}/>
             </motion.div>
 
-            <motion.div 
+            <motion.div
+              className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               onClick={() => setSelected(1)}
               animate={selected === 0 ? {y:100, opacity: 0} : selected === 2 ? {y:-100, opacity: 0} : {}}
@@ -37,7 +41,8 @@ const Projects = () => {
                 <Project file={files[1]} i={1}/>
             </motion.div>
             
-            <motion.div 
+            <motion.div
+              className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:100, opacity: 0}} 
               transition={{duration: 0.7, ease: "easeInOut"}} 

@@ -11,6 +11,7 @@
     width: 100%;
     display: flex;
     overflow: hidden;
+    
     // padding-top: 5vh;
     .items-content{
       display: flex;
@@ -23,8 +24,12 @@
         width: 100%;
         height: 100%;
         padding-top: 5vh;
+        position: relative;
       }
-      .project-item-container{}
+      .project-item-container{
+        width: 100%;
+        height: 100%;
+      }
       .thumb {
         cursor: pointer;
         overflow: hidden;
@@ -102,6 +107,13 @@
               padding-top: 5vh;
             }
           }
+
+          .image-wrapper{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            overflow: hidden;
+          }
           
           img{
             width: 100%;
@@ -120,12 +132,7 @@
     position: absolute;
     top: 0;
     width: 100%;
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    backface-visibility: hidden;
+    height: 100%;
     background-color: white;
     // overflow-y: hidden;
 

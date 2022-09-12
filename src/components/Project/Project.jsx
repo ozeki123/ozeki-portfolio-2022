@@ -84,6 +84,7 @@ const Project = ({file, i}) => {
     <div className="project-item-container">
       <Link to={`/projects/${i}`} state={{id:i}}> 
         <motion.div
+          data-scroll
           layoutId={ `file-${i}`}
           className="thumb"
           layout
@@ -98,9 +99,9 @@ const Project = ({file, i}) => {
           }}
         >
         
-          <motion.div className="project-image">
-            <motion.div className="project-text">
-              <motion.div className="title" >
+          <motion.div className="project-image" data-scroll>
+            <motion.div className="project-text" data-scroll>
+              <motion.div className="title" data-scroll data-scroll-speed="1">
                 <motion.h2 
                 ref={titleRef}
                 initial="hidden"
@@ -115,7 +116,7 @@ const Project = ({file, i}) => {
                   {file.name}
                 </motion.h2>
               </motion.div>
-              <div className="subtitle">
+              <div className="subtitle" data-scroll data-scroll-speed="1">
                 <motion.h2 
                   ref={subTitleRef}
                   className="italic"
@@ -132,7 +133,7 @@ const Project = ({file, i}) => {
                   </motion.h2>
               </div>
               
-              <div className="description-text">
+              <div className="description-text" data-scroll data-scroll-speed="1">
                 <motion.div className="description">
                   <motion.p variants={descVariant1} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
                     duration: 0.3, 
@@ -147,7 +148,10 @@ const Project = ({file, i}) => {
                 </motion.div>
               </div>
             </motion.div>
-            <motion.img src={file.src} />
+            <div className="project-image">
+              <motion.img src={file.src} />
+            </div>
+            
           </motion.div>
           
         </motion.div>

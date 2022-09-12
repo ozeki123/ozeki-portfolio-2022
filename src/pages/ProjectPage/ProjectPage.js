@@ -60,15 +60,16 @@ const ProjectPage = () => {
       //   e.target === e.currentTarget && setSelected(false);
       // }}
     >
-      <section className="item-top" data-scroll-section>
-        <div className="item-heading">
+      <section className="item-top">
+        <div className="item-heading" data-scroll>
           <div className="item-nav-prev">
             <Link to="/projects">
               <motion.div initial={{y:-50}} animate={{y: 0}} transition={{duration: 1, ease: "easeOut", delay:1}} className="prev-button">Back</motion.div>
             </Link>
           </div>
-          <div className="item-title">
+          <div className="item-title" data-scroll>
             <motion.div 
+              data-scroll
               className="title"
               initial="hidden"
               animate="visible"
@@ -78,14 +79,14 @@ const ProjectPage = () => {
               variants={titleVariant}
             >
               {files[id].title.split("").map((letter, i) => (
-                <motion.h2 key={i} variants={child}>{letter}</motion.h2>
+                <motion.h2 data-scroll key={i} variants={child}>{letter}</motion.h2>
               ))}
             </motion.div>
           </div>
-          <div className="item-description">
+          <div data-scroll className="item-description">
             <motion.p initial={{y:31}} animate={{y:0}} exit={{y:31, transition:{delay: 0.5, duration: 0.5, ease: "easeInOut"}}} transition={{delay: 0.8, duration: 0.8, ease: "easeOut"}}>{files[id].description}</motion.p>
           </div>
-          <div className="item-link">
+          <div className="item-link" data-scroll>
             <motion.h3 href="#" initial={{y: 50}} animate={{y:0}} exit={{y:50, transition:{delay: 0.2, duration: 0.6, ease: "easeInOut"}}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>{files[id].website}</motion.h3>
           </div>
         </div>
@@ -96,17 +97,18 @@ const ProjectPage = () => {
       
       
         <motion.div
+          data-scroll
           className="container"
           layoutId={`file-${id}`}
-          layout
+          layoutScroll
           transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
           style={{
             height: "95vh",
             width: "90vw",
           }}
         >
-          <motion.div className="item-image">
-            <motion.img src={files[id].src} />
+          <motion.div className="item-image" data-scroll>
+            <motion.img data-scroll src={files[id].src}/>
           </motion.div>
           
         </motion.div>

@@ -56,8 +56,8 @@ function App() {
         options={
           {
             smooth: true,
-            lerp: 0.05,
-            multiplier: 1.4,
+            lerp: 0.06,
+            multiplier: 1.2,
           }
         }
         watch={

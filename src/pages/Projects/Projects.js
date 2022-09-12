@@ -19,9 +19,10 @@ const Projects = () => {
   
   return (
     <div className="projects-container" data-scroll-section>
-        <motion.div className="items">
-          <motion.div className="items-content">
+        <motion.div className="items" data-scroll>
+          <motion.div className="items-content" data-scroll>
             <motion.div
+            data-scroll
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:-100, opacity: 0}} 
@@ -32,6 +33,7 @@ const Projects = () => {
             </motion.div>
 
             <motion.div
+            data-scroll
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               onClick={() => setSelected(1)}
@@ -42,6 +44,7 @@ const Projects = () => {
             </motion.div>
             
             <motion.div
+            data-scroll
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:100, opacity: 0}} 

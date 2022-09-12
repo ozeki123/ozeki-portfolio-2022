@@ -81,10 +81,9 @@ const Project = ({file, i}) => {
       }
     }
   return (
-    <div className="project-item-container" data-scroll-section>
+    <div className="project-item-container">
       <Link to={`/projects/${i}`} state={{id:i}}> 
         <motion.div
-          data-scroll
           layoutId={ `file-${i}`}
           className="thumb"
           layout

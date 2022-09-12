@@ -56,7 +56,8 @@ function App() {
         options={
           {
             smooth: true,
-            // ... all available Locomotive Scroll instance options 
+            lerp: 0.05,
+            multiplier: 1.4,
           }
         }
         watch={
@@ -66,7 +67,7 @@ function App() {
         }
         location={pathname}
         containerRef={containerRef}
-        onLocationChange={scroll => scroll.init()} // If you want to reset the scroll position to 0 for example
+        onLocationChange={scroll => scroll.init()} // Reinitialize locomotive scroll on route location change
         onUpdate={() => console.log('Updated, but not on location change!')}
       >
         <main ref={containerRef} data-scroll-container>

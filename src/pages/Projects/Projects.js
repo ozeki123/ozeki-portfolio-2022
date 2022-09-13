@@ -11,18 +11,13 @@ import Project from "../../components/Project/Project";
 const Projects = () => {
   const [selected, setSelected] = useState(false);
   const navigate = useNavigate();
-  
-  useEffect(() => {
-    console.log(selected);
-  }, [selected])
 
   
   return (
-    <div className="projects-container" data-scroll-section>
-        <motion.div className="items" data-scroll>
-          <motion.div className="items-content" data-scroll>
-            <motion.div
-            data-scroll
+    <div className="projects-container">
+        <motion.div className="items">
+          <motion.div className="items-content">
+            <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:-100, opacity: 0}} 
@@ -32,8 +27,7 @@ const Projects = () => {
                 <Project file={files[0]} i={0}/>
             </motion.div>
 
-            <motion.div
-            data-scroll
+            <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               onClick={() => setSelected(1)}
@@ -43,8 +37,7 @@ const Projects = () => {
                 <Project file={files[1]} i={1}/>
             </motion.div>
             
-            <motion.div
-            data-scroll
+            <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
               animate={selected === 1 && {y:100, opacity: 0}} 

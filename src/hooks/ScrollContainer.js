@@ -8,7 +8,7 @@ import React, {
 import { useMotionValue, useSpring, motion } from "framer-motion"
 import ResizeObserver from "resize-observer-polyfill"
 
-const SmoothScroll = ({ children }) => {
+const ScrollContainer = ({ children }) => {
   const [contentHeight, setContentHeight] = useState(window.innerHeight)
   const scrollContainerRef = useRef(null)
   const scrollYmotionValue = useMotionValue(
@@ -61,4 +61,4 @@ const SmoothScroll = ({ children }) => {
   )
 }
 
-export default SmoothScroll
+export default ScrollContainer

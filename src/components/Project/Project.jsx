@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import {
-  motion, useAnimation
+  motion, useAnimation, useViewportScroll, useTransform
 } from "framer-motion";
 
 const Project = ({file, i}) => {
@@ -9,6 +9,9 @@ const Project = ({file, i}) => {
   const [subTitleView, setSubTitleView] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
+  const { scrollYProgress } = useViewportScroll();
+
+  const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -29,7 +32,7 @@ const Project = ({file, i}) => {
 
   const titleVariant = {
     hidden: {
-      y: 135, 
+      y: 145, 
       skewY:12
     },
     visible: {
@@ -46,7 +49,7 @@ const Project = ({file, i}) => {
     
   const subTitleVariant = {
     hidden: {
-      y: 135, 
+      y: 145, 
       skewY:12,
       
     },
@@ -60,7 +63,7 @@ const Project = ({file, i}) => {
     }
     const descVariant1 = {
       hidden: {
-        y: 25, 
+        y: 30, 
       },
       visible: {
         y: 0,
@@ -71,7 +74,7 @@ const Project = ({file, i}) => {
     }
     const descVariant2 = {
       hidden: {
-        y: 25 , 
+        y: 30 , 
       },
       visible: {
         y: 0,
@@ -81,13 +84,11 @@ const Project = ({file, i}) => {
       }
     }
   return (
-    <div className="project-item-container">
+    <div className="project-item-container" >
       <Link to={`/projects/${i}`} state={{id:i}}> 
         <motion.div
-          data-scroll
           layoutId={ `file-${i}`}
           className="thumb"
-          layout
           transition={{ 
             duration: 0.8, 
             ease: "easeInOut", 
@@ -99,9 +100,9 @@ const Project = ({file, i}) => {
           }}
         >
         
-          <motion.div className="project-image" data-scroll>
-            <motion.div className="project-text" data-scroll>
-              <motion.div className="title" data-scroll data-scroll-speed="1">
+          <div  className="project-image">
+            <div  className="project-text">
+              <div className="title">
                 <motion.h2 
                 ref={titleRef}
                 initial="hidden"
@@ -115,8 +116,8 @@ const Project = ({file, i}) => {
                 >
                   {file.name}
                 </motion.h2>
-              </motion.div>
-              <div className="subtitle" data-scroll data-scroll-speed="1">
+              </div>
+              <div className="subtitle">
                 <motion.h2 
                   ref={subTitleRef}
                   className="italic"
@@ -133,26 +134,27 @@ const Project = ({file, i}) => {
                   </motion.h2>
               </div>
               
-              <div className="description-text" data-scroll data-scroll-speed="1">
-                <motion.div className="description">
+              <div className="description-text">
+                <div className="description">
                   <motion.p variants={descVariant1} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
                     duration: 0.3, 
                     ease: "easeIn", 
                     delay: 0.1}}>{file.description1}</motion.p>
-                </motion.div>
-                <motion.div className="description">
+                </div>
+                <div className="description">
                   <motion.p variants={descVariant2} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
                     duration: 0.3, 
                     ease: "easeIn", 
                     delay: 0}}>{file.description2}</motion.p>
-                </motion.div>
+                </div>
               </div>
-            </motion.div>
-            <div className="project-image">
-              <motion.img src={file.src} />
+            </div>
+            <div className="image-wrapper">
+              <img src={file.src}/>
             </div>
             
-          </motion.div>
+            
+          </div>
           
         </motion.div>
       </Link>

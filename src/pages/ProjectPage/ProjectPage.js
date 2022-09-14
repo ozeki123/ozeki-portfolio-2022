@@ -11,15 +11,26 @@ import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import "./ProjectPage.scss";
 import ScrollContainer from '../../hooks/ScrollContainer';
 
+
 const ProjectPage = () => {
   const params = useParams();
   let id = params.id;
   const layoutRef = useRef(null);
+  const ref = useRef(null);
 
   useEffect(() => {
+    // window.dispatchEvent(new Event('resize'))
     setTimeout(() => {
-      layoutRef.current.style.position = "absolute";
+      layoutRef.current.style.position = "relative";
+      layoutRef.current.style.top = "0";
+      // lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
+      //   console.log({ scroll, limit, velocity, direction, progress })
+      // })
+  
+      
     }, 1000);
+    
+    
   }, [])
   
 
@@ -71,7 +82,7 @@ const ProjectPage = () => {
   };
   
   return (
-    <div>
+    <div className="item-container" ref={ref}>
       <motion.div
         className="item"
         initial={{ backgroundColor: "rgba( 236, 236, 236, 0 )" }}
@@ -148,7 +159,7 @@ const ProjectPage = () => {
               // position: "absolute"
             }}
           >
-            <div className="item-image" >
+            <div className="item-image">
               <img src={files[id].src}/>
             </div>
             

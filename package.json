@@ -5,6 +5,7 @@
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {
+    "@studio-freight/lenis": "^0.2.2",
     "framer-motion": "4.1.18-rc.25",
     "justified-layout": "4.1.0",
     "locomotive-scroll": "^4.1.4",

@@ -4,7 +4,7 @@ import './Navbar.scss';
 
 const Navbar = () => {
   return (
-    <nav data-scroll-section>
+    <nav>
       <ul>
         <Link to="/" className="nav-title">
           <li>Andrew Ozeki</li>

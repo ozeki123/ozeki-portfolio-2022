@@ -1,5 +1,6 @@
 import React, { useState , useEffect, useLayoutEffect, useRef } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import { createBrowserHistory } from 'history'
 import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
@@ -14,6 +15,10 @@ import {
 
 import "./styles.scss";
 import useScrollToTop from "./hooks/useScrollToTop";
+import ScrollContainer from "./hooks/ScrollContainer";
+
+import Lenis from '@studio-freight/lenis'
+
 
 // const Wrapper = ({children}) => {
 //   const location = useLocation();
@@ -27,6 +32,28 @@ function App() {
   const location = useLocation();
   const { pathname } = useLocation();
   const containerRef = useRef();
+  const scrollRef = useRef();
+
+  const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
+    smooth: true,
+    direction: 'vertical',
+  })
+
+  useEffect(() => {
+    function raf(time) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+    
+  }, [])
+
+  
+  
+
   // const scroll = () => {
   //   const scroll = new LocomotiveScroll({
   //     el: containerRef.current,
@@ -48,6 +75,35 @@ function App() {
   //   // scroll();
 
   // }, [location.pathname])
+
+  // const scrollRef = useRef();
+  const history = createBrowserHistory();
+
+  // const initScroll = () => {
+  //   const scroll = import("locomotive-scroll").then((LocomotiveScroll) => {
+  //     new LocomotiveScroll.default({
+  //       el: scrollRef.current,
+  //       smooth: true
+  //     });
+  //     history.listen(({ location, action }) => {
+  //       setTimeout(() => {
+  //         scroll.update();
+  //       }, 100);
+  //     });
+  //   });
+  // }
+
+  // useEffect(() => {
+  //   if (typeof window === "undefined") {
+  //     return;
+  //   }
+  //   setTimeout(() => {
+  //     initScroll()
+  //   }, 100);
+    
+
+  //   return () => scroll.destroy();
+  // }, []);
   
   return (
     <div className="app-container">
@@ -71,7 +127,7 @@ function App() {
       //   onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on 
       // >
     }
-        <main ref={containerRef}>
+        <main ref={scrollRef}>
           <Navbar />
             <AnimateSharedLayout>
               <AnimatePresence exitBeforeEnter>
@@ -88,6 +144,7 @@ function App() {
         </main>
       
     </div>
+    
       
   );
 };

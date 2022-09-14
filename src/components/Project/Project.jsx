@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 import {
   motion, useAnimation, useViewportScroll, useTransform
 } from "framer-motion";
+import { ScrollParallax } from 'react-just-parallax';
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
   const [subTitleView, setSubTitleView] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
-  const { scrollYProgress } = useViewportScroll();
 
-  const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
+  // const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -150,7 +150,9 @@ const Project = ({file, i}) => {
               </div>
             </div>
             <div className="image-wrapper">
-              <img src={file.src}/>
+                <ScrollParallax strength="0.07">
+                  <img src={file.src}/>
+                </ScrollParallax>
             </div>
             
             

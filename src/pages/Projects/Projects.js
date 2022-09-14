@@ -1,5 +1,5 @@
 import {
-  motion, useAnimation
+  motion, useViewportScroll
 } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -7,14 +7,10 @@ import files from "../../files";
 import "./Projects.scss";
 import { useInView } from "react-intersection-observer";
 import Project from "../../components/Project/Project";
-import Lenis from '@studio-freight/lenis'
-
 
 const Projects = () => {
   const [selected, setSelected] = useState(false);
   const navigate = useNavigate();
-
-  
 
   return (
     <div className="projects-container">

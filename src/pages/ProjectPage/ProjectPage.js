@@ -10,27 +10,28 @@ import files from "../../files";
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import "./ProjectPage.scss";
 import ScrollContainer from '../../hooks/ScrollContainer';
-
+import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
 
 const ProjectPage = () => {
   const params = useParams();
   let id = params.id;
   const layoutRef = useRef(null);
   const ref = useRef(null);
+  const scrollParallaxRef = useRef(null);
+  const descRef = useRef(null);
+  const showcaseRef = useRef(null);
 
   useEffect(() => {
     // window.dispatchEvent(new Event('resize'))
     setTimeout(() => {
-      layoutRef.current.style.position = "relative";
-      layoutRef.current.style.top = "0";
-      // lenis.on('scroll', ({ scroll, limit, velocity, direction, progress }) => {
-      //   console.log({ scroll, limit, velocity, direction, progress })
-      // })
-  
-      
+      scrollParallaxRef.current?.updateValues();
+    }, 0);
+    setTimeout(() => {
+      layoutRef.current.style.position = "absolute";
+      layoutRef.current.style.top = "67.8vh";
+      descRef.current.style.display="flex";
+      showcaseRef.current.style.display="block";
     }, 1000);
-    
-    
   }, [])
   
 
@@ -54,6 +55,16 @@ const ProjectPage = () => {
     exit: {
       transition: { staggerChildren: 0.05, delay: 0, duration: 0.7, ease: "easeInOut"}
     }
+  }
+  const categoryTitleVariant = {
+    hidden: {y:30},
+    visible: {y:0},
+    exit: {y:30}
+  }
+  const categoryItemVariant = {
+    hidden: {y:60},
+    visible: {y:0},
+    exit: {y:60}
   }
 
   const child = {
@@ -85,9 +96,9 @@ const ProjectPage = () => {
     <div className="item-container" ref={ref}>
       <motion.div
         className="item"
-        initial={{ backgroundColor: "rgba( 236, 236, 236, 0 )" }}
-        animate={{ backgroundColor: "rgba( 236, 236, 236, 1 )" }}
-        exit={{ backgroundColor: "rgba( 236, 236, 236, 0 )" }}
+        initial={{ backgroundColor: "rgba( 255, 255, 255, 0 )" }}
+        animate={{ backgroundColor: "rgba( 255, 255, 255, 1 )" }}
+        exit={{ backgroundColor: "rgba( 255, 255, 255, 0 )" }}
         // onClick={(e) => {
         //   e.target === e.currentTarget && setSelected(false);
         // }}
@@ -126,19 +137,102 @@ const ProjectPage = () => {
             </div>
             <section className="heading-categories">
               <div className="category">
-                <p className="category-title">Category</p>
-                <p className="category-item">{files[id].category}</p>
+                <div className="category-title">
+                  <motion.p 
+                    className="category-title-inner" 
+                    initial="hidden"
+                    animate="visible"
+                    variants={categoryTitleVariant}
+                    transition={{duration: 0.7, ease: "easeOut", delay:1}} 
+                    >
+                      Category
+                  </motion.p>
+                </div>
+                <motion.div 
+                  className="line"
+                  initial={{width: 0}}
+                  animate={{width: "100%"}}
+                  transition={{duration: 1.5, ease: "easeOut", delay:1}} 
+                ></motion.div>
+                <div className="category-item">
+                  <motion.p 
+                    className="category-item-inner spacing"
+                    initial="hidden"
+                    animate="visible"
+                    variants={categoryItemVariant}
+                    transition={{duration: 0.8, ease: "easeOut", delay:1}} 
+                  >
+                    {files[id].category}
+                  </motion.p>
+                </div>
+                
               </div>
               
               <div className="category">
-                  <p className="category-title">Role</p>
-                  {files[id].role.map(role => (
-                    <p className="category-item">{role}</p>
-                  ))}
+                <div className="category-title">
+                  <motion.p 
+                    className="category-title-inner"
+                    initial="hidden"
+                    animate="visible"
+                    variants={categoryTitleVariant}
+                    transition={{duration: 0.7, ease: "easeOut", delay:1}} 
+                  >
+                    Role
+                  </motion.p>
+                </div>
+                <motion.div 
+                  className="line"
+                  initial={{width: 0}}
+                  animate={{width: "100%"}}
+                  transition={{duration: 1.5, ease: "easeOut", delay:1}} 
+                ></motion.div>
+                  <div className="category-role">
+                    {files[id].role.map(role => (
+                      <div className="category-item">
+                        <motion.p 
+                          className="category-item-inner"
+                          initial="hidden"
+                          animate="visible"
+                          variants={categoryTitleVariant}
+                          transition={{duration: 0.7, ease: "easeOut", delay:1}} 
+                        >
+                          {role}
+                        </motion.p>
+                      </div>
+                    ))}
+                  </div>
+                  
               </div>
               <div className="category">
-                <p className="category-title">Location & Year</p>
-                <p className="category-item">{files[id].date}</p>
+                <div className="category-title">
+                  <motion.p 
+                    className="category-title-inner"
+                    initial="hidden"
+                    animate="visible"
+                    variants={categoryTitleVariant}
+                    transition={{duration: 0.7, ease: "easeOut", delay:1}} 
+                  >
+                    Location & Year
+                  </motion.p>
+                </div>
+                <motion.div 
+                  className="line"
+                  initial={{width: 0}}
+                  animate={{width: "100%"}}
+                  transition={{duration: 1.5, ease: "easeOut", delay:1}} 
+                ></motion.div>
+                <div className="category-item">
+                  <motion.p 
+                    className="category-item-inner spacing"
+                    initial="hidden"
+                    animate="visible"
+                    variants={categoryTitleVariant}
+                    transition={{duration: 0.7, ease: "easeOut", delay:1}} 
+                  >
+                    {files[id].date}
+                  </motion.p>
+                </div>
+                
               </div>
             </section>
             
@@ -147,26 +241,45 @@ const ProjectPage = () => {
         </section>
         
         
-          <motion.div
-            ref={layoutRef}
-            id="container"
-            className="container"
-            layoutId={`file-${id}`}
-            transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
-            style={{
-              height: "90vh",
-              width: "83vw",
-              // position: "absolute"
-            }}
-          >
-            <div className="item-image">
-              <img src={files[id].src}/>
+        <motion.div
+          ref={layoutRef}
+          id="container"
+          className="container"
+          layoutId={`file-${id}`}
+          transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
+          style={{
+            height: "90vh",
+            width: "83vw",
+            // position: "absolute"
+          }}
+        >
+          <div className="item-image-wrapper">
+            <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}>
+              <div className="item-image">
+                  <motion.img src={files[id].src}/>
+                </div>
+            </ScrollParallax>
+          </div>
+        </motion.div>
+        <section className="item-description" ref={descRef}>
+          <div className="item-details">
+            <h2>Details</h2>
+            <div className="item-roles">
+              <p>UI/UX Design</p>
+              <p>Front End </p>
+              <p>Back End </p>
             </div>
-            
-            
-          </motion.div>
-          
+            <Link to="/">View Project</Link>
+          </div>
+          <div className="item-background">
+            <h5>Background</h5>
+            <p>{files[id].full_description}</p>
+          </div>
+        </section>
       </motion.div>
+      <div className="item-showcase" ref={showcaseRef}>
+        
+      </div>
     </div>
     
   

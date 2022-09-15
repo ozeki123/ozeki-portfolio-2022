@@ -10,8 +10,16 @@ const Project = ({file, i}) => {
   const [subTitleView, setSubTitleView] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
+  const scrollParallaxRef = useRef(null);
 
   // const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      scrollParallaxRef.current?.updateValues();
+    }, 500);
+  }, [])
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
@@ -90,7 +98,7 @@ const Project = ({file, i}) => {
           layoutId={ `file-${i}`}
           className="thumb"
           transition={{ 
-            duration: 0.8, 
+            duration: 0.7, 
             ease: "easeInOut", 
             delay: 0
           }}
@@ -150,7 +158,7 @@ const Project = ({file, i}) => {
               </div>
             </div>
             <div className="image-wrapper">
-                <ScrollParallax strength="0.07">
+                <ScrollParallax strength="0.06" lerpEase="0.06" ref={scrollParallaxRef}>
                   <img src={file.src}/>
                 </ScrollParallax>
             </div>

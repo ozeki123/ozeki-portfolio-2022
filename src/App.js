@@ -49,7 +49,7 @@ function App() {
 
     requestAnimationFrame(raf)
     
-  }, [])
+  }, [pathname])
 
   
   

@@ -1,6 +1,9 @@
 import holo from "./assets/holo-full-screen.jpg";
 import mfm from "./assets/mfm-full-screen.jpg";
 import mfw from "./assets/mfw-full-screen.jpg";
+import holoParallax from "./assets/holo-parallax.jpg";
+import holoHome from "./assets/holo-desktop.png";
+import holoPage from "./assets/holo-group-page.png";
 
 export default [
   {
@@ -20,6 +23,9 @@ export default [
     width: "100%",
     height: "70%",
     src: holo,
+    bg1: holoParallax,
+    images: [holoHome, holoPage],
+    screen1: holoHome,
     website: "Sportify.com"
   },
   {

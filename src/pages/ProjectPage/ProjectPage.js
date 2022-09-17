@@ -11,6 +11,7 @@ import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import "./ProjectPage.scss";
 import ScrollContainer from '../../hooks/ScrollContainer';
 import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
+import Gallery from '../../components/Gallery/Gallery';
 
 const ProjectPage = () => {
   const params = useParams();
@@ -18,6 +19,7 @@ const ProjectPage = () => {
   const layoutRef = useRef(null);
   const ref = useRef(null);
   const scrollParallaxRef = useRef(null);
+  const scrollParallaxRef1 = useRef(null);
   const descRef = useRef(null);
   const showcaseRef = useRef(null);
 
@@ -25,7 +27,11 @@ const ProjectPage = () => {
     // window.dispatchEvent(new Event('resize'))
     setTimeout(() => {
       scrollParallaxRef.current?.updateValues();
-    }, 0);
+      
+      setTimeout(() => {
+        scrollParallaxRef1.current?.updateValues();
+      }, 800);
+    }, 300);
     setTimeout(() => {
       layoutRef.current.style.position = "absolute";
       layoutRef.current.style.top = "67.8vh";
@@ -277,9 +283,17 @@ const ProjectPage = () => {
           </div>
         </section>
       </motion.div>
-      <div className="item-showcase" ref={showcaseRef}>
-        
-      </div>
+      
+        <div className="item-screen-section" ref={showcaseRef}>
+          <div className="item-image">
+            <Gallery images={files[id].images}/>
+            <ScrollParallax strength="0.1" lerpEase="0.07" ref={scrollParallaxRef1}>
+              <motion.img src={files[id].bg1} className="bg-image"/>
+            </ScrollParallax>
+            
+          </div>
+        </div>
+      
     </div>
     
   

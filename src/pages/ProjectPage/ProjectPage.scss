@@ -2,11 +2,57 @@
   width: 100%;
   height: 100%;
 
-  .item-showcase{
+  .item-screen-section{
+    width: 100%;
+    height: 100%;
+    // overflow: hidden;
+    display: none;
+    .item-image{
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: relative;
+      // background-color: red;
+      .home-screen{
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        z-index: 9;
+      }
+      
+      .bg-image{
+        // will-change: transform;
+        width: 100%;
+        height: 100%;
+        // background-size: cover;
+        object-fit: cover;
+      }
+  }
+  
+  }
+
+  .item-screens{
     width: 100%;
     height: 100vh;
-    background-color: red;
     display: none;
+    padding-bottom: 100vh;
+    position: relative;
+  }
+
+  .item-showcase{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
 }
 

@@ -19,6 +19,8 @@ export default [
     description1: "A web app concept that allows people to book",
     description2: "sports related spaces.",
     full_description: "Sportify (creative name I know) is the first full project that I've tried creating as a developer. It has been recreated over and over again as part of my learning process a few years ago, and I recently decided to finish it in my spare time. Most of the development was done as when I was just starting out, so there is a lot of spaghetti code (currently refactoring). The app is built in the MERN stack (super original idea). As this project was for my learning, I've tried to use as little libraries and packages as possible, and built everything I could from scratch.",
+    feature_text1: "The apps main functionality is to allow users to browse sports related spaces and book them. Alternatively, partners of the app can host experiences, where a fun activity is offered as a service instead of renting a space. Users also have the group finder functionality available, allowing users to form groups to organize events and play together. The goal of holo was to conceptualize a sports platform that not only allows users the opportunity to play sports, but to connect with people and make friends along the way. My current goal in this app is to keep on adding features that would allow users to remain on the app for longer periods of time.",
+    feature_text2: "The app leverages a MongoDB/Express back end that uses JWT for authentication. React is used for the front end, together with the Context API  to persist login state. The app uses the stripe API to handle payment.",
     // size: 5485,
     width: "100%",
     height: "70%",

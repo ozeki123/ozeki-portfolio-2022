@@ -3,27 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
 import "./Gallery.scss";
 
-const variants = {
-  enter: (direction) => {
-    return {
-      x: direction > 0 ? 1000 : -1000,
-      opacity: 0
-    };
-  },
-  center: {
-    zIndex: 1,
-    x: 0,
-    opacity: 1
-  },
-  exit: (direction) => {
-    return {
-      zIndex: 0,
-      x: direction < 0 ? 1000 : -1000,
-      opacity: 0
-    };
-  }
-};
-
 const sliderVariants = {
   incoming: direction => ({
     x: direction > 0 ? "50%" : "-50%",
@@ -57,7 +36,6 @@ const Gallery = ({images}) => {
       <AnimatePresence initial={false} custom={direction}>
         <motion.div 
         key={page}
-        // src={images[imageIndex]}
         style={{backgroundImage:`url(${images[imageIndex]})`}}
         custom={direction}
         variants={sliderVariants}

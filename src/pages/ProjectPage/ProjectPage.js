@@ -20,8 +20,11 @@ const ProjectPage = () => {
   const ref = useRef(null);
   const scrollParallaxRef = useRef(null);
   const scrollParallaxRef1 = useRef(null);
+  const scrollParallaxRef2 = useRef(null);
   const descRef = useRef(null);
   const showcaseRef = useRef(null);
+  const featuresRef = useRef(null);
+  const footerRef = useRef(null);
 
   useEffect(() => {
     // window.dispatchEvent(new Event('resize'))
@@ -30,6 +33,7 @@ const ProjectPage = () => {
       
       setTimeout(() => {
         scrollParallaxRef1.current?.updateValues();
+        scrollParallaxRef2.current?.updateValues();
       }, 800);
     }, 300);
     setTimeout(() => {
@@ -37,6 +41,8 @@ const ProjectPage = () => {
       layoutRef.current.style.top = "67.8vh";
       descRef.current.style.display="flex";
       showcaseRef.current.style.display="block";
+      featuresRef.current.style.display="flex";
+      footerRef.current.style.display="block";
     }, 1000);
   }, [])
   
@@ -284,16 +290,42 @@ const ProjectPage = () => {
         </section>
       </motion.div>
       
-        <div className="item-screen-section" ref={showcaseRef}>
-          <div className="item-image">
-            <Gallery images={files[id].images}/>
-            <ScrollParallax strength="0.1" lerpEase="0.07" ref={scrollParallaxRef1}>
-              <motion.img src={files[id].bg1} className="bg-image"/>
-            </ScrollParallax>
-            
-          </div>
+      <div className="item-screen-section" ref={showcaseRef}>
+        <div className="item-image">
+          <Gallery images={files[id].images}/>
+          <ScrollParallax strength="0.1" lerpEase="0.07" ref={scrollParallaxRef1}>
+            <motion.img src={files[id].bg1} className="bg-image"/>
+          </ScrollParallax>
         </div>
-      
+      </div>
+      <section className="item-features" ref={featuresRef}>
+          <div className="item-details">
+            <div className="details-heading">
+              <h3>/02</h3>
+              <h3>Features</h3>
+            </div>
+            
+            <div className="features-heading">
+              <h3>{files[id].description}</h3>
+            </div>
+            <Link to="/">View Project</Link>
+          </div>
+          <div className="features-content">
+            <h5>Features</h5>
+            <p>{files[id].feature_text1}</p>
+            <p>{files[id].feature_text2}</p>
+          </div>
+      </section>
+      <div className="footer-container" ref={footerRef}>
+        <div className="footer-contents">
+          <ScrollParallax strength="0.35" lerpEase="0.20" ref={scrollParallaxRef2}>
+            <div className="footer-bg">
+              <h5>Next Project</h5>
+              <h2>{files[1].title}</h2>
+            </div>
+          </ScrollParallax>
+        </div>
+      </div>
     </div>
     
   

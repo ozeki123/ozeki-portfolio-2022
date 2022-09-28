@@ -1,0 +1,64 @@
+.about-container{
+  width: 100%;
+  height: 100%;
+  font-family: "Neue-Montreal";
+  position: relative;
+  .title-name{
+    width: 100vw;
+    // height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+  }
+  
+  h1{
+    position: fixed;
+    color: white;
+    mix-blend-mode: difference;
+    font-size: 18rem;
+    font-weight: 500;
+  }
+  .first-name{
+    // left: 13vw;
+    top: 17vh;
+  }
+  .last-name{
+    top: 40vh;
+    // right: 13vw;
+  }
+  .white-bg-section{
+    width: 100%;
+    height: 94vh;
+  }
+  .black-bg-section{
+    width: 100%;
+    height: 120vh;
+    background-color: black;
+    .images-wrapper{
+      width: 100%;
+      height: 100%;
+      .bolt-image{
+        width: 25%;
+        height: 52%;
+        object-fit: cover;
+        padding-left: 13vw;
+        padding-top: 20vh;
+        img{
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+    
+  }
+  .info-section{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    color: white;
+    z-index: 999;
+    position: relative;
+    padding-top: 30vh;
+  }
+}

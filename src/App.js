@@ -18,6 +18,7 @@ import useScrollToTop from "./hooks/useScrollToTop";
 import ScrollContainer from "./hooks/ScrollContainer";
 
 import Lenis from '@studio-freight/lenis'
+import About from "./pages/About/About";
 
 
 // const Wrapper = ({children}) => {
@@ -133,6 +134,7 @@ function App() {
               <AnimatePresence exitBeforeEnter>
                   <Routes location={location} key={location.pathname}>
                     <Route path="/" element={<Projects/>}/>
+                    <Route path="/about" element={<About/>}/>
                     <Route path="/projects" element={<Projects/>}/>
                     <Route path="/projects/:id" element={<ProjectPage/>}/>
                   </Routes>

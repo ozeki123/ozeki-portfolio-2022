@@ -5,21 +5,21 @@ import "./Gallery.scss";
 
 const sliderVariants = {
   incoming: direction => ({
-    x: direction > 0 ? "50%" : "-50%",
-    scale: 1,
-    opacity: 0
+    x: direction > 0 ? "100%" : "-100%",
+    scale: 1.1,
+    opacity: 0.6
   }),
   active: { x: 0, scale: 1, opacity: 1 },
   exit: direction => ({
-    x: direction > 0 ? "-50%" : "50%",
+    x: direction > 0 ? "-100%" : "100%",
     scale: 1,
-    opacity: 0
+    opacity: 1
   })
 }
 
 const sliderTransition = {
   duration: 1.2,
-  ease: [0.56, 0.03, 0.12, 1.04]
+  ease: [0.66, 0.03, 0.22, 1.04]
 }
 
 const Gallery = ({images}) => {
@@ -33,26 +33,29 @@ const Gallery = ({images}) => {
 
   return (
     <>
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div 
-        key={page}
-        style={{backgroundImage:`url(${images[imageIndex]})`}}
-        custom={direction}
-        variants={sliderVariants}
-        initial="incoming"
-        animate="active"
-        exit="exit"
-        transition={sliderTransition}
-        className="home-screen"
-        />
-      </AnimatePresence>
-      <div className="next" onClick={() => paginate(1)}>
+      <div className="gallery-container">
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div 
+            key={page}
+            style={{backgroundImage:`url(${images[imageIndex]})`}}
+            custom={direction}
+            variants={sliderVariants}
+            initial="incoming"
+            animate="active"
+            exit="exit"
+            transition={sliderTransition}
+            className="home-screen"
+          />
+        </AnimatePresence>
+        <div className="next" onClick={() => paginate(1)}>
+            {"‣"}
+          </div>
+        <div className="prev" onClick={() => paginate(-1)}>
           {"‣"}
         </div>
-      <div className="prev" onClick={() => paginate(-1)}>
-        {"‣"}
       </div>
     </>
+    
     
     
   )

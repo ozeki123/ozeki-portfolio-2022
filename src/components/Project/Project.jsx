@@ -98,7 +98,7 @@ const Project = ({file, i}) => {
           layoutId={ `file-${i}`}
           className="thumb"
           transition={{ 
-            duration: 0.7, 
+            duration: 0.9, 
             ease: "easeInOut", 
             delay: 0
           }}

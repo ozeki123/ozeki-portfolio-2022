@@ -32,15 +32,15 @@ const ProjectPage = () => {
       scrollParallaxRef.current?.updateValues();
       
       setTimeout(() => {
-        scrollParallaxRef1.current?.updateValues();
+        // scrollParallaxRef1.current?.updateValues();
         scrollParallaxRef2.current?.updateValues();
       }, 800);
-    }, 300);
+    }, 600);
     setTimeout(() => {
       layoutRef.current.style.position = "absolute";
       layoutRef.current.style.top = "67.8vh";
-      descRef.current.style.display="flex";
-      showcaseRef.current.style.display="block";
+      // descRef.current.style.display="flex";
+      // showcaseRef.current.style.display="block";
       featuresRef.current.style.display="flex";
       footerRef.current.style.display="block";
     }, 1000);
@@ -89,14 +89,14 @@ const ProjectPage = () => {
       },
     },
     hidden: {
-      y: -160,
+      y: -165,
       transition: {
         duration: 0.9,
         ease: "easeInOut"
       },
     },
     exit: {
-      y: -160,
+      y: -165,
       transition: {
         duration: 0.9,
         ease: "easeInOut"
@@ -108,9 +108,7 @@ const ProjectPage = () => {
     <div className="item-container" ref={ref}>
       <motion.div
         className="item"
-        initial={{ backgroundColor: "rgba( 255, 255, 255, 0 )" }}
-        animate={{ backgroundColor: "rgba( 255, 255, 255, 1 )" }}
-        exit={{ backgroundColor: "rgba( 255, 255, 255, 0 )" }}
+        
         // onClick={(e) => {
         //   e.target === e.currentTarget && setSelected(false);
         // }}
@@ -258,47 +256,25 @@ const ProjectPage = () => {
           id="container"
           className="container"
           layoutId={`file-${id}`}
-          transition={{ delay: 0, duration: 0.6, ease: "easeInOut" }}
+          transition={{ delay: 0, duration: 0.9, ease: "easeInOut" }}
           style={{
-            height: "90vh",
-            width: "83vw",
+            height: "95vh",
+            width: "99vw",
             // position: "absolute"
           }}
         >
           <div className="item-image-wrapper">
-            <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}>
-              <div className="item-image">
-                  <motion.img src={files[id].src}/>
-                </div>
-            </ScrollParallax>
+          <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}>
+            <div className="item-image">
+                <motion.img src={files[id].src}/>
+            </div>
+          </ScrollParallax>
+            
           </div>
         </motion.div>
-        <section className="item-description" ref={descRef}>
-          <div className="item-details">
-            <h2>Details</h2>
-            <div className="item-roles">
-              <p>UI/UX Design</p>
-              <p>Front End </p>
-              <p>Back End </p>
-            </div>
-            <Link to="/">View Project</Link>
-          </div>
-          <div className="item-background">
-            <h5>Background</h5>
-            <p>{files[id].full_description}</p>
-          </div>
-        </section>
       </motion.div>
-      
-      <div className="item-screen-section" ref={showcaseRef}>
-        <div className="item-image">
-          <Gallery images={files[id].images}/>
-          <ScrollParallax strength="0.1" lerpEase="0.07" ref={scrollParallaxRef1}>
-            <motion.img src={files[id].bg1} className="bg-image"/>
-          </ScrollParallax>
-        </div>
-      </div>
-      <section className="item-features" ref={featuresRef}>
+      <section className="features-section" ref={featuresRef}>
+        <div className="item-features" >
           <div className="item-details">
             <div className="details-heading">
               <h3>/02</h3>
@@ -315,7 +291,16 @@ const ProjectPage = () => {
             <p>{files[id].feature_text1}</p>
             <p>{files[id].feature_text2}</p>
           </div>
+        </div>
+        <div className="features-images">
+            {
+              files[id].screens.map((screen, index) => (
+                <img src={screen}/>
+              ))
+            }
+          </div>
       </section>
+      
       <div className="footer-container" ref={footerRef}>
         <div className="footer-contents">
           <ScrollParallax strength="0.35" lerpEase="0.20" ref={scrollParallaxRef2}>

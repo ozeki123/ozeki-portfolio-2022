@@ -29,6 +29,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   // overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 // iframe {
@@ -163,7 +164,7 @@ a{
 .app-container{
   height: 100%;
   width: 100%;
-  overflow: hidden;
+  // overflow: hidden;
   // pointer-events: none;
 }
 

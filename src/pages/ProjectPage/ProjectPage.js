@@ -275,22 +275,6 @@ const ProjectPage = () => {
       </motion.div>
       <section className="features-section" ref={featuresRef}>
         <div className="item-features" >
-          <div className="item-details">
-            <div className="details-heading">
-              <h3>/02</h3>
-              <h3>Features</h3>
-            </div>
-            
-            <div className="features-heading">
-              <h3>{files[id].description}</h3>
-            </div>
-            <Link to="/">View Project</Link>
-          </div>
-          <div className="features-content">
-            <h5>Features</h5>
-            <p>{files[id].feature_text1}</p>
-            <p>{files[id].feature_text2}</p>
-          </div>
         </div>
         <div className="features-images">
             {

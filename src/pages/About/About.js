@@ -47,7 +47,7 @@ const About = () => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         setInfoView(entry.isIntersecting);
-        console.log(entry.isIntersecting);
+        // console.log(entry.isIntersecting);
       });
     });
     observer.observe(infoRef.current);

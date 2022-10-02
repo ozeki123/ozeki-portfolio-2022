@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   motion, useAnimation, useViewportScroll, useTransform
 } from "framer-motion";
 import { ScrollParallax } from 'react-just-parallax';
+import "./Project.scss";
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
@@ -12,7 +13,30 @@ const Project = ({file, i}) => {
   const subTitleRef = useRef();
   const { scrollYProgress } = useViewportScroll();
   const parallax = useTransform(scrollYProgress, [0, 1], [0, -500]);
+  const [transitionFlag, setTransitionFlag] = useState(false);
+  let temp = true;
+  const location = useLocation();
+  const prevPath = location.state?.from;
+
+  useEffect(() => {
+    console.log(prevPath)
+  }, [location])
+  
+  
+  
   // const scrollParallaxRef = useRef(null);
+  // useEffect(() => {
+  //   console.log(prevPath);
+  //   if(prevPath === "/about"){
+  //     setTransitionFlag(true);
+  //   } else {
+  //     setTransitionFlag(false);
+  //   }
+  //   console.log(transitionFlag)
+  // }, [transitionFlag])
+  
+  
+  
 
   // const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
 
@@ -93,6 +117,15 @@ const Project = ({file, i}) => {
           delay: 1}
       }
     }
+
+    const pageVariant = {
+      hidden: {
+        opacity: 0
+      },
+      visible: {
+        opacity: 1
+      }
+    }
   return (
     <div className="project-item-container">
       <Link to={`/projects/${i}`} state={{id:i}}> 
@@ -171,8 +204,8 @@ const Project = ({file, i}) => {
             {
               // <ScrollParallax strength="0.1" lerpEase="0.1" ref={scrollParallaxRef}></ScrollParallax>
             }
-              
-              <motion.img src={file.src}/>
+              <div className="overlay"></div>
+              <motion.img initial={prevPath === "/about" && "hidden"} animate={"visible"} variants={pageVariant} src={file.src}/>
               
             </motion.div>
             

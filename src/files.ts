@@ -50,6 +50,8 @@ export default [
     width: "100%",
     height: "70%",
     src: mfm,
+    screen1: holoHome,
+    screens: [holoscreen1, holoscreen3],
     website: "Americanhome.com"
   },
   {
@@ -69,6 +71,8 @@ export default [
     width: "100%",
     height: "70%",
     src: mfw,
+    screen1: holoHome,
+    screens: [holoscreen1, holoscreen3],
     website: "Americanhome.com"
   }
 ];

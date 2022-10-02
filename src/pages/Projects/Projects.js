@@ -2,7 +2,7 @@ import {
   motion, useViewportScroll
 } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import files from "../../files";
 import "./Projects.scss";
 import { useInView } from "react-intersection-observer";
@@ -18,7 +18,19 @@ const Projects = () => {
   const [scrollPos, setScrollPos] = useState(0);
   const [cloneHeight, setCloneHeight] = useState(0);
   const [gallery, setGallery] = useState();
+  // const location = useLocation();
+  // const prevPath = location.state?.from;
+  // const [aboutFlag, setAboutFlag] = useState(false);
+  // useEffect(() => {
+  //   if(prevPath === "/about"){
+  //     setAboutFlag(true);
+  //   } else {
+  //     setAboutFlag(false);
+  //   }
+  // }, [location])
   
+  
+  // console.log(prevPath);
 
   // useEffect(() => {
   //   const all = document.querySelector('.items-content');

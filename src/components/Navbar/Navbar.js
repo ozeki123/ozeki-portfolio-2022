@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
+  const { pathname } = useLocation();
   let activeStyle = {
     color: "black",
   };
@@ -10,7 +11,7 @@ const Navbar = () => {
     <nav className="nav-container">
       <ul className="nav-items">
         <li className="top-left">
-          <NavLink to="/projects" style={({ isActive }) =>
+          <NavLink to="/projects" state={{from:pathname}} style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>
             Projects

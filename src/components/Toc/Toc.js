@@ -20,7 +20,7 @@ const Toc = ({ introRef, expRef }) => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         setAboutView(entry.isIntersecting);
-        console.log(entry.isIntersecting);
+        // console.log(entry.isIntersecting);
       });
     });
     observer.observe(aboutRef.current);

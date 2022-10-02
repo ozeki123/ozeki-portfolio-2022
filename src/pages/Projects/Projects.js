@@ -10,12 +10,27 @@ import Project from "../../components/Project/Project";
 
 const Projects = () => {
   const [selected, setSelected] = useState(false);
+  const [disableScroll, setDisableScroll] = useState(false);
   const navigate = useNavigate();
+  const items = useRef(null);
+  const [clones, setClones] = useState([])
+  const [scrollHeight, setScrollHeight] = useState(0);
+  const [scrollPos, setScrollPos] = useState(0);
+  const [cloneHeight, setCloneHeight] = useState(0);
+  const [gallery, setGallery] = useState();
+  
+
+  // useEffect(() => {
+  //   const all = document.querySelector('.items-content');
+  //   setGallery(all);
+  //   const item = document.querySelectorAll('.project-item-wrapper');
+  //   console.log(gallery);
+  // }, [gallery])
 
   return (
     <div className="projects-container">
         <motion.div className="items">
-          <motion.div className="items-content">
+          <motion.div className="items-content" ref={items}>
             <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 

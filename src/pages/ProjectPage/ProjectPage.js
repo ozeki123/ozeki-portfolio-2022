@@ -28,14 +28,14 @@ const ProjectPage = () => {
 
   useEffect(() => {
     // window.dispatchEvent(new Event('resize'))
-    setTimeout(() => {
-      scrollParallaxRef.current?.updateValues();
+    // setTimeout(() => {
+    //   scrollParallaxRef.current?.updateValues();
       
-      setTimeout(() => {
-        // scrollParallaxRef1.current?.updateValues();
-        scrollParallaxRef2.current?.updateValues();
-      }, 800);
-    }, 600);
+    //   setTimeout(() => {
+    //     // scrollParallaxRef1.current?.updateValues();
+    //     scrollParallaxRef2.current?.updateValues();
+    //   }, 800);
+    // }, 600);
     setTimeout(() => {
       layoutRef.current.style.position = "absolute";
       layoutRef.current.style.top = "67.8vh";
@@ -258,17 +258,20 @@ const ProjectPage = () => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 0.9, ease: "easeInOut" }}
           style={{
-            height: "95vh",
-            width: "99vw",
+            height: "75vh",
+            width: "100vw",
             // position: "absolute"
           }}
         >
           <div className="item-image-wrapper">
-          <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}>
-            <div className="item-image">
-                <motion.img src={files[id].src}/>
-            </div>
-          </ScrollParallax>
+          {
+            // <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}></ScrollParallax>
+          }
+          
+          <div className="item-image">
+              <motion.img src={files[id].src}/>
+          </div>
+          
             
           </div>
         </motion.div>

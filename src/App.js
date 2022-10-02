@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import Projects from "./pages/Projects/Projects";
-// import 'locomotive-scroll/dist/locomotive-scroll.css';
+import 'locomotive-scroll/dist/locomotive-scroll.css';
 import LocomotiveScroll from "locomotive-scroll";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import {
@@ -52,7 +52,14 @@ function App() {
     
   }, [pathname])
 
-  
+  // useEffect(() => {
+  //   const scroll = new LocomotiveScroll({
+  //     el: scrollRef.current,
+  //     smooth: false,
+  //     lerp: 0.06,
+  //     multiplier: 1.2,
+  //   });
+  // });
   
 
   // const scroll = () => {
@@ -107,7 +114,7 @@ function App() {
   // }, []);
   
   return (
-    <div className="app-container">
+    <div className="app-container" ref={scrollRef}>
     {
       // <LocomotiveScrollProvider
       //   options={
@@ -128,7 +135,7 @@ function App() {
       //   onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on 
       // >
     }
-        <main ref={scrollRef}>
+        <main>
           <Navbar />
             <AnimateSharedLayout>
               <AnimatePresence exitBeforeEnter>

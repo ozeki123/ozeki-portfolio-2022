@@ -1,23 +1,29 @@
 import React, { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import './Navbar.scss';
 
 const Navbar = () => {
+  let activeStyle = {
+    color: "black",
+  };
   return (
-    <nav>
-      <ul>
-        <Link to="/" className="nav-title">
-          <li>Andrew Ozeki</li>
-        </Link>
-        <li className="nav-desc">Front end Developer based in tokyo</li>
-        <div className="nav-links">
-          <Link to="/about">
-            <li>About</li>
-          </Link>
-          <Link to="/projects">
-            <li>Projects</li>
-          </Link>
-        </div>
+    <nav className="nav-container">
+      <ul className="nav-items">
+        <li className="top-left">
+          <NavLink to="/projects" style={({ isActive }) =>
+            isActive ? activeStyle : undefined
+          }>
+            Projects
+          </NavLink>
+        </li>
+        <li className="top-right">
+          <NavLink to="/about" style={({ isActive }) =>
+          isActive ? activeStyle : undefined
+        }>About</NavLink>
+        </li>
+        <li className="bottom-left">
+          Contact
+        </li>
       </ul>
     </nav>
   )

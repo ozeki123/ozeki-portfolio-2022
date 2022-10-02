@@ -256,7 +256,7 @@ const ProjectPage = () => {
           id="container"
           className="container"
           layoutId={`file-${id}`}
-          transition={{ delay: 0, duration: 0.9, ease: "easeInOut" }}
+          transition={{ delay: 0, duration: 1.1, ease: [0.6, 0.15, 0.05, 0.95], }}
           style={{
             height: "75vh",
             width: "100vw",

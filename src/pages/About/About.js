@@ -213,66 +213,6 @@ const About = () => {
   
   return (
     <div className="about-container">
-      <div className="title-name">
-      <motion.div
-        className="title-top"
-        initial="hidden"
-        animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
-        variants={titleVariant}
-      >
-        {"Andrew".split("").map((letter, i) => (
-          <motion.h1 key={i} variants={child} ref={firstRef} style={{left}}>{letter}</motion.h1>
-        ))}
-      </motion.div>
-      <motion.div
-        className="title-bottom"
-        initial="hidden"
-        animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
-        variants={titleVariant2}
-      >
-        {"Ozeki".split("").map((letter, i) => (
-          <motion.h1 key={i} variants={child} ref={lastRef} style={{right}}>{letter}</motion.h1>
-        ))}
-      </motion.div>
-        <div className="scroll-indicator">
-          <motion.p
-          initial="hidden"
-          animate="visible"
-          variants={scrollVariant}
-          transition={{duration: 0.7, ease: "easeOut", delay:1.2}} 
-          >Scroll Down</motion.p>
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={iconVariant}
-            transition={{duration: 0.7, ease: "easeOut", delay:1.5}} 
-          >
-            <ArrowIcon/>
-          </motion.div>
-          
-        </div>
-        
-      </div>
-      <section className="white-bg-section" ref={whiteBgRef}></section>
-      <section className="black-bg-section" ref={blackBgRef}>
-        <div className="images-wrapper">
-          <div className="bolt-image">
-            <motion.img src={boltMock} style={{y:parallax2}}/>
-          </div>
-          <div className="near-image">
-            <motion.img src={nearMock} style={{y:parallax}}/>
-          </div>
-          <div className="bolt-screens-image">
-            <motion.img src={boltScreensMock} style={{y:parallax1}}/>
-          </div>
-        </div>
-        
-        
-      </section>
       <section className="about-info">
         <div className="toc-section">
           <Toc introRef={introRef} expRef={expRef}/>
@@ -287,7 +227,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView1 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.1}}
                     >I'm a front end developer with a 
                   </motion.span>
                 </div>
@@ -296,7 +236,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView1 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.18}}
                     >passion for solving creative challenges. 
                   </motion.span>
                 </div>
@@ -305,7 +245,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView1 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.26}}
                     >Feel free to stop by and check out my 
                   </motion.span>
                 </div>
@@ -314,7 +254,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView1 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.4}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.34}}
                     >learning journey.
                   </motion.span>
                 </div>
@@ -327,7 +267,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView2 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.42}}
                     >My goal is to to be a multi-disciplinary 
                   </motion.span>
                 </div>
@@ -336,7 +276,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView2 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.50}}
                     >developer that can create assets,
                   </motion.span>
                 </div>
@@ -345,7 +285,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView2 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.58}}
                     >design with optimal UX, and build
                   </motion.span>
                 </div>
@@ -354,7 +294,7 @@ const About = () => {
                     initial="hidden" 
                     animate={aboutView2 && "visible"} 
                     variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.4}}
+                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.66}}
                     >scalable websites.
                   </motion.span>
                 </div>

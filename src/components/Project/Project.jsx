@@ -120,10 +120,13 @@ const Project = ({file, i}) => {
 
     const pageVariant = {
       hidden: {
-        opacity: 0
+        opacity: 1,
+        y: 0
       },
       visible: {
-        opacity: 1
+        y: -330,
+        opacity: 1,
+        transition: { duration: 1.4, ease: [0.65, 0.1, 0.25, 0.95],}
       }
     }
   return (
@@ -134,7 +137,7 @@ const Project = ({file, i}) => {
           className="thumb"
           transition={{ 
             duration: 0.9, 
-            ease: "easeInOut", 
+            ease: [0.6, 0.21, 0.25, 0.95],
             delay: 0
           }}
           style={{
@@ -204,8 +207,8 @@ const Project = ({file, i}) => {
             {
               // <ScrollParallax strength="0.1" lerpEase="0.1" ref={scrollParallaxRef}></ScrollParallax>
             }
-              <div className="overlay"></div>
-              <motion.img initial={prevPath === "/about" && "hidden"} animate={"visible"} variants={pageVariant} src={file.src}/>
+              <motion.div className="overlay" style={prevPath === "/about" ? {backgroundColor:"#F2F2F2"} : {backgroundColor: "none"}} initial={prevPath === "/about" && "hidden"} animate={"visible"} variants={pageVariant}></motion.div>
+              <motion.img  src={file.src}/>
               
             </motion.div>
             

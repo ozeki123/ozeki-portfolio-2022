@@ -36,7 +36,6 @@ const Toc = ({ introRef, expRef }) => {
   const variant = {
     hidden: {y:50},
     visible: {y:0},
-    exit: {y:50}
   }
 
   const variant1 = {
@@ -46,7 +45,6 @@ const Toc = ({ introRef, expRef }) => {
       ease: "easeOut", 
       delay: 0.4}
     },
-    exit: {y:50}
   }
   
   return (
@@ -57,7 +55,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate={aboutView && "visible"}
         // transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant}
         >Contents</motion.p>
       </li>
@@ -66,7 +63,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate="visible"
         transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant1}
         >About me</motion.p>
       </li>
@@ -75,7 +71,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate="visible"
         transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant}
         onClick={handleExpScroll}
         >Experience</motion.p>
@@ -85,7 +80,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate="visible"
         transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant}
         >My Skills</motion.p>
       </li>
@@ -95,7 +89,6 @@ const Toc = ({ introRef, expRef }) => {
           initial="hidden"
           animate="visible"
           transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-          exit="exit"
           variants={variant}
           >Github</motion.p>
         </div>
@@ -106,7 +99,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate="visible"
         transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant}
         >Linkedin</motion.p>
       </li>
@@ -115,7 +107,6 @@ const Toc = ({ introRef, expRef }) => {
         initial="hidden"
         animate="visible"
         transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        exit="exit"
         variants={variant}
         >Email</motion.p>
       </li>

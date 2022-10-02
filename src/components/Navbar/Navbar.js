@@ -4,9 +4,10 @@ import './Navbar.scss';
 
 const Navbar = () => {
   const { pathname } = useLocation();
-  let activeStyle = {
-    color: "black",
-  };
+  let activeStyle = 
+    pathname.includes("projects") ? {color: "black"} : {color: "white"}
+    
+  
   return (
     <nav className="nav-container">
       <ul className="nav-items">

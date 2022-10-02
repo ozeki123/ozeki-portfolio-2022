@@ -49,10 +49,16 @@
       display: flex;
       align-items: center;
       position: fixed;
-      bottom: 2vh;
+      bottom: 3vh;
       left: 5vw;
       color: white;
       mix-blend-mode: difference;
+      overflow: hidden;
+      z-index: 9;
+      p{
+        margin: 0;
+        padding: 0;
+      }
       svg{
         width: 60px;
         height: 60px;
@@ -81,33 +87,38 @@
   .black-bg-section{
     max-width: 100%;
     width: 100%;
-    height: 150vh;
+    height: 160vh;
     background-color: #141414;
     .images-wrapper{
       width: 100%;
       height: 100%;
       .bolt-image{
-        width: 20%;
-        height: 33%;
-        object-fit: cover;
+        width: 100%;
+        height: 30%;
+        display: flex;
+        justify-content: flex-start;
+        // object-fit: cover;
         padding-left: 16vw;
         padding-top: 20vh;
         img{
-          width: 100%;
-          height: 100%;
+
         }
       }
       .near-image{
         width: 100%;
         display: flex;
         justify-content: flex-end;
-        height: 37%;
+        height: 32%;
         img{
           padding-right: 15vw;
-          width: 30%;
-          height: 100%;
-          
         }
+      }
+      .bolt-screens-image{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        height: 35%;
+        margin: 40vh -15vh;
       }
     }
     
@@ -116,7 +127,7 @@
     width: 100%;
     height: 100%;
     background-color: #141414;
-    padding-top: 50vh;
+    padding-top: 35vh;
     position: relative;
     display: flex;
     justify-content: space-between;
@@ -131,7 +142,7 @@
       color: white;
       text-align: start;
       position: sticky;
-      top: 10vh;
+      top: 25vh;
     }
     .info-section{
       width: 70%;
@@ -141,7 +152,12 @@
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      
+      .text-wrapper{
+        overflow: hidden;
+      }
+      .intro-text{
+        
+      }
       .info-text{
         width: 64%;
         text-align: left;
@@ -152,10 +168,13 @@
         span{
           display: block;
         }
+        .header-wrapper{
+          overflow: hidden;
+        }
         .experience, .skills{
           padding-top: 25vh;
           .experience-header, .skills-header{
-            padding-bottom: 2vh;
+            // padding-bottom: 2vh;
           }
           .experience-contents, .skills-contents{
             text-indent: 4.4vw;

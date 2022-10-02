@@ -3,6 +3,7 @@ import { useViewportScroll, motion, useTransform } from "framer-motion";
 import { ReactComponent as ArrowIcon } from "../../assets/5760406_arrow_down_downoad_icon.svg";
 import boltMock from "../../assets/bolt-mockup.jpg";
 import nearMock from "../../assets/near-mockup.jpg";
+import boltScreensMock from "../../assets/bolt-mockup-screens.jpg";
 import "./About.scss";
 import Toc from "../../components/Toc/Toc";
 import { ScrollParallax } from "react-just-parallax";
@@ -11,7 +12,9 @@ const About = () => {
   const { scrollYProgress } = useViewportScroll();
   const left = useTransform(scrollYProgress, [0, 1], [300, 850]);
   const right = useTransform(scrollYProgress, [0, 1], [300, 850]);
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, -1000]);
+  const parallax = useTransform(scrollYProgress, [0, 1], [0, -1400]);
+  const parallax1 = useTransform(scrollYProgress, [0, 1], [0, -2000]);
+  const parallax2 = useTransform(scrollYProgress, [0, 1], [0, -600]);
   const [infoView, setInfoView] = useState(false);
   const infoRef = useRef(null);
   const firstRef = useRef(null);
@@ -20,10 +23,17 @@ const About = () => {
   const blackBgRef = useRef(null);
   const introRef = useRef(null);
   const expRef = useRef(null);
+  const headerRef = useRef(null);
+  const aboutRef1 = useRef(null);
+  const aboutRef2 = useRef(null);
+  const [aboutView1, setAboutView1] = useState(false);
+  const [aboutView2, setAboutView2] = useState(false);
+  const [headerView, setHeaderView] = useState(false);
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
         setInfoView(entry.isIntersecting);
+        console.log(entry.isIntersecting);
       });
     });
     observer.observe(infoRef.current);
@@ -36,6 +46,31 @@ const About = () => {
       // blackBgRef.current.style.display = "none";
     }
   }, [infoView])
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        setAboutView1(entry.isIntersecting);
+      });
+    });
+    observer.observe(aboutRef1.current);
+  }, [])
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        setAboutView2(entry.isIntersecting);
+      });
+    });
+    observer.observe(aboutRef2.current);
+  }, [])
+  useEffect(() => {
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        setHeaderView(entry.isIntersecting);
+      });
+    });
+    observer.observe(headerRef.current);
+  }, [])
 
   const child = {
     visible: {
@@ -50,14 +85,14 @@ const About = () => {
     hidden: {
       y: -265,
       transition: {
-        duration: 1,
+        duration: 1.1,
         ease: "easeInOut"
       },
     },
     exit: {
       y: -265,
       transition: {
-        duration: 0.9,
+        duration: 1.2,
         ease: "easeInOut"
       },
     }
@@ -67,7 +102,7 @@ const About = () => {
     hidden: {},
     visible: (i = 1) => ({
       y: 0, 
-      transition: { staggerChildren: 0.08, delayChildren: 0.1 * i},
+      transition: { staggerChildren: 0.06, delayChildren: 0.3 * i},
     }),
     exit: {
       transition: { staggerChildren: 0.05, delay: 0, duration: 0.7, ease: "easeInOut"}
@@ -82,6 +117,23 @@ const About = () => {
     exit: {
       transition: { staggerChildren: 0.08, delay: 0, duration: 0.7, ease: "easeInOut"}
     }
+  }
+  const textVariant = {
+    hidden: {y:55},
+    visible: {y:0},
+    exit: {y:55}
+  }
+
+  const scrollVariant = {
+    hidden: {y:45},
+    visible: {y:0},
+    exit: {y:45}
+  }
+  
+  const iconVariant = {
+    hidden: {y:65},
+    visible: {y:0},
+    exit: {y:65}
   }
   
   return (
@@ -112,8 +164,21 @@ const About = () => {
         ))}
       </motion.div>
         <div className="scroll-indicator">
-          <p>Scroll Down</p>
-          <ArrowIcon/>
+          <motion.p
+          initial="hidden"
+          animate="visible"
+          variants={scrollVariant}
+          transition={{duration: 0.7, ease: "easeOut", delay:1.2}} 
+          >Scroll Down</motion.p>
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={iconVariant}
+            transition={{duration: 0.7, ease: "easeOut", delay:1.5}} 
+          >
+            <ArrowIcon/>
+          </motion.div>
+          
         </div>
         
       </div>
@@ -121,10 +186,13 @@ const About = () => {
       <section className="black-bg-section" ref={blackBgRef}>
         <div className="images-wrapper">
           <div className="bolt-image">
-            <motion.img src={boltMock}/>
+            <motion.img src={boltMock} style={{y:parallax2}}/>
           </div>
           <div className="near-image">
             <motion.img src={nearMock} style={{y:parallax}}/>
+          </div>
+          <div className="bolt-screens-image">
+            <motion.img src={boltScreensMock} style={{y:parallax1}}/>
           </div>
         </div>
         
@@ -137,21 +205,97 @@ const About = () => {
         <div className="info-section" ref={infoRef}>
           <div className="info-text">
             <div className="introduction" ref={introRef}>
-              <p>
-                <span>I'm a front end developer with a </span>
-                <span>passion for solving creative challenges. </span>
-                <span>Feel free to stop by and check out my </span>
-                <span>learning journey. </span>
+              <p className="intro-text">
+                <div className="text-wrapper">
+                  <motion.span 
+                    ref={aboutRef1} 
+                    initial="hidden" 
+                    animate={aboutView1 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    >I'm a front end developer with a 
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView1 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                    >passion for solving creative challenges. 
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView1 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    >Feel free to stop by and check out my 
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView1 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.4}}
+                    >learning journey.
+                  </motion.span>
+                </div>
               </p>
               <br/>
               <p>
-                <span>My goal is to to be a multi-disciplinary </span>
-                <span>developer that can create assets, design with optimal UX, and build</span>
-                <span> scalable websites.</span>
+                <div className="text-wrapper">
+                  <motion.span 
+                    ref={aboutRef2} 
+                    initial="hidden" 
+                    animate={aboutView2 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    >My goal is to to be a multi-disciplinary 
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView2 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                    >developer that can create assets,
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView2 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    >design with optimal UX, and build
+                  </motion.span>
+                </div>
+                <div className="text-wrapper">
+                  <motion.span 
+                    initial="hidden" 
+                    animate={aboutView2 && "visible"} 
+                    variants={textVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.4}}
+                    >scalable websites.
+                  </motion.span>
+                </div>
               </p>
             </div>
             <div className="experience" ref={expRef}>
-              <p className="experience-header">Working Experience</p>
+              <div className="header-wrapper">
+                <motion.p 
+                ref={headerRef}
+                className="experience-header"
+                initial="hidden" 
+                animate={headerView && "visible"} 
+                variants={textVariant} 
+                transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                >Working Experience</motion.p>
+              </div>
               <div className="experience-contents">
                 <p className="job">
                   <span>Software Engineer</span>

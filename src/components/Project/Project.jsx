@@ -17,7 +17,7 @@ const Project = ({file, i}) => {
   useEffect(() => {
     setTimeout(() => {
       scrollParallaxRef.current?.updateValues();
-    }, 500);
+    }, 1000);
   }, [])
   
 

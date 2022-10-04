@@ -19,7 +19,7 @@ import ScrollContainer from "./hooks/ScrollContainer";
 
 import Lenis from '@studio-freight/lenis'
 import About from "./pages/About/About";
-
+import { ParallaxProvider } from 'react-scroll-parallax';
 
 // const Wrapper = ({children}) => {
 //   const location = useLocation();
@@ -34,13 +34,19 @@ function App() {
   const { pathname } = useLocation();
   const containerRef = useRef();
   const scrollRef = useRef();
+  const [navState, setNavState] = useState(false);
 
   const lenis = new Lenis({
     duration: 1.2,
     easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
-    smooth: true,
     direction: 'vertical',
+    smooth: true,
   })
+
+  useEffect(() => {
+    // console.log(navState);
+  }, [navState])
+
 
   useEffect(() => {
     function raf(time) {
@@ -114,7 +120,7 @@ function App() {
   // }, []);
   
   return (
-    <div className="app-container" ref={scrollRef}>
+    <div className="app-container">
     {
       // <LocomotiveScrollProvider
       //   options={
@@ -135,22 +141,26 @@ function App() {
       //   onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on 
       // >
     }
+      <ParallaxProvider>
         <main>
-          <Navbar />
-            <AnimateSharedLayout>
-              <AnimatePresence exitBeforeEnter>
-                  <Routes location={location} key={location.pathname}>
-                    <Route path="/" element={<Projects/>}/>
-                    <Route path="/about" element={<About/>}/>
-                    <Route path="/projects" element={<Projects/>}/>
-                    <Route path="/projects/:id" element={<ProjectPage/>}/>
-                  </Routes>
-                
-              </AnimatePresence>
+            <Navbar navState={navState} setNavState={setNavState}/>
+                <AnimateSharedLayout>
+                  <AnimatePresence exitBeforeEnter>
+                      <Routes location={location} key={location.pathname}>
+                        <Route path="/" element={<Projects/>}/>
+                        <Route path="/about" element={<About/>}/>
+                        <Route path="/projects" element={<Projects navState={navState}/>}/>
+                        <Route path="/projects/:id" element={<ProjectPage navState={navState}/>}/>
+                      </Routes>
+                    
+                  </AnimatePresence>
+                  
+                </AnimateSharedLayout>
               
-            </AnimateSharedLayout>
-            
-        </main>
+              
+          </main>
+      </ParallaxProvider>
+        
       
     </div>
     

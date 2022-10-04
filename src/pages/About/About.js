@@ -213,316 +213,318 @@ const About = () => {
   
   return (
     <div className="about-container">
-      <section className="about-info">
-        <div className="toc-section">
-          <Toc introRef={introRef} expRef={expRef}/>
-        </div>
-        <div className="info-section" ref={infoRef}>
-          <div className="info-text">
-            <div className="introduction" ref={introRef}>
-              <p className="intro-text">
-                <div className="text-wrapper">
-                  <motion.span 
-                    ref={aboutRef1} 
-                    initial="hidden" 
-                    animate={aboutView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.1}}
-                    >I'm a front end developer with a 
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.18}}
-                    >passion for solving creative challenges. 
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.26}}
-                    >Feel free to stop by and check out my 
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.34}}
-                    >learning journey.
-                  </motion.span>
-                </div>
-              </p>
-              <br/>
-              <p>
-                <div className="text-wrapper">
-                  <motion.span 
-                    ref={aboutRef2} 
-                    initial="hidden" 
-                    animate={aboutView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.42}}
-                    >My goal is to to be a multi-disciplinary 
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.50}}
-                    >developer that can create assets,
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.58}}
-                    >design with optimal UX, and build
-                  </motion.span>
-                </div>
-                <div className="text-wrapper">
-                  <motion.span 
-                    initial="hidden" 
-                    animate={aboutView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.66}}
-                    >scalable websites.
-                  </motion.span>
-                </div>
-              </p>
-            </div>
-            <div className="experience" ref={expRef}>
-              <div className="header-wrapper">
-                  <motion.p 
-                  ref={headerRef}
-                  className="experience-header"
-                  initial="hidden" 
-                  animate={headerView && "visible"} 
-                  variants={headerVariant} 
-                  transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                  >Working Experience</motion.p>
-              </div>
-              <div className="experience-contents">
-                <p className="job">
+      <motion.div initial={{y: "100vh"}} exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} transition={{duration: 0}} className="transition-overlay"></motion.div>
+        <motion.section className="about-info" exit={{y:-150, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
+          <div className="toc-section">
+            <Toc introRef={introRef} expRef={expRef}/>
+          </div>
+          <div className="info-section" ref={infoRef}>
+            <div className="info-text">
+              <div className="introduction" ref={introRef}>
+                <p className="intro-text">
                   <div className="text-wrapper">
-                    <motion.span
-                      className="exp"
-                      ref={expRef1}
-                      initial="hidden"
-                      animate={expView1 && "visible"}
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                      variants={textVariant}
-                    >Software Engineer</motion.span>
+                    <motion.span 
+                      ref={aboutRef1} 
+                      initial="hidden" 
+                      animate={aboutView1 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.1}}
+                      >I'm a front end developer with a 
+                    </motion.span>
                   </div>
                   <div className="text-wrapper">
-                    <motion.span
-                      className="exp"
-                      initial="hidden"
-                      animate={expView1 && "visible"}
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                      variants={textVariant}
-                    >American Home</motion.span>
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView1 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.18}}
+                      >passion for solving creative challenges. 
+                    </motion.span>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView1 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.26}}
+                      >Feel free to stop by and check out my 
+                    </motion.span>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView1 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.34}}
+                      >learning journey.
+                    </motion.span>
                   </div>
                 </p>
-                <div className="text-wrapper">
-                  <motion.p 
-                  className="date"
-                  initial="hidden"
-                  animate={expView1 && "visible"}
-                  transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                  variants={textVariant}
-                  >2021-Present</motion.p>
-                </div>
-                
-              </div>
-              <div className="experience-contents">
-                <p className="job">
-                <div className="text-wrapper">
-                  <motion.span
-                    className="exp"
-                    ref={expRef2}
-                    initial="hidden"
-                    animate={expView2 && "visible"}
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                    variants={textVariant}
-                  >
-                    Front End Engineer
-                  </motion.span>
+                <br/>
+                <p>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      ref={aboutRef2} 
+                      initial="hidden" 
+                      animate={aboutView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.42}}
+                      >My goal is to to be a multi-disciplinary 
+                    </motion.span>
                   </div>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.50}}
+                      >developer that can create assets,
+                    </motion.span>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.58}}
+                      >design with optimal UX, and build
+                    </motion.span>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.span 
+                      initial="hidden" 
+                      animate={aboutView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.66}}
+                      >scalable websites.
+                    </motion.span>
+                  </div>
+                </p>
+              </div>
+              <div className="experience" ref={expRef}>
+                <div className="header-wrapper">
+                    <motion.p 
+                    ref={headerRef}
+                    className="experience-header"
+                    initial="hidden" 
+                    animate={headerView && "visible"} 
+                    variants={headerVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    >Working Experience</motion.p>
+                </div>
+                <div className="experience-contents">
+                  <p className="job">
+                    <div className="text-wrapper">
+                      <motion.span
+                        className="exp"
+                        ref={expRef1}
+                        initial="hidden"
+                        animate={expView1 && "visible"}
+                        transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                        variants={textVariant}
+                      >Software Engineer</motion.span>
+                    </div>
+                    <div className="text-wrapper">
+                      <motion.span
+                        className="exp"
+                        initial="hidden"
+                        animate={expView1 && "visible"}
+                        transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                        variants={textVariant}
+                      >American Home</motion.span>
+                    </div>
+                  </p>
+                  <div className="text-wrapper">
+                    <motion.p 
+                    className="date"
+                    initial="hidden"
+                    animate={expView1 && "visible"}
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    variants={textVariant}
+                    >2021-Present</motion.p>
+                  </div>
+                  
+                </div>
+                <div className="experience-contents">
+                  <p className="job">
                   <div className="text-wrapper">
                     <motion.span
                       className="exp"
+                      ref={expRef2}
                       initial="hidden"
                       animate={expView2 && "visible"}
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                      variants={textVariant}
-                    >AIG Japan</motion.span>
-                  </div>
-                </p>
-                <div className="text-wrapper">
-                  <motion.p 
-                  className="date"
-                  initial="hidden"
-                  animate={expView2 && "visible"}
-                  transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                  variants={textVariant}
-                  >2020-2021</motion.p>
-                </div>
-              </div>
-              <div className="experience-contents">
-                <p className="job">
-                <div className="text-wrapper">
-                    <motion.span
-                      className="exp"
-                      ref={expRef3}
-                      initial="hidden"
-                      animate={expView3 && "visible"}
                       transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
                       variants={textVariant}
-                    >Intern</motion.span>
+                    >
+                      Front End Engineer
+                    </motion.span>
+                    </div>
+                    <div className="text-wrapper">
+                      <motion.span
+                        className="exp"
+                        initial="hidden"
+                        animate={expView2 && "visible"}
+                        transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                        variants={textVariant}
+                      >AIG Japan</motion.span>
+                    </div>
+                  </p>
+                  <div className="text-wrapper">
+                    <motion.p 
+                    className="date"
+                    initial="hidden"
+                    animate={expView2 && "visible"}
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    variants={textVariant}
+                    >2020-2021</motion.p>
+                  </div>
+                </div>
+                <div className="experience-contents">
+                  <p className="job">
+                  <div className="text-wrapper">
+                      <motion.span
+                        className="exp"
+                        ref={expRef3}
+                        initial="hidden"
+                        animate={expView3 && "visible"}
+                        transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                        variants={textVariant}
+                      >Intern</motion.span>
+                    </div>
+                    <div className="text-wrapper">
+                      <motion.span
+                        className="exp"
+                        initial="hidden"
+                        animate={expView3 && "visible"}
+                        transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                        variants={textVariant}
+                      >Microsoft</motion.span>
+                    </div>
+                  </p>
+                  <div className="text-wrapper">
+                    <motion.p 
+                    className="date"
+                    initial="hidden"
+                    animate={expView3 && "visible"}
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                    variants={textVariant}
+                    >2019-2020</motion.p>
+                  </div>
+                </div>
+              </div>    
+              <div className="skills">
+              <div className="header-wrapper">
+                    <motion.p 
+                    ref={skillHeaderRef}
+                    className="skills-header"
+                    initial="hidden" 
+                    animate={skillHeaderView && "visible"} 
+                    variants={headerVariant} 
+                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                    >Skills・Technologies</motion.p>
+                </div>
+                <div className="skills-contents">
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills-category"
+                      ref={skillRef1}
+                      initial="hidden" 
+                      animate={skillView1 && "visible"} 
+                      variants={headerVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                      >Front End Development</motion.p>
                   </div>
                   <div className="text-wrapper">
-                    <motion.span
-                      className="exp"
-                      initial="hidden"
-                      animate={expView3 && "visible"}
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView1 && "visible"} 
+                      variants={textVariant} 
                       transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                      variants={textVariant}
-                    >Microsoft</motion.span>
+                      >Javascript, React/Next, Angular</motion.p>
                   </div>
-                </p>
-                <div className="text-wrapper">
-                  <motion.p 
-                  className="date"
-                  initial="hidden"
-                  animate={expView3 && "visible"}
-                  transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                  variants={textVariant}
-                  >2019-2020</motion.p>
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView1 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      >HTML/CSS, SCSS</motion.p>
+                  </div>
                 </div>
-              </div>
-            </div>    
-            <div className="skills">
-            <div className="header-wrapper">
-                  <motion.p 
-                  ref={skillHeaderRef}
-                  className="skills-header"
-                  initial="hidden" 
-                  animate={skillHeaderView && "visible"} 
-                  variants={headerVariant} 
-                  transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                  >Skills・Technologies</motion.p>
-              </div>
-              <div className="skills-contents">
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills-category"
-                    ref={skillRef1}
-                    initial="hidden" 
-                    animate={skillView1 && "visible"} 
-                    variants={headerVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                    >Front End Development</motion.p>
+                <div className="skills-contents">
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills-category"
+                      ref={skillRef2}
+                      initial="hidden" 
+                      animate={skillView2 && "visible"} 
+                      variants={headerVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                      >Back End Development
+                    </motion.p>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                      >NodeJS, MongoDB, Python
+                    </motion.p>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView2 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      >SQL, PostgreSQL
+                    </motion.p>
+                  </div>
                 </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                    >Javascript, React/Next, Angular</motion.p>
+                <div className="skills-contents">
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills-category"
+                      ref={skillRef3}
+                      initial="hidden" 
+                      animate={skillView3 && "visible"} 
+                      variants={headerVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                      >UI/UX Design
+                    </motion.p>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView3 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                      >Adobe Illustrator, Photoshop, After Effects
+                    </motion.p>
+                  </div>
+                  <div className="text-wrapper">
+                    <motion.p 
+                      className="skills"
+                      initial="hidden" 
+                      animate={skillView3 && "visible"} 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      >Figma, Sketch
+                    </motion.p>
+                  </div>
                 </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView1 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                    >HTML/CSS, SCSS</motion.p>
-                </div>
-              </div>
-              <div className="skills-contents">
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills-category"
-                    ref={skillRef2}
-                    initial="hidden" 
-                    animate={skillView2 && "visible"} 
-                    variants={headerVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                    >Back End Development
-                  </motion.p>
-                </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                    >NodeJS, MongoDB, Python
-                  </motion.p>
-                </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView2 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                    >SQL, PostgreSQL
-                  </motion.p>
-                </div>
-              </div>
-              <div className="skills-contents">
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills-category"
-                    ref={skillRef3}
-                    initial="hidden" 
-                    animate={skillView3 && "visible"} 
-                    variants={headerVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
-                    >UI/UX Design
-                  </motion.p>
-                </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView3 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
-                    >Adobe Illustrator, Photoshop, After Effects
-                  </motion.p>
-                </div>
-                <div className="text-wrapper">
-                  <motion.p 
-                    className="skills"
-                    initial="hidden" 
-                    animate={skillView3 && "visible"} 
-                    variants={textVariant} 
-                    transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
-                    >Figma, Sketch
-                  </motion.p>
-                </div>
-              </div>
-            </div> 
+              </div> 
+            </div>
+                
           </div>
-              
-        </div>
-      </section>
+        </motion.section>
+      
       
     </div>
   )

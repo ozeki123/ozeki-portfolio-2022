@@ -13,7 +13,7 @@ import ScrollContainer from '../../hooks/ScrollContainer';
 import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
 import Gallery from '../../components/Gallery/Gallery';
 
-const ProjectPage = () => {
+const ProjectPage = ({navState}) => {
   const params = useParams();
   let id = params.id;
   const layoutRef = useRef(null);
@@ -25,6 +25,21 @@ const ProjectPage = () => {
   const showcaseRef = useRef(null);
   const featuresRef = useRef(null);
   const footerRef = useRef(null);
+  const [aboutFlag, setAboutFlag] = useState(false);
+
+  useEffect(() => {
+    if(navState === "about"){
+      // console.log(navState);
+      setAboutFlag(true);
+    }
+    
+  }, [navState])
+
+  useEffect(() => {
+    console.log(aboutFlag)
+    
+  }, [aboutFlag])
+  
 
   useEffect(() => {
     // window.dispatchEvent(new Event('resize'))
@@ -64,19 +79,14 @@ const ProjectPage = () => {
       y: 0, 
       transition: { staggerChildren: 0.05, delayChildren: 0.3 * i},
     }),
-    exit: {
-      transition: { staggerChildren: 0.05, delay: 0, duration: 0.7, ease: "easeInOut"}
-    }
   }
   const categoryTitleVariant = {
     hidden: {y:30},
     visible: {y:0},
-    exit: {y:30}
   }
   const categoryItemVariant = {
     hidden: {y:60},
     visible: {y:0},
-    exit: {y:60}
   }
 
   const child = {
@@ -95,20 +105,19 @@ const ProjectPage = () => {
         ease: "easeInOut"
       },
     },
-    exit: {
-      y: -165,
-      transition: {
-        duration: 0.9,
-        ease: "easeInOut"
-      },
-    }
   };
   
   return (
     <div className="item-container" ref={ref}>
+      <motion.div 
+        className="transition-overlay"
+        initial={{y: "100vh"}}
+        style={aboutFlag ? {backgroundColor: "#141414"} : {}}
+        exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} transition={{duration: 0}}
+      ></motion.div>
       <motion.div
         className="item"
-        
+        exit={{y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}
         // onClick={(e) => {
         //   e.target === e.currentTarget && setSelected(false);
         // }}
@@ -116,7 +125,7 @@ const ProjectPage = () => {
         <section className="item-top">
           <div className="item-heading">
             <div className="item-nav-prev">
-              <Link to="/projects">
+              <Link to="/projects" onClick={(e) => {e.preventDefault(); console.log('clicked')}}>
                 <motion.div initial={{y:-50}} animate={{y: 0}} transition={{duration: 1, ease: "easeOut", delay:1}} className="prev-button">Back</motion.div>
               </Link>
             </div>
@@ -136,7 +145,6 @@ const ProjectPage = () => {
                 initial="hidden"
                 animate="visible"
                 transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-                exit="exit"
                 // exit={{opacity:0, transition:{}}}
                 variants={titleVariant}
               >
@@ -256,7 +264,7 @@ const ProjectPage = () => {
           id="container"
           className="container"
           layoutId={`file-${id}`}
-          transition={{ delay: 0, duration: 1.1, ease: [0.6, 0.15, 0.05, 0.95], }}
+          transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
             height: "75vh",
             width: "100vw",

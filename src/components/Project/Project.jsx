@@ -4,6 +4,9 @@ import {
   motion, useAnimation, useViewportScroll, useTransform
 } from "framer-motion";
 import { ScrollParallax } from 'react-just-parallax';
+import { useParallax, Parallax, ParallaxBanner, ParallaxBannerLayer, useParallaxController } from 'react-scroll-parallax';
+// import simpleParallax from 'simple-parallax-js';
+// import Parallax from 'parallax-js';
 import "./Project.scss";
 
 const Project = ({file, i}) => {
@@ -17,10 +20,23 @@ const Project = ({file, i}) => {
   let temp = true;
   const location = useLocation();
   const prevPath = location.state?.from;
+  const { scrollY } = useViewportScroll();
+  const scrollParallaxRef = useRef(null);
+  const y1 = useTransform(scrollY, [0, 300], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
+  // const parallaxController = useParallaxController();
+
+  // const handleLoad = () => 
 
   useEffect(() => {
-    console.log(prevPath)
-  }, [location])
+    // setTimeout(() => {
+      // return () => {
+      //   parallaxController.destroy();
+      // }
+    // }, 150);
+    // const scene = document.getElementById('thumbnail');
+    // const parallaxInstance = new Parallax(scene);
+  }, [])
   
   
   
@@ -43,7 +59,7 @@ const Project = ({file, i}) => {
   // useEffect(() => {
   //   setTimeout(() => {
   //     scrollParallaxRef.current?.updateValues();
-  //   }, 400);
+  //   }, 10);
   // }, [])
   
 
@@ -136,9 +152,9 @@ const Project = ({file, i}) => {
           layoutId={ `file-${i}`}
           className="thumb"
           transition={{ 
-            duration: 0.9, 
-            ease: [0.6, 0.21, 0.25, 0.95],
-            delay: 0
+            duration: 0, 
+            // ease: [0.6, 0.21, 0.25, 0.95],
+            // delay: 0
           }}
           style={{
             width: "50vw",
@@ -147,70 +163,26 @@ const Project = ({file, i}) => {
         >
         
           <div  className="project-image">
-            <div  className="project-text">
-            {
-            //   <div className="title">
-            //   <motion.h2 
-            //   ref={titleRef}
-            //   initial="hidden"
-            //   animate={titleView && "visible"}
-            //   variants={titleVariant}
-            //   exit="hidden"
-            //   transition={{ 
-            //     duration: 0.8, 
-            //     ease: "easeInOut", 
-            //     delay: 0.5}}
-            //   >
-            //     {file.name}
-            //   </motion.h2>
-            // </div>
-            }
-              
-              {
-              //   <div className="subtitle">
-              //   <motion.h2 
-              //     ref={subTitleRef}
-              //     className="italic"
-              //     initial="hidden"
-              //     animate={titleView && "visible"}
-              //     variants={subTitleVariant}
-              //     exit="hidden"
-              //     transition={{ 
-              //       duration: 0.8, 
-              //       ease: "easeInOut", 
-              //       delay: 0.3}}
-              //     >
-              //       {file.subtitle}
-              //     </motion.h2>
-              // </div>
-              }
-              
-              {
-              //   <div className="description-text">
-              //   <div className="description">
-              //     <motion.p variants={descVariant1} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
-              //       duration: 0.3, 
-              //       ease: "easeIn", 
-              //       delay: 0.1}}>{file.description1}</motion.p>
-              //   </div>
-              //   <div className="description">
-              //     <motion.p variants={descVariant2} initial="hidden" animate={subTitleView && "visible"} exit="hidden" transition={{ 
-              //       duration: 0.3, 
-              //       ease: "easeIn", 
-              //       delay: 0}}>{file.description2}</motion.p>
-              //   </div>
-              // </div>
-              }
-              
-            </div>
             <motion.div className="image-wrapper">
             {
               // <ScrollParallax strength="0.1" lerpEase="0.1" ref={scrollParallaxRef}></ScrollParallax>
             }
-              <motion.div className="overlay" style={prevPath === "/about" ? {backgroundColor:"#F2F2F2"} : {backgroundColor: "none"}} initial={prevPath === "/about" && "hidden"} animate={"visible"} variants={pageVariant}></motion.div>
-              <motion.img  src={file.src}/>
-              
-            </motion.div>
+              <motion.div 
+                className="overlay" 
+                style={{backgroundColor:"#F2F2F2"}} 
+                initial={"hidden"} 
+                animate={"visible"} 
+                variants={pageVariant}></motion.div>
+                  <motion.img 
+                    className="thumbnail" 
+                    initial={"hidden"} 
+                    animate="visible" 
+                    transition={{duration: 1.5, ease: [0.6, 0.21, 0.25, 0.95]}} 
+                    variants={{hidden:{scale:1.3}, visible:{scale:1}}} 
+                    src={file.src}
+                    // style={{y: y2, scale: 2}}
+                  />
+              </motion.div>
             
             
           </div>

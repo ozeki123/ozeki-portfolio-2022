@@ -41,9 +41,9 @@ const Toc = ({ introRef, expRef }) => {
   const variant1 = {
     hidden: {y:50},
     visible: {y:0, 
-      transition:{ duration: 2, 
-      ease: "easeOut", 
-      delay: 0.4}
+      // transition:{ duration: 2, 
+      // ease: "easeOut", 
+      // delay: 0.4}
     },
   }
   
@@ -52,10 +52,10 @@ const Toc = ({ introRef, expRef }) => {
       <li className="content">
         <motion.p
         ref={aboutRef}
-        initial="hidden"
-        animate={aboutView && "visible"}
+        // initial="hidden"
+        // animate={aboutView && "visible"}
         // transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
-        variants={variant}
+        // variants={variant}
         >Contents</motion.p>
       </li>
       <li onClick={handleIntroScroll} className="content">

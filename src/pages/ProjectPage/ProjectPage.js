@@ -12,7 +12,7 @@ import "./ProjectPage.scss";
 import ScrollContainer from '../../hooks/ScrollContainer';
 import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
 import Gallery from '../../components/Gallery/Gallery';
-
+import simpleParallax from 'simple-parallax-js';
 const ProjectPage = ({navState}) => {
   const params = useParams();
   let id = params.id;
@@ -26,6 +26,25 @@ const ProjectPage = ({navState}) => {
   const featuresRef = useRef(null);
   const footerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
+
+  useEffect(() => {
+    // window.scrollTo(0,0)
+    const image = document.getElementsByClassName('project-image');
+    // new simpleParallax(image, {
+    // delay: 0,
+    // orientation: 'down',
+    // scale: 1.4,
+    // // overflow: true,
+    // });
+    // const rellax = new Rellax('.thumbnail');
+    // setTimeout(() => {
+      // return () => {
+      //   parallaxController.destroy();
+      // }
+    // }, 150);
+    // const scene = document.getElementById('thumbnail');
+    // const parallaxInstance = new Parallax(scene);
+  }, [])
 
   useEffect(() => {
     if(navState === "about"){
@@ -58,7 +77,7 @@ const ProjectPage = ({navState}) => {
       // showcaseRef.current.style.display="block";
       featuresRef.current.style.display="flex";
       footerRef.current.style.display="block";
-    }, 1000);
+    }, 800);
   }, [])
   
 
@@ -266,7 +285,7 @@ const ProjectPage = ({navState}) => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
-            height: "75vh",
+            height: "91vh",
             width: "100vw",
             // position: "absolute"
           }}
@@ -277,7 +296,7 @@ const ProjectPage = ({navState}) => {
           }
           
           <div className="item-image">
-              <motion.img src={files[id].src}/>
+              <motion.img className="project-image" initial={{scale: 1.4}} src={files[id].src}/>
           </div>
           
             

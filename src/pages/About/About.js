@@ -212,8 +212,8 @@ const About = () => {
   }
   
   return (
-    <div className="about-container">
-      <motion.div initial={{y: "100vh"}} exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} transition={{duration: 0}} className="transition-overlay"></motion.div>
+    <div className="about-container" data-scroll-section>
+      <motion.div initial={{y: "100vh"}} exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} className="transition-overlay"></motion.div>
         <motion.section className="about-info" exit={{y:-150, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
           <div className="toc-section">
             <Toc introRef={introRef} expRef={expRef}/>
@@ -224,6 +224,8 @@ const About = () => {
                 <p className="intro-text">
                   <div className="text-wrapper">
                     <motion.span 
+                    data-scroll
+                    data-scroll-speed="20"
                       ref={aboutRef1} 
                       initial="hidden" 
                       animate={aboutView1 && "visible"} 

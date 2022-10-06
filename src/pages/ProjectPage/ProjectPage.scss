@@ -222,6 +222,7 @@
   .container{
     position: fixed;
     top: 67.8vh;
+    aspect-ratio: 1 / 1;
     // width: 100%;
     // height: 100%;
     // z-index: 999;
@@ -238,11 +239,13 @@
       overflow: hidden;
       
       img{
-        will-change: transform;
+        // will-change: transform;
         width: 100%;
         height: 100%;
-        background-size: cover;
+        // background-size: cover;
         object-fit: cover;
+        // aspect-ratio: 1 / 1;
+        object-position: 100% -5%;
       }
     }
     
@@ -262,7 +265,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 25vh;
+  padding-top: 35vh;
   .features-images{
     width: 61%;
     // height: 100%;

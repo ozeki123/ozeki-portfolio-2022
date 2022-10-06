@@ -8,6 +8,7 @@ import "./Projects.scss";
 import { useInView } from "react-intersection-observer";
 import Project from "../../components/Project/Project";
 import { Parallax } from 'react-scroll-parallax';
+import LocomotiveScroll from "locomotive-scroll";
 
 const Projects = ({navState}) => {
   const [selected, setSelected] = useState(false);
@@ -21,6 +22,9 @@ const Projects = ({navState}) => {
   const [gallery, setGallery] = useState();
   const scrollContainerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
+  // const scrollContainerRef = useRef(null);
+
+  
   useEffect(() => {
     if(navState === "about"){
       // console.log(navState);
@@ -28,6 +32,8 @@ const Projects = ({navState}) => {
     }
     
   }, [navState])
+
+  
   // const location = useLocation();
   // const prevPath = location.state?.from;
   // const [aboutFlag, setAboutFlag] = useState(false);
@@ -50,9 +56,9 @@ const Projects = ({navState}) => {
   // }, [gallery])
 
   return (
-    <div className="projects-container">
+    <div className="projects-container" data-scroll-container>
       <motion.div className="transition-overlay" style={{backgroundColor:"#141414"}} initial={{y: "100vh"}} exit={aboutFlag && {y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}></motion.div>
-      <motion.div className="items" ref={scrollContainerRef} exit={aboutFlag && {y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
+      <motion.div className="items" exit={aboutFlag && {y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
         <motion.div className="items-content" >
           <motion.div 
             className="project-item-wrapper"
@@ -61,7 +67,7 @@ const Projects = ({navState}) => {
             transition={{duration: 0.7, ease: "easeInOut"}} 
             onClick={() => setSelected(0)}
             >
-              <Project file={files[0]} i={0} scrollContainer={scrollContainerRef}/>
+              <Project file={files[0]} i={0}/>
           </motion.div>
 
           <motion.div 
@@ -71,7 +77,7 @@ const Projects = ({navState}) => {
             animate={selected === 0 ? {y:100, opacity: 0} : selected === 2 ? {y:-100, opacity: 0} : {}}
             transition={{duration: 0.7, ease: "easeInOut"}}
             >
-              <Project file={files[1]} i={1} scrollContainer={scrollContainerRef}/>
+              <Project file={files[1]} i={1}/>
           </motion.div>
           
           <motion.div 
@@ -80,7 +86,7 @@ const Projects = ({navState}) => {
             animate={selected === 1 && {y:100, opacity: 0}} 
             transition={{duration: 0.7, ease: "easeInOut"}} 
             onClick={() => setSelected(2)}>
-            <Project file={files[2]} i={2} scrollContainer={scrollContainerRef}/>
+            <Project file={files[2]} i={2}/>
           </motion.div>
           
           {

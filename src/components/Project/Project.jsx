@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   motion, useAnimation, useViewportScroll, useTransform
 } from "framer-motion";
 import { ScrollParallax } from 'react-just-parallax';
 import { useParallax, Parallax, ParallaxBanner, ParallaxBannerLayer, useParallaxController } from 'react-scroll-parallax';
-// import simpleParallax from 'simple-parallax-js';
+import simpleParallax from 'simple-parallax-js';
 // import Parallax from 'parallax-js';
 import "./Project.scss";
+import Rellax from "rellax";
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
@@ -24,11 +25,20 @@ const Project = ({file, i}) => {
   const scrollParallaxRef = useRef(null);
   const y1 = useTransform(scrollY, [0, 300], [0, 200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
+  const navigate = useNavigate();
   // const parallaxController = useParallaxController();
 
   // const handleLoad = () => 
 
   useEffect(() => {
+    const image = document.getElementsByClassName('thumbnail');
+    new simpleParallax(image, {
+    delay: 0,
+    orientation: 'down',
+    scale: 1.4,
+    // overflow: true,
+    });
+    // const rellax = new Rellax('.thumbnail');
     // setTimeout(() => {
       // return () => {
       //   parallaxController.destroy();
@@ -140,14 +150,14 @@ const Project = ({file, i}) => {
         y: 0
       },
       visible: {
-        y: -330,
+        y: -450,
         opacity: 1,
-        transition: { duration: 1.4, ease: [0.65, 0.1, 0.25, 0.95],}
+        transition: { duration: 1.8, ease: [0.65, 0.1, 0.25, 0.95],}
       }
     }
   return (
-    <div className="project-item-container">
-      <Link to={`/projects/${i}`} state={{id:i}}> 
+    <div className="project-item-container" data-scroll-section>
+      <Link to={`/projects/${i}`} state={{id:i}} onClick={(e) => {e.preventDefault();}}> 
         <motion.div
           layoutId={ `file-${i}`}
           className="thumb"
@@ -158,7 +168,7 @@ const Project = ({file, i}) => {
           }}
           style={{
             width: "50vw",
-            height: "35vh",
+            height: "43.5vh",
           }}
         >
         
@@ -174,14 +184,14 @@ const Project = ({file, i}) => {
                 animate={"visible"} 
                 variants={pageVariant}></motion.div>
                   <motion.img 
-                    className="thumbnail" 
-                    initial={"hidden"} 
-                    animate="visible" 
-                    transition={{duration: 1.5, ease: [0.6, 0.21, 0.25, 0.95]}} 
-                    variants={{hidden:{scale:1.3}, visible:{scale:1}}} 
-                    src={file.src}
-                    // style={{y: y2, scale: 2}}
-                  />
+                      className="thumbnail" 
+                      initial={"hidden"} 
+                      animate="visible" 
+                      transition={{duration: 1.9, ease: [0.6, 0.21, 0.25, 0.95]}} 
+                      variants={{hidden:{scale:1.8, opacity: 0}, visible:{opacity: 1, scale:1.4}}} 
+                      src={file.src}
+                      // style={{y: y2, scale: 2}}
+                    />
               </motion.div>
             
             

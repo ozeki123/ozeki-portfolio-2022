@@ -5,7 +5,7 @@ import Navbar from "./components/Navbar/Navbar";
 import files from "./files";
 import ProjectPage from "./pages/ProjectPage/ProjectPage";
 import Projects from "./pages/Projects/Projects";
-import 'locomotive-scroll/dist/locomotive-scroll.css';
+// import 'locomotive-scroll/dist/locomotive-scroll.css';
 import LocomotiveScroll from "locomotive-scroll";
 import { LocomotiveScrollProvider } from 'react-locomotive-scroll'
 import {
@@ -20,6 +20,7 @@ import ScrollContainer from "./hooks/ScrollContainer";
 import Lenis from '@studio-freight/lenis'
 import About from "./pages/About/About";
 import { ParallaxProvider } from 'react-scroll-parallax';
+import Test from "./pages/Test/Test";
 
 // const Wrapper = ({children}) => {
 //   const location = useLocation();
@@ -38,7 +39,7 @@ function App() {
 
   const lenis = new Lenis({
     duration: 1.2,
-    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // https://easings.net
+    easing: (t) => (t === 1 ? 1 : 1 - Math.pow(3.7, -4.5 * t)), // https://easings.net
     direction: 'vertical',
     smooth: true,
   })
@@ -47,6 +48,11 @@ function App() {
     // console.log(navState);
   }, [navState])
 
+  // useEffect(() => {
+  //   const scroll = new LocomotiveScroll({
+  //     el: document.querySelector(".app-container"),
+  //   });
+  // }, []);
 
   useEffect(() => {
     function raf(time) {
@@ -121,6 +127,7 @@ function App() {
   
   return (
     <div className="app-container">
+      
     {
       // <LocomotiveScrollProvider
       //   options={
@@ -149,6 +156,7 @@ function App() {
                       <Routes location={location} key={location.pathname}>
                         <Route path="/" element={<Projects/>}/>
                         <Route path="/about" element={<About/>}/>
+                        <Route path="/test" element={<Test/>}/>
                         <Route path="/projects" element={<Projects navState={navState}/>}/>
                         <Route path="/projects/:id" element={<ProjectPage navState={navState}/>}/>
                       </Routes>

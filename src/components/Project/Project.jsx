@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
-  motion, useAnimation, useViewportScroll, useTransform
+  motion, useAnimation, useViewportScroll, useTransform, 
 } from "framer-motion";
 import { ScrollParallax } from 'react-just-parallax';
 import { useParallax, Parallax, ParallaxBanner, ParallaxBannerLayer, useParallaxController } from 'react-scroll-parallax';
@@ -31,13 +31,13 @@ const Project = ({file, i}) => {
   // const handleLoad = () => 
 
   useEffect(() => {
-    const image = document.getElementsByClassName('thumbnail');
-    new simpleParallax(image, {
-    delay: 0,
-    orientation: 'down',
-    scale: 1.4,
-    // overflow: true,
-    });
+    // const image = document.getElementsByClassName('thumbnail');
+    // new simpleParallax(image, {
+    // delay: 0,
+    // orientation: 'down',
+    // scale: 1.4,
+    // // overflow: true,
+    // });
     // const rellax = new Rellax('.thumbnail');
     // setTimeout(() => {
       // return () => {
@@ -150,14 +150,21 @@ const Project = ({file, i}) => {
         y: 0
       },
       visible: {
-        y: -450,
+        y: -350,
         opacity: 1,
-        transition: { duration: 1.8, ease: [0.65, 0.1, 0.25, 0.95],}
+        transition: { duration: 1.9, ease: [0.65, 0.1, 0.25, 0.95],}
       }
     }
   return (
-    <div className="project-item-container" data-scroll-section>
-      <Link to={`/projects/${i}`} state={{id:i}} onClick={(e) => {e.preventDefault();}}> 
+    <div className="project-item-container">
+      <div className="layout-wrapper">
+        <motion.div layoutId={ `title-${i}`} transition={{duration: 1}}>
+          <motion.h2  initial={{opacity: 1}} animate={{opacity:1}}>{file.name}</motion.h2>
+        </motion.div>
+        
+      </div>
+      
+      <Link to={`/projects/${i}`} state={{id:i}} onClick={(e) => {}}> 
         <motion.div
           layoutId={ `file-${i}`}
           className="thumb"
@@ -168,9 +175,32 @@ const Project = ({file, i}) => {
           }}
           style={{
             width: "50vw",
-            height: "43.5vh",
+            height: "36.5vh",
           }}
         >
+        {
+        //   <motion.div transition={{ 
+        //   duration: 2, 
+        //   // ease: [0.6, 0.21, 0.25, 0.95],
+        //   // delay: 0
+        // }} layoutId={ `title-${i}`} className="text" style={{position: "absolute", overflow: "hidden", width: "100%", height: "4vh", top: "0vh", zIndex:"999", color: "white"}}>
+        // <motion.h1
+        //     style={{
+
+        //       position: "absolute",
+        //       left: 0,
+        //       right: 0,
+        //       // y: 0,
+        //       opacity: 1,
+        //       fontSize: "20px",
+        //       zIndex: 999
+              
+        //     }}
+        //   >Hello World</motion.h1>
+  
+        // </motion.div>
+
+        }
         
           <div  className="project-image">
             <motion.div className="image-wrapper">
@@ -183,12 +213,13 @@ const Project = ({file, i}) => {
                 initial={"hidden"} 
                 animate={"visible"} 
                 variants={pageVariant}></motion.div>
+                  
                   <motion.img 
                       className="thumbnail" 
                       initial={"hidden"} 
                       animate="visible" 
                       transition={{duration: 1.9, ease: [0.6, 0.21, 0.25, 0.95]}} 
-                      variants={{hidden:{scale:1.8, opacity: 0}, visible:{opacity: 1, scale:1.4}}} 
+                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1}}} 
                       src={file.src}
                       // style={{y: y2, scale: 2}}
                     />

@@ -92,12 +92,71 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  backface-visibility: hidden;
+  // backface-visibility: hidden;
   text-align: start;
   background: none;
   padding-bottom: 20vh;
   margin: 0 auto;
+  position: relative;
+
+  .layout-wrapper{
+    // width: 100%;
+    position: absolute;
+    top: 155vh;
+    // background-color: red;
+    z-index: 999;
+    // overflow: hidden;
+  }
+
+  .layout-title{
+    position: relative;
+    // top: 70vh;
+    z-index: 999;
+    color: black;
+    font-size: 2rem;
+    // background-color: red;
+    visibility: visible !important;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-transform: uppercase;
+  }
   // overflow-y: hidden;
+  .temp{
+    background: none;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 998;
+    // top: 45vh;
+    // background-color: red;
+    // overflow: hidden;
+    // margin: 0 auto;
+    top: 0;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    .temp-inner{
+      width: 100%;
+      height: 5vh;
+      // background-color: blue;
+      // overflow: hidden;
+      position: relative;
+      top: 70vh;
+      h1{
+        // width: 15%;
+        // background-color: blue;
+        
+        // margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        // font-size: 2rem;
+        // overflow: hidden;
+        z-index: 999;
+      }
+    }
+    
+  }
   .item-top{
     width: 100%;
     height: 100%;
@@ -219,10 +278,11 @@
   //   position: absolute;
   //   top: 0;
   // }
+  
   .container{
     position: fixed;
     top: 67.8vh;
-    aspect-ratio: 1 / 1;
+    // aspect-ratio: 1 / 1;
     // width: 100%;
     // height: 100%;
     // z-index: 999;
@@ -231,7 +291,11 @@
     .item-image-wrapper{
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      // overflow: hidden;
+      h1{
+        // position: fixed;
+        // will-change: transform;
+      }
     }
     .item-image{
       width: 100%;
@@ -244,8 +308,8 @@
         height: 100%;
         // background-size: cover;
         object-fit: cover;
+        // display: none;
         // aspect-ratio: 1 / 1;
-        object-position: 100% -5%;
       }
     }
     

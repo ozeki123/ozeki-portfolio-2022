@@ -148,7 +148,6 @@ function App() {
       //   onUpdate={() => console.log('Updated, but not on location change!')} // Will trigger on 
       // >
     }
-      <ParallaxProvider>
         <main>
             <Navbar navState={navState} setNavState={setNavState}/>
                 <AnimateSharedLayout>
@@ -167,9 +166,7 @@ function App() {
               
               
           </main>
-      </ParallaxProvider>
         
-      
     </div>
     
       

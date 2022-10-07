@@ -57,6 +57,7 @@ const Projects = ({navState}) => {
 
   return (
     <div className="projects-container" data-scroll-container>
+    
       <motion.div className="transition-overlay" style={{backgroundColor:"#141414"}} initial={{y: "100vh"}} exit={aboutFlag && {y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}></motion.div>
       <motion.div className="items" exit={aboutFlag && {y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
         <motion.div className="items-content" >

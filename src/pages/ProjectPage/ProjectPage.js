@@ -28,7 +28,9 @@ const ProjectPage = ({navState}) => {
   const [aboutFlag, setAboutFlag] = useState(false);
 
   useEffect(() => {
-    // window.scrollTo(0,0)
+    setTimeout(function () {
+      window.scrollTo(0, 0);
+  },500);
     const image = document.getElementsByClassName('project-image');
     // new simpleParallax(image, {
     // delay: 0,
@@ -72,7 +74,7 @@ const ProjectPage = ({navState}) => {
     // }, 600);
     setTimeout(() => {
       layoutRef.current.style.position = "absolute";
-      layoutRef.current.style.top = "67.8vh";
+      // layoutRef.current.style.top = "67.8vh";
       // descRef.current.style.display="flex";
       // showcaseRef.current.style.display="block";
       featuresRef.current.style.display="flex";
@@ -128,12 +130,15 @@ const ProjectPage = ({navState}) => {
   
   return (
     <div className="item-container" ref={ref}>
+    
+    
       <motion.div 
         className="transition-overlay"
         initial={{y: "100vh"}}
         style={aboutFlag ? {backgroundColor: "#141414"} : {}}
         exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} transition={{duration: 0}}
       ></motion.div>
+      
       <motion.div
         className="item"
         exit={{y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}
@@ -141,6 +146,31 @@ const ProjectPage = ({navState}) => {
         //   e.target === e.currentTarget && setSelected(false);
         // }}
       >
+      {
+      //   <div style={{position: "fixed", width: "100vw", height: "100vh", top:"50%", transform: "translateY(-50%)",display: "flex", justifyContent:"center", alignItems:"center", backgroundColor:"red"}}>
+      //   <div style={{overflow: "hidden", width: "100%", height: "42px", zIndex: "999"}}>
+      //       <motion.h1
+      //               layoutId={ `title-${id}`}
+      //               transition={{ 
+      //                 duration: 1, 
+      //                 // ease: [0.6, 0.21, 0.25, 0.95],
+      //                 // delay: 0
+      //               }}
+      //               style={{
+      //                 position: "absolute",
+      //                 top: "0vh",
+      //                 left: 0,
+      //                 fontSize: "20px",
+      //                 // opacity: 1,
+      //                 zIndex: 999,
+      //                 width: "100%",
+      //                 height: "100%"
+      //               }}
+      //             >Hello</motion.h1>
+            
+      //     </div>
+      // </div>
+      }
         <section className="item-top">
           <div className="item-heading">
             <div className="item-nav-prev">
@@ -276,7 +306,19 @@ const ProjectPage = ({navState}) => {
             
           </div>
         </section>
-        
+        <div className="layout-wrapper">
+          <motion.div layoutId={ `title-${id}`} transition={{duration: 1}}>
+            <motion.h2 
+              className="layout-title" 
+              initial={{opacity: 1}}
+              animate={{opacity:0}}
+              transition={{duration: 0.3}}
+            >
+              {files[id].name}
+            </motion.h2>
+          </motion.div>
+          
+        </div>
         
         <motion.div
           ref={layoutRef}
@@ -285,7 +327,7 @@ const ProjectPage = ({navState}) => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
-            height: "91vh",
+            height: "75vh",
             width: "100vw",
             // position: "absolute"
           }}
@@ -296,7 +338,7 @@ const ProjectPage = ({navState}) => {
           }
           
           <div className="item-image">
-              <motion.img className="project-image" initial={{scale: 1.4}} src={files[id].src}/>
+              <motion.img className="project-image"src={files[id].src}/>
           </div>
           
             

@@ -102,16 +102,24 @@
   .layout-wrapper{
     // width: 100%;
     position: absolute;
-    top: 155vh;
+    // top: 30vh;
+    // background-color: blue !important;
+    // top: 100vh;
     // background-color: red;
     z-index: 999;
-    // overflow: hidden;
+    overflow: hidden;
+    h2{
+      font-size: 2.8em;
+      text-transform: none;
+      font-weight: 400;
+      letter-spacing: 0.2px;
+    }
   }
 
   .layout-title{
     position: relative;
     // top: 70vh;
-    z-index: 999;
+    z-index: 998;
     color: black;
     font-size: 2rem;
     // background-color: red;

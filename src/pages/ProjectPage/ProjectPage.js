@@ -1,11 +1,11 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useContext } from 'react';
 import {
   motion,
   useViewportScroll,
   useElementScroll,
   useTransform
 } from "framer-motion";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useLocation } from "react-router-dom";
 import files from "../../files";
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import "./ProjectPage.scss";
@@ -13,6 +13,7 @@ import ScrollContainer from '../../hooks/ScrollContainer';
 import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
 import Gallery from '../../components/Gallery/Gallery';
 import simpleParallax from 'simple-parallax-js';
+import { AppContext } from '../../context';
 const ProjectPage = ({navState}) => {
   const params = useParams();
   let id = params.id;
@@ -26,8 +27,20 @@ const ProjectPage = ({navState}) => {
   const featuresRef = useRef(null);
   const footerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
+  const location = useLocation();
+  const { offsetHeight, setOffsetHeight } = useContext(AppContext);
 
   useEffect(() => {
+    console.log(location);
+  }, [location])
+
+  useEffect(() => {
+    console.log("offset", offsetHeight);
+  }, [])
+  
+
+  useEffect(() => {
+    
     setTimeout(function () {
       window.scrollTo(0, 0);
   },500);
@@ -306,13 +319,13 @@ const ProjectPage = ({navState}) => {
             
           </div>
         </section>
-        <div className="layout-wrapper">
+        <div className="layout-wrapper" style={{top: offsetHeight}}>
           <motion.div layoutId={ `title-${id}`} transition={{duration: 1}}>
             <motion.h2 
               className="layout-title" 
-              initial={{opacity: 1}}
-              animate={{opacity:0}}
-              transition={{duration: 0.3}}
+              initial={{opacity: 1, y:0, skewY:0}}
+              animate={{opacity:1, y: 60, skewY:8}}
+              transition={{duration: 0.5, ease: "easeInOut"}}
             >
               {files[id].name}
             </motion.h2>

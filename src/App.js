@@ -21,6 +21,7 @@ import Lenis from '@studio-freight/lenis'
 import About from "./pages/About/About";
 import { ParallaxProvider } from 'react-scroll-parallax';
 import Test from "./pages/Test/Test";
+import { ContextProvider } from "./context";
 
 // const Wrapper = ({children}) => {
 //   const location = useLocation();
@@ -150,6 +151,7 @@ function App() {
     }
         <main>
             <Navbar navState={navState} setNavState={setNavState}/>
+              <ContextProvider>
                 <AnimateSharedLayout>
                   <AnimatePresence exitBeforeEnter>
                       <Routes location={location} key={location.pathname}>
@@ -163,6 +165,8 @@ function App() {
                   </AnimatePresence>
                   
                 </AnimateSharedLayout>
+              </ContextProvider>
+                
               
               
           </main>

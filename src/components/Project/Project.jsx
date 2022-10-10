@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import {
   motion, useAnimation, useViewportScroll, useTransform, 
@@ -9,6 +9,7 @@ import simpleParallax from 'simple-parallax-js';
 // import Parallax from 'parallax-js';
 import "./Project.scss";
 import Rellax from "rellax";
+import { AppContext } from "../../context";
 
 const Project = ({file, i}) => {
   const [titleView, setTitleView] = useState(false);
@@ -20,17 +21,20 @@ const Project = ({file, i}) => {
   const [transitionFlag, setTransitionFlag] = useState(false);
   let temp = true;
   const location = useLocation();
-  const prevPath = location.state?.from;
+  // const prevPath = location.state?.from;
   const { scrollY } = useViewportScroll();
   const scrollParallaxRef = useRef(null);
   const y1 = useTransform(scrollY, [0, 300], [0, 200]);
   const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
   const navigate = useNavigate();
+  const [offset, setOffset] = useState();
+  const { offsetHeight, setOffsetHeight } = useContext(AppContext);
   // const parallaxController = useParallaxController();
 
   // const handleLoad = () => 
 
   useEffect(() => {
+    // console.log(offset)
     // const image = document.getElementsByClassName('thumbnail');
     // new simpleParallax(image, {
     // delay: 0,
@@ -46,7 +50,7 @@ const Project = ({file, i}) => {
     // }, 150);
     // const scene = document.getElementById('thumbnail');
     // const parallaxInstance = new Parallax(scene);
-  }, [])
+  }, [offset])
   
   
   
@@ -155,16 +159,20 @@ const Project = ({file, i}) => {
         transition: { duration: 1.9, ease: [0.65, 0.1, 0.25, 0.95],}
       }
     }
+
+    //use onScroll to get the offset top, set offset top to fixed element on page
+    //pass offset height to Link
   return (
-    <div className="project-item-container">
+    <div className="project-item-container" onClick={(e) => {setOffsetHeight(titleRef.current.getBoundingClientRect().top)}}>
       <div className="layout-wrapper">
-        <motion.div layoutId={ `title-${i}`} transition={{duration: 1}}>
-          <motion.h2  initial={{opacity: 1}} animate={{opacity:1}}>{file.name}</motion.h2>
+        <motion.div layoutId={ `title-${i}`} transition={{duration: 1.1, delay: 0.2, ease: "easeOut"}}>
+          <motion.h2 ref={titleRef}
+          transition={{duration: 1, delay: 0.3, ease: "easeOut"}}>{file.name}</motion.h2>
         </motion.div>
         
       </div>
       
-      <Link to={`/projects/${i}`} state={{id:i}} onClick={(e) => {}}> 
+      <Link to={`/projects/${i}`}> 
         <motion.div
           layoutId={ `file-${i}`}
           className="thumb"

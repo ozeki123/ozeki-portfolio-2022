@@ -29,7 +29,9 @@ const ProjectPage = ({navState}) => {
   const [aboutFlag, setAboutFlag] = useState(false);
   const location = useLocation();
   const { offsetHeight, setOffsetHeight } = useContext(AppContext);
-
+  const { scrollY } = useViewportScroll();
+  // const scrollParallaxRef = useRef(null);
+  const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
   useEffect(() => {
     console.log(location);
   }, [location])
@@ -324,13 +326,12 @@ const ProjectPage = ({navState}) => {
             <motion.h2 
               className="layout-title" 
               initial={{opacity: 1, y:0, skewY:0}}
-              animate={{opacity:1, y: 60, skewY:8}}
+              animate={{opacity:1, y: 70, skewY:4}}
               transition={{duration: 0.5, ease: "easeInOut"}}
             >
               {files[id].name}
             </motion.h2>
           </motion.div>
-          
         </div>
         
         <motion.div
@@ -340,7 +341,7 @@ const ProjectPage = ({navState}) => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
-            height: "75vh",
+            height: "100vh",
             width: "100vw",
             // position: "absolute"
           }}
@@ -372,12 +373,10 @@ const ProjectPage = ({navState}) => {
       
       <div className="footer-container" ref={footerRef}>
         <div className="footer-contents">
-          <ScrollParallax strength="0.35" lerpEase="0.20" ref={scrollParallaxRef2}>
             <div className="footer-bg">
               <h5>Next Project</h5>
               <h2>{files[1].title}</h2>
             </div>
-          </ScrollParallax>
         </div>
       </div>
     </div>

@@ -17,24 +17,25 @@ const Project = ({file, i}) => {
   const titleRef = useRef();
   const subTitleRef = useRef();
   const { scrollYProgress } = useViewportScroll();
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, -500]);
+  const parallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const [transitionFlag, setTransitionFlag] = useState(false);
   let temp = true;
   const location = useLocation();
-  // const prevPath = location.state?.from;
+  const prevPath = location.state?.from;
   const { scrollY } = useViewportScroll();
   const scrollParallaxRef = useRef(null);
-  const y1 = useTransform(scrollY, [0, 300], [0, 200]);
+  const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
   const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
   const navigate = useNavigate();
   const [offset, setOffset] = useState();
   const { offsetHeight, setOffsetHeight } = useContext(AppContext);
   // const parallaxController = useParallaxController();
+  const parallaxRef = useRef(null);
 
   // const handleLoad = () => 
 
   useEffect(() => {
-    // console.log(offset)
+    console.log("PREV", prevPath);
     // const image = document.getElementsByClassName('thumbnail');
     // new simpleParallax(image, {
     // delay: 0,
@@ -50,7 +51,7 @@ const Project = ({file, i}) => {
     // }, 150);
     // const scene = document.getElementById('thumbnail');
     // const parallaxInstance = new Parallax(scene);
-  }, [offset])
+  }, [])
   
   
   
@@ -154,25 +155,44 @@ const Project = ({file, i}) => {
         y: 0
       },
       visible: {
-        y: -350,
+        y: -565,
         opacity: 1,
-        transition: { duration: 1.9, ease: [0.65, 0.1, 0.25, 0.95],}
+        transition: { delay: 0.2, duration: 1.7, ease: [0.65, 0.1, 0.25, 0.95],}
       }
     }
 
     //use onScroll to get the offset top, set offset top to fixed element on page
     //pass offset height to Link
   return (
-    <div className="project-item-container" onClick={(e) => {setOffsetHeight(titleRef.current.getBoundingClientRect().top)}}>
-      <div className="layout-wrapper">
-        <motion.div layoutId={ `title-${i}`} transition={{duration: 1.1, delay: 0.2, ease: "easeOut"}}>
-          <motion.h2 ref={titleRef}
-          transition={{duration: 1, delay: 0.3, ease: "easeOut"}}>{file.name}</motion.h2>
-        </motion.div>
-        
-      </div>
-      
+    <motion.div className="project-item-container"  onClick={(e) => {setOffsetHeight(titleRef.current.getBoundingClientRect().top)}}>
       <Link to={`/projects/${i}`}> 
+      <motion.div className={`layout-text ${file.id>2 && "space"}`} style={{y:parallax}}>
+        <motion.div className="layout-wrapper">
+          <motion.div layoutId={ `title-${i}`} transition={{duration: 0, delay: 0, ease: "easeOut"}}>
+            <motion.h2 ref={titleRef} initial={{y: 70,  skewX: -15}} animate={{y:0, skewY: 0, skewX: 0}}
+            transition={{duration: 0.8, delay: 0.6, ease: [0.45, 0.35, 0.45, 0.95]}}>{file.name}</motion.h2>
+          </motion.div>
+        </motion.div>
+        <div className="sublayout-wrapper">
+          <motion.h2 className="subtitle" initial={{y: 100, skewY: 15, skewX: -12}} animate={{y:0, skewY: 0, skewX: 0}} transition={{duration: 0.7, delay: 0.7, ease: [0.45, 0.35, 0.45, 0.95]}}>{file.subtitle}</motion.h2>
+        </div>
+        <p className="item-desc">
+          <div className="text-wrapper">
+            <motion.span 
+              initial={{y:30}} 
+              animate={{y:0}}
+              transition={{duration: 0.8, delay: 0.75, ease: [0.45, 0.35, 0.45, 0.95]}}
+              >{file.description1}</motion.span>
+          </div>
+          <div className="text-wrapper">
+            <motion.span
+              initial={{y:30}} 
+              animate={{y:0}}
+              transition={{duration: 0.8, delay: 0.85, ease: [0.45, 0.35, 0.45, 0.95]}}
+            >{file.description2}</motion.span>
+          </div>
+        </p>
+      </motion.div>
         <motion.div
           layoutId={ `file-${i}`}
           className="thumb"
@@ -182,8 +202,8 @@ const Project = ({file, i}) => {
             // delay: 0
           }}
           style={{
-            width: "50vw",
-            height: "36.5vh",
+            width: "58vw",
+            height: "60vh",
           }}
         >
         {
@@ -224,10 +244,17 @@ const Project = ({file, i}) => {
                   
                   <motion.img 
                       className="thumbnail" 
+                      // whileHover={{
+                      //   scale: 1,
+                      //   transition:{
+                      //     duration: 0.5,
+                      //     ease: "easeOut"
+                      //   }
+                      // }}
                       initial={"hidden"} 
                       animate="visible" 
-                      transition={{duration: 1.9, ease: [0.6, 0.21, 0.25, 0.95]}} 
-                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1}}} 
+                      transition={{duration: 2, ease: [0.6, 0.21, 0.25, 0.95]}} 
+                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1.05}}} 
                       src={file.src}
                       // style={{y: y2, scale: 2}}
                     />
@@ -238,7 +265,7 @@ const Project = ({file, i}) => {
           
         </motion.div>
       </Link>
-    </div>
+    </motion.div>
     
   )
 }

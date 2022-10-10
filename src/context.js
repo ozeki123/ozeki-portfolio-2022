@@ -4,6 +4,7 @@ const AppContext = React.createContext();
 
 const ContextProvider = ({ children }) => {
   const [offsetHeight, setOffsetHeight] = useState(0);
+  const [offsetSub, setOffsetSub] = useState(0);
 
   return (
     <AppContext.Provider value={{offsetHeight, setOffsetHeight}}>

@@ -146,7 +146,7 @@ const Project = ({file, i}) => {
         setOffsetDesc2(descRef2.current.getBoundingClientRect().top);
       }}>
       <Link to={`/projects/${i}`}> 
-      <motion.div className={`layout-text`} style={{y:parallax}}>
+      <motion.div className={`layout-text ${file.id > 2 && "padding"}`} style={{y:parallax}}>
         <motion.div className="layout-wrapper">
           <motion.div transition={{duration: 0, delay: 0, ease: "easeOut"}}>
             <motion.h2 ref={titleRef} initial={{y: 70,  skewX: -15}} animate={{y:0, skewY: 0, skewX: 0}}
@@ -243,7 +243,7 @@ const Project = ({file, i}) => {
                       initial={"hidden"} 
                       animate="visible" 
                       transition={{duration: 2, ease: [0.6, 0.21, 0.25, 0.95]}} 
-                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1.}}} 
+                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1.2}}} 
                       src={file.src}
                       // style={{y: y2, scale: 2}}
                     />

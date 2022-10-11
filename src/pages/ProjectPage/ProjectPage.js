@@ -322,7 +322,7 @@ const ProjectPage = ({navState}) => {
               className="layout-title" 
               initial={{opacity: 1, y:0, skewY:0}}
               animate={{opacity:1, y: 70, skewY:4}}
-              transition={{duration: 0.5, delay: 0.3, ease: "easeInOut"}}
+              transition={{duration: 0.5, delay: 0.1, ease: "easeInOut"}}
             >
               {files[id].name}
             </motion.h2>
@@ -333,7 +333,7 @@ const ProjectPage = ({navState}) => {
             className="layout-subtitle"
             initial={{opacity: 1, y:0, skewY:0}}
             animate={{opacity:1, y: 70, skewY:4}}
-            transition={{duration: 0.5, delay: 0.2, ease: "easeInOut"}}
+            transition={{duration: 0.5, delay: 0.1, ease: "easeInOut"}}
           >
             {files[id].subtitle}
           </motion.h2>
@@ -353,7 +353,7 @@ const ProjectPage = ({navState}) => {
             className="layout-desc"
             initial={{opacity: 1, y:0, skewY:0}}
             animate={{opacity:1, y: 35, skewY:0}}
-            transition={{duration: 0.5, ease: "easeInOut"}}
+            transition={{duration: 0.5, delay:0.1, ease: "easeInOut"}}
           >
             {files[id].description2}
           </motion.p>
@@ -377,7 +377,7 @@ const ProjectPage = ({navState}) => {
           }
           
           <div className="item-image">
-              <motion.img className="project-image"src={files[id].src}/>
+            <motion.img initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image"src={files[id].src}/>
           </div>
           
             

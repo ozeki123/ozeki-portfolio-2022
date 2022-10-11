@@ -188,11 +188,6 @@ const ProjectPage = ({navState}) => {
       }
         <section className="item-top">
           <div className="item-heading">
-            <div className="item-nav-prev">
-              <Link to="/projects" onClick={(e) => {e.preventDefault(); console.log('clicked')}}>
-                <motion.div initial={{y:-50}} animate={{y: 0}} transition={{duration: 1, ease: "easeOut", delay:1}} className="prev-button">Back</motion.div>
-              </Link>
-            </div>
             {
             //   <div className="item-link">
             //   <motion.h3 href="#" initial={{y: 50}} animate={{y:0}} exit={{y:50, transition:{delay: 0.2, duration: 0.6, ease: "easeInOut"}}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>{files[id].website}</motion.h3>
@@ -327,7 +322,7 @@ const ProjectPage = ({navState}) => {
               className="layout-title" 
               initial={{opacity: 1, y:0, skewY:0}}
               animate={{opacity:1, y: 70, skewY:4}}
-              transition={{duration: 0.5, ease: "easeInOut", delay: 0.1}}
+              transition={{duration: 0.5, delay: 0.3, ease: "easeInOut"}}
             >
               {files[id].name}
             </motion.h2>
@@ -338,7 +333,7 @@ const ProjectPage = ({navState}) => {
             className="layout-subtitle"
             initial={{opacity: 1, y:0, skewY:0}}
             animate={{opacity:1, y: 70, skewY:4}}
-            transition={{duration: 0.5, ease: "easeInOut"}}
+            transition={{duration: 0.5, delay: 0.2, ease: "easeInOut"}}
           >
             {files[id].subtitle}
           </motion.h2>
@@ -348,7 +343,7 @@ const ProjectPage = ({navState}) => {
             className="layout-desc"
             initial={{opacity: 1, y:0, skewY:0}}
             animate={{opacity:1, y: 35, skewY:0}}
-            transition={{duration: 0.5, ease: "easeInOut"}}
+            transition={{duration: 0.5, delay:0.1, ease: "easeInOut"}}
           >
             {files[id].description1}
           </motion.p>
@@ -371,8 +366,8 @@ const ProjectPage = ({navState}) => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
-            height: "100vh",
-            width: "92vw",
+            height: "83vh",
+            width: "75vw",
             // position: "absolute"
           }}
         >

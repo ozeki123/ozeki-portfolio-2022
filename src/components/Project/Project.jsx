@@ -146,7 +146,7 @@ const Project = ({file, i}) => {
         setOffsetDesc2(descRef2.current.getBoundingClientRect().top);
       }}>
       <Link to={`/projects/${i}`}> 
-      <motion.div className={`layout-text ${file.id>2 && "space"}`} style={{y:parallax}}>
+      <motion.div className={`layout-text`} style={{y:parallax}}>
         <motion.div className="layout-wrapper">
           <motion.div transition={{duration: 0, delay: 0, ease: "easeOut"}}>
             <motion.h2 ref={titleRef} initial={{y: 70,  skewX: -15}} animate={{y:0, skewY: 0, skewX: 0}}
@@ -163,7 +163,7 @@ const Project = ({file, i}) => {
           >{file.subtitle}
           </motion.h2>
         </div>
-        <p className="item-desc">
+        <p className={`item-desc`}>
           <div className="text-wrapper">
             <motion.span 
               ref={descRef1}
@@ -219,7 +219,7 @@ const Project = ({file, i}) => {
 
         }
         
-          <div  className="project-image">
+          <div className="project-image">
             <motion.div className="image-wrapper">
             {
               // <ScrollParallax strength="0.1" lerpEase="0.1" ref={scrollParallaxRef}></ScrollParallax>
@@ -232,7 +232,7 @@ const Project = ({file, i}) => {
                 variants={pageVariant}></motion.div>
                   
                   <motion.img 
-                      className="thumbnail" 
+                      className={`thumbnail ${file.id === 2 && "shadow"}` }
                       // whileHover={{
                       //   scale: 1,
                       //   transition:{

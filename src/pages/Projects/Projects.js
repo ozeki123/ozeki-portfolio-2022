@@ -91,7 +91,7 @@ const Projects = ({navState}) => {
             </motion.div>
           </ScrollParallax>
           
-          <ScrollParallax strength="-0.06" zIndex={999}>
+          <ScrollParallax strength="-0.05" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 
@@ -101,7 +101,16 @@ const Projects = ({navState}) => {
               <Project file={files[2]} i={2}/>
             </motion.div>
           </ScrollParallax>
-          
+          <ScrollParallax strength="-0.07" zIndex={999}>
+            <motion.div 
+              className="project-item-wrapper"
+              initial={{y:0, opacity: 1}} 
+              animate={selected === 1 && {y:100, opacity: 0}} 
+              transition={{duration: 0.7, ease: "easeInOut"}} 
+              onClick={() => setSelected(3)}>
+              <Project file={files[3]} i={3}/>
+            </motion.div>
+          </ScrollParallax>
           
           {
           //   files.map((file, i) => (

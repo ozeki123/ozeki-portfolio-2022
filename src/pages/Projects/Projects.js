@@ -79,7 +79,7 @@ const Projects = ({navState}) => {
               <Project file={files[0]} i={0}/>
           </motion.div>
 
-          <ScrollParallax strength="-0.04" zIndex={999}>
+          <ScrollParallax strength="-0.03" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
               initial={{y:0, opacity: 1}} 

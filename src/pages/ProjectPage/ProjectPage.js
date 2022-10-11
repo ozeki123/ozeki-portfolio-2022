@@ -28,7 +28,7 @@ const ProjectPage = ({navState}) => {
   const footerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
   const location = useLocation();
-  const { offsetHeight, setOffsetHeight } = useContext(AppContext);
+  const { offsetHeight, offsetSub, offsetDesc1, offsetDesc2 } = useContext(AppContext);
   const { scrollY } = useViewportScroll();
   // const scrollParallaxRef = useRef(null);
   const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
@@ -322,16 +322,46 @@ const ProjectPage = ({navState}) => {
           </div>
         </section>
         <div className="layout-wrapper" style={{top: offsetHeight}}>
-          <motion.div layoutId={ `title-${id}`} transition={{duration: 1}}>
+          <motion.div transition={{duration: 1}}>
             <motion.h2 
               className="layout-title" 
               initial={{opacity: 1, y:0, skewY:0}}
               animate={{opacity:1, y: 70, skewY:4}}
-              transition={{duration: 0.5, ease: "easeInOut"}}
+              transition={{duration: 0.5, ease: "easeInOut", delay: 0.1}}
             >
               {files[id].name}
             </motion.h2>
           </motion.div>
+        </div>
+        <div className="layout-wrapper" style={{top: offsetSub}}>
+          <motion.h2 
+            className="layout-subtitle"
+            initial={{opacity: 1, y:0, skewY:0}}
+            animate={{opacity:1, y: 70, skewY:4}}
+            transition={{duration: 0.5, ease: "easeInOut"}}
+          >
+            {files[id].subtitle}
+          </motion.h2>
+        </div>
+        <div className="layout-wrapper" style={{top: offsetDesc1}}>
+          <motion.p
+            className="layout-desc"
+            initial={{opacity: 1, y:0, skewY:0}}
+            animate={{opacity:1, y: 35, skewY:0}}
+            transition={{duration: 0.5, ease: "easeInOut"}}
+          >
+            {files[id].description1}
+          </motion.p>
+        </div>
+        <div className="layout-wrapper" style={{top: offsetDesc2}}>
+          <motion.p
+            className="layout-desc"
+            initial={{opacity: 1, y:0, skewY:0}}
+            animate={{opacity:1, y: 35, skewY:0}}
+            transition={{duration: 0.5, ease: "easeInOut"}}
+          >
+            {files[id].description2}
+          </motion.p>
         </div>
         
         <motion.div
@@ -342,7 +372,7 @@ const ProjectPage = ({navState}) => {
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
             height: "100vh",
-            width: "100vw",
+            width: "92vw",
             // position: "absolute"
           }}
         >

@@ -16,8 +16,10 @@ const Project = ({file, i}) => {
   const [subTitleView, setSubTitleView] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
+  const descRef1 = useRef();
+  const descRef2 = useRef();
   const { scrollYProgress } = useViewportScroll();
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const parallax = useTransform(scrollYProgress, [0, 1], [0, -120]);
   const [transitionFlag, setTransitionFlag] = useState(false);
   let temp = true;
   const location = useLocation();
@@ -28,54 +30,25 @@ const Project = ({file, i}) => {
   const y2 = useTransform(scrollY, [0, 1000], [0, 100]);
   const navigate = useNavigate();
   const [offset, setOffset] = useState();
-  const { offsetHeight, setOffsetHeight } = useContext(AppContext);
+  const { offsetHeight, 
+          setOffsetHeight, 
+          offsetSub, 
+          setOffsetSub,
+          offsetDesc1,
+          setOffsetDesc1,
+          offsetDesc2,
+          setOffsetDesc2 } = useContext(AppContext);
   // const parallaxController = useParallaxController();
   const parallaxRef = useRef(null);
+  const projectRef = useRef(null);
+  const [projectView, setProjectView] = useState(false);
 
   // const handleLoad = () => 
 
   useEffect(() => {
     console.log("PREV", prevPath);
-    // const image = document.getElementsByClassName('thumbnail');
-    // new simpleParallax(image, {
-    // delay: 0,
-    // orientation: 'down',
-    // scale: 1.4,
-    // // overflow: true,
-    // });
-    // const rellax = new Rellax('.thumbnail');
-    // setTimeout(() => {
-      // return () => {
-      //   parallaxController.destroy();
-      // }
-    // }, 150);
-    // const scene = document.getElementById('thumbnail');
-    // const parallaxInstance = new Parallax(scene);
   }, [])
-  
-  
-  
-  // const scrollParallaxRef = useRef(null);
-  // useEffect(() => {
-  //   console.log(prevPath);
-  //   if(prevPath === "/about"){
-  //     setTransitionFlag(true);
-  //   } else {
-  //     setTransitionFlag(false);
-  //   }
-  //   console.log(transitionFlag)
-  // }, [transitionFlag])
-  
-  
-  
 
-  // const transform = useTransform(scrollYProgress, [0, 1], [0, 100 * 3]);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     scrollParallaxRef.current?.updateValues();
-  //   }, 10);
-  // }, [])
   
 
   // useEffect(() => {
@@ -155,7 +128,7 @@ const Project = ({file, i}) => {
         y: 0
       },
       visible: {
-        y: -565,
+        y: -525,
         opacity: 1,
         transition: { delay: 0.2, duration: 1.7, ease: [0.65, 0.1, 0.25, 0.95],}
       }
@@ -164,21 +137,36 @@ const Project = ({file, i}) => {
     //use onScroll to get the offset top, set offset top to fixed element on page
     //pass offset height to Link
   return (
-    <motion.div className="project-item-container"  onClick={(e) => {setOffsetHeight(titleRef.current.getBoundingClientRect().top)}}>
+    <motion.div 
+      className="project-item-container" 
+      onClick={(e) => {
+        setOffsetHeight(titleRef.current.getBoundingClientRect().top);
+        setOffsetSub(subTitleRef.current.getBoundingClientRect().top);
+        setOffsetDesc1(descRef1.current.getBoundingClientRect().top);
+        setOffsetDesc2(descRef2.current.getBoundingClientRect().top);
+      }}>
       <Link to={`/projects/${i}`}> 
       <motion.div className={`layout-text ${file.id>2 && "space"}`} style={{y:parallax}}>
         <motion.div className="layout-wrapper">
-          <motion.div layoutId={ `title-${i}`} transition={{duration: 0, delay: 0, ease: "easeOut"}}>
+          <motion.div transition={{duration: 0, delay: 0, ease: "easeOut"}}>
             <motion.h2 ref={titleRef} initial={{y: 70,  skewX: -15}} animate={{y:0, skewY: 0, skewX: 0}}
             transition={{duration: 0.8, delay: 0.6, ease: [0.45, 0.35, 0.45, 0.95]}}>{file.name}</motion.h2>
           </motion.div>
         </motion.div>
         <div className="sublayout-wrapper">
-          <motion.h2 className="subtitle" initial={{y: 100, skewY: 15, skewX: -12}} animate={{y:0, skewY: 0, skewX: 0}} transition={{duration: 0.7, delay: 0.7, ease: [0.45, 0.35, 0.45, 0.95]}}>{file.subtitle}</motion.h2>
+          <motion.h2 
+            className="subtitle" 
+            ref={subTitleRef}
+            initial={{y: 100, skewY: 15, skewX: -12}} 
+            animate={{y:0, skewY: 0, skewX: 0}} 
+            transition={{duration: 0.7, delay: 0.7, ease: [0.45, 0.35, 0.45, 0.95]}}
+          >{file.subtitle}
+          </motion.h2>
         </div>
         <p className="item-desc">
           <div className="text-wrapper">
             <motion.span 
+              ref={descRef1}
               initial={{y:30}} 
               animate={{y:0}}
               transition={{duration: 0.8, delay: 0.75, ease: [0.45, 0.35, 0.45, 0.95]}}
@@ -186,6 +174,7 @@ const Project = ({file, i}) => {
           </div>
           <div className="text-wrapper">
             <motion.span
+              ref={descRef2}
               initial={{y:30}} 
               animate={{y:0}}
               transition={{duration: 0.8, delay: 0.85, ease: [0.45, 0.35, 0.45, 0.95]}}
@@ -202,8 +191,8 @@ const Project = ({file, i}) => {
             // delay: 0
           }}
           style={{
-            width: "58vw",
-            height: "60vh",
+            width: "51vw",
+            height: "56vh",
           }}
         >
         {
@@ -254,7 +243,7 @@ const Project = ({file, i}) => {
                       initial={"hidden"} 
                       animate="visible" 
                       transition={{duration: 2, ease: [0.6, 0.21, 0.25, 0.95]}} 
-                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1.05}}} 
+                      variants={{hidden:{scale:1.5, opacity: 0}, visible:{opacity: 1, scale:1.}}} 
                       src={file.src}
                       // style={{y: y2, scale: 2}}
                     />

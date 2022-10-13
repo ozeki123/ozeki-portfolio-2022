@@ -32,12 +32,12 @@ export default [
     images: [holoHome, holoPage],
     screen1: holoHome,
     screens: [holoscreen1, holoscreen3],
-    website: "Sportify.com"
+    website: "http://github.com/ozeki123/Oribit-Website"
   },
   
   {
     id: 2,
-    name: "Morph for Men",
+    name: "Morph Men",
     date: "Japan ・ 2021",
     title: "Morph for Men",
     subtitle: "Insurance",
@@ -54,11 +54,11 @@ export default [
     src: mfm,
     screen1: holoHome,
     screens: [holoscreen1, holoscreen3],
-    website: "Americanhome.com"
+    website: "https://www.americanhome-digital.jp/formen"
   },
   {
     id: 3,
-    name: "Morph for Women",
+    name: "Morph Women",
     date: "Japan ・ 2021",
     title: "Morph for Women",
     subtitle: "Insurance",
@@ -75,7 +75,7 @@ export default [
     src: mfw,
     screen1: holoHome,
     screens: [holoscreen1, holoscreen3],
-    website: "Americanhome.com"
+    website: "https://www.americanhome-morph.jp/guideline"
   },
   {
     id: 4,
@@ -100,6 +100,6 @@ export default [
     images: [holoHome, holoPage],
     screen1: holoHome,
     screens: [holoscreen1, holoscreen3],
-    website: "Sportify.com"
+    website: "http://github.com/ozeki123"
   },
 ];

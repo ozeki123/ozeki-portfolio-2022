@@ -128,7 +128,7 @@ const Project = ({file, i}) => {
         y: 0
       },
       visible: {
-        y: -525,
+        y: "-100%",
         opacity: 1,
         transition: { delay: 0.2, duration: 1.7, ease: [0.65, 0.1, 0.25, 0.95],}
       }
@@ -192,7 +192,7 @@ const Project = ({file, i}) => {
           }}
           style={{
             width: "51vw",
-            height: "56vh",
+            height: "27.2vw",
           }}
         >
         {

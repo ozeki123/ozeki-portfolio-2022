@@ -93,7 +93,7 @@ const ProjectPage = ({navState}) => {
       // descRef.current.style.display="flex";
       // showcaseRef.current.style.display="block";
       featuresRef.current.style.display="flex";
-      footerRef.current.style.display="block";
+      // footerRef.current.style.display="block";
     }, 800);
   }, [])
   
@@ -188,14 +188,14 @@ const ProjectPage = ({navState}) => {
       }
         <section className="item-top">
           <div className="item-heading">
-            {
-            //   <div className="item-link">
-            //   <motion.h3 href="#" initial={{y: 50}} animate={{y:0}} exit={{y:50, transition:{delay: 0.2, duration: 0.6, ease: "easeInOut"}}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>{files[id].website}</motion.h3>
-            // </div>
-            // <div className="item-description">
-            //   <motion.p initial={{y:31}} animate={{y:0}} exit={{y:31, transition:{delay: 0.5, duration: 0.5, ease: "easeInOut"}}} transition={{delay: 0.8, duration: 0.8, ease: "easeOut"}}>{files[id].description}</motion.p>
-            // </div>
-            }
+            
+              <div className="item-link">
+                <a href={files[id].website} target="_blank" rel="noreferrer">
+                  <motion.h3 initial={{y: 50}} animate={{y:0}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>Visit Site</motion.h3>
+                </a>
+                
+              </div>
+            
             
             <div className="item-title">
               <motion.div 
@@ -207,7 +207,7 @@ const ProjectPage = ({navState}) => {
                 // exit={{opacity:0, transition:{}}}
                 variants={titleVariant}
               >
-                {files[id].title.split("").map((letter, i) => (
+                {files[id].name.split("").map((letter, i) => (
                   <motion.h2 key={i} variants={child}>{letter}</motion.h2>
                 ))}
               </motion.div>
@@ -366,7 +366,7 @@ const ProjectPage = ({navState}) => {
           layoutId={`file-${id}`}
           transition={{ delay: 0, duration: 1.4, ease: [0.5, 0.1, 0.2, 1], }}
           style={{
-            height: "83vh",
+            height: "40vw",
             width: "75vw",
             // position: "absolute"
           }}
@@ -395,15 +395,6 @@ const ProjectPage = ({navState}) => {
             }
           </div>
       </section>
-      
-      <div className="footer-container" ref={footerRef}>
-        <div className="footer-contents">
-            <div className="footer-bg">
-              <h5>Next Project</h5>
-              <h2>{files[1].title}</h2>
-            </div>
-        </div>
-      </div>
     </div>
     
   

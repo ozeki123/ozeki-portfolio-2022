@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import "./Toc.scss";
 
-const Toc = ({ introRef, expRef }) => {
+const Toc = ({ introRef, expRef, headerView, skillHeaderView, aboutView1 }) => {
   const [aboutView, setAboutView] = useState(false);
   const [expView, setExpView] = useState(false);
   const [skillView, setSkillView] = useState(false);
@@ -25,6 +25,9 @@ const Toc = ({ introRef, expRef }) => {
     });
     observer.observe(aboutRef.current);
   }, [])
+  useEffect(() => {
+    console.log(headerView)
+  }, [headerView])
 
   const handleIntroScroll = () => {
     introRef.current.scrollIntoView({behavior: "smooth"})
@@ -52,6 +55,10 @@ const Toc = ({ introRef, expRef }) => {
       <li className="content">
         <motion.p
         ref={aboutRef}
+        initial="hidden"
+        animate="visible"
+        transition={{ease: "easeOut", delay:0}} 
+        variants={variant1}
         // initial="hidden"
         // animate={aboutView && "visible"}
         // transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
@@ -62,25 +69,28 @@ const Toc = ({ introRef, expRef }) => {
         <motion.p
         initial="hidden"
         animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+        transition={{ ease: "easeOut", delay:0}} 
         variants={variant1}
+        style={aboutView1 && {color: "white"}}
         >About me</motion.p>
       </li>
       <li className="content">
         <motion.p
         initial="hidden"
         animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+        transition={{ease: "easeOut", delay:0.1}} 
         variants={variant}
         onClick={handleExpScroll}
+        style={headerView && {color: "white"}}
         >Experience</motion.p>
       </li>
       <li className="content">
         <motion.p
         initial="hidden"
         animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+        transition={{ease: "easeOut", delay:0.2}} 
         variants={variant}
+        style={skillHeaderView && {color: "white"}}
         >My Skills</motion.p>
       </li>
       <li className="content space">
@@ -88,7 +98,7 @@ const Toc = ({ introRef, expRef }) => {
         <motion.p
           initial="hidden"
           animate="visible"
-          transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+          transition={{ease: "easeOut", delay:0.3}} 
           variants={variant}
           >Github</motion.p>
         </div>
@@ -98,7 +108,7 @@ const Toc = ({ introRef, expRef }) => {
         <motion.p
         initial="hidden"
         animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+        transition={{ease: "easeOut", delay:0.4}} 
         variants={variant}
         >Linkedin</motion.p>
       </li>
@@ -106,7 +116,7 @@ const Toc = ({ introRef, expRef }) => {
         <motion.p
         initial="hidden"
         animate="visible"
-        transition={{duration: 0.7, ease: "easeOut", delay:0.3}} 
+        transition={{ease: "easeOut", delay:0.5}} 
         variants={variant}
         >Email</motion.p>
       </li>

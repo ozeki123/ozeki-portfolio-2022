@@ -184,7 +184,7 @@ const About = () => {
     }
   }
   const textVariant = {
-    hidden: {y:60},
+    hidden: {y:"100%"},
     visible: {y:0},
   }
   const headerVariant = {
@@ -317,7 +317,7 @@ const About = () => {
                 </div>
                 <div className="experience-contents">
                   <p className="job">
-                    <div className="text-wrapper">
+                    <div className="exp-wrapper">
                       <motion.span
                         className="exp"
                         ref={expRef1}
@@ -327,7 +327,7 @@ const About = () => {
                         variants={textVariant}
                       >Software Engineer</motion.span>
                     </div>
-                    <div className="text-wrapper">
+                    <div className="exp-wrapper">
                       <motion.span
                         className="exp"
                         initial="hidden"
@@ -337,7 +337,7 @@ const About = () => {
                       >American Home</motion.span>
                     </div>
                   </p>
-                  <div className="text-wrapper">
+                  <div className="exp-wrapper">
                     <motion.p 
                     className="date"
                     initial="hidden"
@@ -350,7 +350,7 @@ const About = () => {
                 </div>
                 <div className="experience-contents">
                   <p className="job">
-                  <div className="text-wrapper">
+                  <div className="exp-wrapper">
                     <motion.span
                       className="exp"
                       ref={expRef2}
@@ -362,7 +362,7 @@ const About = () => {
                       Front End Engineer
                     </motion.span>
                     </div>
-                    <div className="text-wrapper">
+                    <div className="exp-wrapper">
                       <motion.span
                         className="exp"
                         initial="hidden"
@@ -372,7 +372,7 @@ const About = () => {
                       >AIG Japan</motion.span>
                     </div>
                   </p>
-                  <div className="text-wrapper">
+                  <div className="exp-wrapper">
                     <motion.p 
                     className="date"
                     initial="hidden"
@@ -384,7 +384,7 @@ const About = () => {
                 </div>
                 <div className="experience-contents">
                   <p className="job">
-                  <div className="text-wrapper">
+                  <div className="exp-wrapper">
                       <motion.span
                         className="exp"
                         ref={expRef3}
@@ -394,7 +394,7 @@ const About = () => {
                         variants={textVariant}
                       >Intern</motion.span>
                     </div>
-                    <div className="text-wrapper">
+                    <div className="exp-wrapper">
                       <motion.span
                         className="exp"
                         initial="hidden"
@@ -404,7 +404,7 @@ const About = () => {
                       >Microsoft</motion.span>
                     </div>
                   </p>
-                  <div className="text-wrapper">
+                  <div className="exp-wrapper">
                     <motion.p 
                     className="date"
                     initial="hidden"

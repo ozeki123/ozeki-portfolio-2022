@@ -30,6 +30,10 @@ body {
   // overscroll-behavior-y: none;
   text-rendering: optimizeLegibility;
   overflow-x: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+-moz-backface-visibility:    hidden;
+-ms-backface-visibility:     hidden;
 }
 
 // iframe {

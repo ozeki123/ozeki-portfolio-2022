@@ -377,7 +377,7 @@ const ProjectPage = ({navState}) => {
           }
           
           <div className="item-image">
-            <motion.img initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image"src={files[id].src}/>
+            <motion.img initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image" src={files[id].src}/>
           </div>
           
             

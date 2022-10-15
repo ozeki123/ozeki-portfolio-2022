@@ -58,7 +58,7 @@ const Projects = ({navState}) => {
   // }, [gallery])
 
   return (
-    <div className="projects-container" data-scroll-container>
+    <div className="projects-container">
     
       <motion.div 
         className="transition-overlay" 

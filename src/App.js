@@ -150,7 +150,7 @@ function App() {
       // >
     }
         <main>
-            <Navbar navState={navState} setNavState={setNavState}/>
+            <Navbar navState={navState} setNavState={setNavState} key={location.pathname}/>
               <ContextProvider>
                 <AnimateSharedLayout>
                   <AnimatePresence exitBeforeEnter>

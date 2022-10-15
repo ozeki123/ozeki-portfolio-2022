@@ -19,18 +19,12 @@ const ProjectPage = ({navState}) => {
   let id = params.id;
   const layoutRef = useRef(null);
   const ref = useRef(null);
-  const scrollParallaxRef = useRef(null);
-  const scrollParallaxRef1 = useRef(null);
-  const scrollParallaxRef2 = useRef(null);
-  const descRef = useRef(null);
-  const showcaseRef = useRef(null);
   const featuresRef = useRef(null);
   const footerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
   const location = useLocation();
   const { offsetHeight, offsetSub, offsetDesc1, offsetDesc2 } = useContext(AppContext);
   const { scrollY } = useViewportScroll();
-  // const scrollParallaxRef = useRef(null);
   const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
   useEffect(() => {
     console.log(location);
@@ -46,26 +40,10 @@ const ProjectPage = ({navState}) => {
     setTimeout(function () {
       window.scrollTo(0, 0);
   },500);
-    const image = document.getElementsByClassName('project-image');
-    // new simpleParallax(image, {
-    // delay: 0,
-    // orientation: 'down',
-    // scale: 1.4,
-    // // overflow: true,
-    // });
-    // const rellax = new Rellax('.thumbnail');
-    // setTimeout(() => {
-      // return () => {
-      //   parallaxController.destroy();
-      // }
-    // }, 150);
-    // const scene = document.getElementById('thumbnail');
-    // const parallaxInstance = new Parallax(scene);
   }, [])
 
   useEffect(() => {
     if(navState === "about"){
-      // console.log(navState);
       setAboutFlag(true);
     }
     
@@ -78,36 +56,11 @@ const ProjectPage = ({navState}) => {
   
 
   useEffect(() => {
-    // window.dispatchEvent(new Event('resize'))
-    // setTimeout(() => {
-    //   scrollParallaxRef.current?.updateValues();
-      
-    //   setTimeout(() => {
-    //     // scrollParallaxRef1.current?.updateValues();
-    //     scrollParallaxRef2.current?.updateValues();
-    //   }, 800);
-    // }, 600);
     setTimeout(() => {
       layoutRef.current.style.position = "absolute";
-      // layoutRef.current.style.top = "67.8vh";
-      // descRef.current.style.display="flex";
-      // showcaseRef.current.style.display="block";
       featuresRef.current.style.display="flex";
-      // footerRef.current.style.display="block";
     }, 800);
   }, [])
-  
-
-  // const { scrollY, scrollYProgress } = useViewportScroll();
-
-  // let top = 0;
-
-  // const width = useTransform(scrollYProgress, [0, 1], ["800px", "2000px"]);
-  // const width = useTransform(
-  //   scrollYProgress,
-  //   [0, 0.33, 0.66, 1],
-  //   [0.5, 0.75, 0.5, 1],
-  // )
 
   const titleVariant = {
     hidden: {},
@@ -157,35 +110,7 @@ const ProjectPage = ({navState}) => {
       <motion.div
         className="item"
         exit={{y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}
-        // onClick={(e) => {
-        //   e.target === e.currentTarget && setSelected(false);
-        // }}
       >
-      {
-      //   <div style={{position: "fixed", width: "100vw", height: "100vh", top:"50%", transform: "translateY(-50%)",display: "flex", justifyContent:"center", alignItems:"center", backgroundColor:"red"}}>
-      //   <div style={{overflow: "hidden", width: "100%", height: "42px", zIndex: "999"}}>
-      //       <motion.h1
-      //               layoutId={ `title-${id}`}
-      //               transition={{ 
-      //                 duration: 1, 
-      //                 // ease: [0.6, 0.21, 0.25, 0.95],
-      //                 // delay: 0
-      //               }}
-      //               style={{
-      //                 position: "absolute",
-      //                 top: "0vh",
-      //                 left: 0,
-      //                 fontSize: "20px",
-      //                 // opacity: 1,
-      //                 zIndex: 999,
-      //                 width: "100%",
-      //                 height: "100%"
-      //               }}
-      //             >Hello</motion.h1>
-            
-      //     </div>
-      // </div>
-      }
         <section className="item-top">
           <div className="item-heading">
             
@@ -368,14 +293,9 @@ const ProjectPage = ({navState}) => {
           style={{
             height: "40vw",
             width: "75vw",
-            // position: "absolute"
           }}
         >
           <div className="item-image-wrapper">
-          {
-            // <ScrollParallax strength="0.06" lerpEase="0.07" ref={scrollParallaxRef}></ScrollParallax>
-          }
-          
           <div className="item-image">
             <motion.img initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image" src={files[id].src}/>
           </div>

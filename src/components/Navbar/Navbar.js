@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
+import { motion } from "framer-motion";
 import './Navbar.scss';
 
 const Navbar = ({navState, setNavState}) => {
@@ -27,16 +28,18 @@ const Navbar = ({navState, setNavState}) => {
           <NavLink to="/projects" onClick={setNavState("projects")} state={{from:pathname}} style={({ isActive }) =>
             isActive ? activeStyle : undefined
           }>
-            Projects
+            <motion.p>Projects</motion.p>
           </NavLink>
         </li>
         <li className="top-right">
           <NavLink onClick={(e) => {e.preventDefault(); setNavState('about'); setTimeout(() => {navigate("/about")}, 10); }}  to="/about" style={({ isActive }) =>
           isActive ? activeStyle : undefined
-        }>About</NavLink>
+          }>
+            <p>About</p>
+          </NavLink>
         </li>
         <li className="bottom-left">
-          Contact
+          <p>Contact</p>
         </li>
       </ul>
     </nav>

@@ -43,6 +43,11 @@ const About = () => {
   const [skillView1, setSkillView1] = useState(false);
   const [skillView2, setSkillView2] = useState(false);
   const [skillView3, setSkillView3] = useState(false);
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  }, [])
+
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -52,9 +57,6 @@ const About = () => {
     });
     observer.observe(infoRef.current);
   }, [])
-  useEffect(() => {
-    // console.log(headerView)
-  }, [headerView])
 
   useEffect(() => {
     const observer = new IntersectionObserver(entries => {

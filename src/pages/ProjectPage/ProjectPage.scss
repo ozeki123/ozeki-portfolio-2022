@@ -123,10 +123,14 @@
     .heading-categories{
       width: 90%;
       height: 100%;
-      padding-top: 5vh;
-      padding-bottom: 10vh;
+      padding-top: 2.5vw;
+      // padding-bottom: 0vh;
       display: flex;
       justify-content: space-between;
+
+      @media only screen and (max-width: 768px)  {
+          width: 100%;
+        }
       
       .category{
         height: 100%;
@@ -138,7 +142,7 @@
           height: 1px;
           background-color: rgb(214, 214, 214);
           padding: 0;
-          margin-top: 2.5vh;
+          margin-top: 1.2vw;
         }
         .spacing{
           // padding-top: 2vh;
@@ -150,7 +154,7 @@
             color: rgb(156, 156, 156);
             width: 100%;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: clamp(0.6rem, 0.5423rem + 0.2564vw, 0.85rem);
             font-weight: 500;
             margin: 0;
             
@@ -167,9 +171,9 @@
         .category-item{
           overflow: hidden;
           margin: 0;
-          padding-top: 15px;
+          padding-top: 1vw;
           .category-item-inner{
-            font-size: 1.14rem;
+            font-size: clamp(0.6rem, 0.4754rem + 0.5538vw, 1.14rem);
             letter-spacing: -0.2px;
             margin: 0;
           }
@@ -178,22 +182,13 @@
       }
       
     }
-    .item-description{
-      padding-top: 1vh;
-      overflow: hidden;
-      p{
-        text-transform: uppercase;
-        font-size: 0.8rem;
-        letter-spacing: 0.5px;
-      }
-    }
 
     .item-link{
       padding-top: 1vh;
       overflow: hidden;
       z-index: 999;
       h3{
-        font-size: 1.15rem;
+        font-size: clamp(0.7rem, 0.5962rem + 0.4615vw, 1.15rem);
         letter-spacing: -0.2px;
         // text-transform: uppercase;
         font-family: "Basis", sans-serif;
@@ -217,7 +212,7 @@
   
   .container{
     position: fixed;
-    top: 69vh;
+    top: clamp(25rem, 20.3846rem + 20.5128vw, 45rem);
     min-width: 500px !important;
     min-height: 300px !important;
     // aspect-ratio: 1 / 1;
@@ -267,16 +262,12 @@
   
   
 }
-.item-description{
-  padding-top: 90vh;
-  width: 70%;
-}
 .features-section{
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
-  padding-top: 35vh;
+  padding-top: 30vw;
   .features-images{
     width: 61%;
     // height: 100%;
@@ -284,7 +275,7 @@
     img{
       width: 100%;
       height: 100%;
-      padding-bottom: 8vh;
+      padding-bottom: 5vw;
     }
   }
   
@@ -293,8 +284,8 @@
   margin: 0 auto;
   text-align: start;
   width: 60%;
-  padding-top: 25vh;
-  padding-bottom: 25vh;
+  // padding-top: 25vh;
+  padding-bottom: 14vw;
   display: flex;
   
 }

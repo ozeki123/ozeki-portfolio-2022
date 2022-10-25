@@ -75,14 +75,14 @@ const Projects = ({navState}) => {
         <div className="banner">
           <div className="banner-text">
             <div className="text-top">
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.6, ease: "easeInOut", delay: 0.2}}>Andrew Ozeki</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0}}>Andrew Ozeki</motion.h2>
             </div>
             <div className="text-center">
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.6, ease: "easeInOut", delay: 0.3}}>Front End</motion.h2>
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.6, ease: "easeInOut", delay: 0.3}}>&thinsp;Dev</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.1}}>Front End</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.1}}>&thinsp;Dev</motion.h2>
             </div>
             <div className="text-bottom">
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.6, ease: "easeInOut", delay: 0.4}}>Folio '22</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.25}}>Folio '22</motion.h2>
             </div>
           </div>
           <motion.div className="discover" initial={{opacity:0}} animate={{opacity:1}} transition={{duration: 0.6}}>

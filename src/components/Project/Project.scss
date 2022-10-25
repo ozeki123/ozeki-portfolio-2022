@@ -8,14 +8,25 @@
   // background-color: red;
   z-index: 999;
   padding-top: 7vh;
+  @media only screen and (max-width: 1024px)  {
+    min-width: 480px !important;
+    min-height: 260px !important;
+    transition: 1s;
+  }
+
+  @media only screen and (max-width: 480px)  {
+    min-width: 100vw !important;
+    min-height: 220px !important;
+    transition: 1s;
+  }
   .padding{
     // padding-top: 7vh;
     position: relative;
     // bottom: 0vh;
-    @media only screen and (max-width: 768px)  {
-      padding-top: 0;
-      // padding-bottom: 2vh;
-    }
+    // @media only screen and (max-width: 768px)  {
+    //   padding-top: 0;
+    //   // padding-bottom: 2vh;
+    // }
   }
   .layout-text{
     width: 100%;
@@ -28,7 +39,7 @@
     justify-content: center;
     z-index: 1;
     background: none;
-    
+    // border: 1px solid red;
     // text-shadow: 3px 3px 10px rgb(0, 0, 0);
     // padding-top: 5vh;
     // bottom: 0vh;
@@ -46,6 +57,7 @@
     // margin: 15vh 10vh;
     z-index: 1;
     overflow: hidden;
+    
     
   }
   .sublayout-wrapper{

@@ -78,11 +78,21 @@ const Projects = ({navState}) => {
               <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0}}>Andrew Ozeki</motion.h2>
             </div>
             <div className="text-center">
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.1}}>Front End</motion.h2>
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.1}}>&thinsp;Dev</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.15}}>Front End</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.15}}>&thinsp;Dev</motion.h2>
             </div>
             <div className="text-bottom">
-              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.25}}>Folio '22</motion.h2>
+              <motion.h2 initial={{y:116}} animate={{y:0}} transition={{duration: 0.9, ease:[0.65, 0.1, 0.25, 0.95], delay: 0.3}}>Folio '22</motion.h2>
+              <div className="banner-about">
+                <div className="text-row">
+                  <motion.p initial={{y:25}} animate={{y:0}} transition={{duration: 0.7, delay: 0.3, ease:"easeInOut"}}>CREATIVE FRONT END</motion.p>
+                </div>
+                <div className="text-row">
+                  <motion.p initial={{y:25}} animate={{y:0}} transition={{duration: 0.7, delay: 0.4, ease:"easeInOut"}}>DEVELOPER BASED IN TOKYO</motion.p>
+                </div>
+                
+              </div>
+              
             </div>
           </div>
           <motion.div className="discover" initial={{opacity:0}} animate={{opacity:1}} transition={{duration: 0.6}}>
@@ -98,9 +108,6 @@ const Projects = ({navState}) => {
         <motion.div className="items-content">
           <motion.div 
             className="project-item-wrapper"
-            initial={{y:0, opacity: 1}} 
-            animate={selected === 1 && {y:-100, opacity: 0}} 
-            transition={{duration: 0.7, ease: "easeInOut"}} 
             onClick={() => setSelected(0)}
             >
               <Project file={files[0]} i={0}/>
@@ -109,9 +116,6 @@ const Projects = ({navState}) => {
           <ScrollParallax strength="-0.03" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
-              initial={{y:0, opacity: 1}} 
-              onClick={() => setSelected(1)}
-              animate={selected === 0 ? {y:100, opacity: 0} : selected === 2 ? {y:-100, opacity: 0} : {}}
               transition={{duration: 0.7, ease: "easeInOut"}}
               >
                 <Project file={files[1]} i={1}/>
@@ -121,9 +125,6 @@ const Projects = ({navState}) => {
           <ScrollParallax strength="-0.05" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
-              initial={{y:0, opacity: 1}} 
-              animate={selected === 1 && {y:100, opacity: 0}} 
-              transition={{duration: 0.7, ease: "easeInOut"}} 
               onClick={() => setSelected(2)}>
               <Project file={files[2]} i={2}/>
             </motion.div>
@@ -131,9 +132,6 @@ const Projects = ({navState}) => {
           <ScrollParallax strength="-0.07" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
-              initial={{y:0, opacity: 1}} 
-              animate={selected === 1 && {y:100, opacity: 0}} 
-              transition={{duration: 0.7, ease: "easeInOut"}} 
               onClick={() => setSelected(3)}>
               <Project file={files[3]} i={3}/>
             </motion.div>
@@ -141,9 +139,6 @@ const Projects = ({navState}) => {
           <ScrollParallax strength="-0.07" zIndex={999}>
             <motion.div 
               className="project-item-wrapper"
-              initial={{y:0, opacity: 1}} 
-              animate={selected === 1 && {y:100, opacity: 0}} 
-              transition={{duration: 0.7, ease: "easeInOut"}} 
               onClick={() => setSelected(4)}>
               <Project file={files[4]} i={4}/>
             </motion.div>

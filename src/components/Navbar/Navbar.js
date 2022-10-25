@@ -24,22 +24,27 @@ const Navbar = ({navState, setNavState}) => {
     <nav className="nav-container">
       <ul className="nav-items">
         <li className="top-left">
-          <NavLink to="/projects" onClick={setNavState("projects")} state={{from:pathname}} style={({ isActive }) =>
-            isActive ? activeStyle : undefined
-          }>
-            <p>Projects</p>
+          <NavLink to="/projects" onClick={setNavState("projects")} state={{from:pathname}}>
+            <p>AO</p>
           </NavLink>
         </li>
         <li className="top-right">
+          <NavLink to="/projects" onClick={setNavState("projects")} state={{from:pathname}} style={({ isActive }) =>
+            isActive ? activeStyle : undefined
+          }>
+            <p className="nav-projects">Projects</p>
+          </NavLink>
           <NavLink onClick={(e) => {e.preventDefault(); setNavState('about'); setTimeout(() => {navigate("/about")}, 10); }}  to="/about" style={({ isActive }) =>
           isActive ? activeStyle : undefined
           }>
             <p>About</p>
           </NavLink>
         </li>
-        <li className="bottom-left">
-          <p>Contact</p>
-        </li>
+        <div className="bottom-left">
+          <li>Linkedin</li>
+          <li>Github</li>
+          <li>Blog</li>
+        </div>
       </ul>
     </nav>
   )

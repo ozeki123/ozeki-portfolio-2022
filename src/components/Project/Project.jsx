@@ -19,7 +19,7 @@ const Project = ({file, i}) => {
   const descRef1 = useRef();
   const descRef2 = useRef();
   const { scrollYProgress } = useViewportScroll();
-  const parallax = useTransform(scrollYProgress, [0, 1], [0, -120]);
+  const parallax = useTransform(scrollYProgress, [0, 1], [0, -250]);
   const [transitionFlag, setTransitionFlag] = useState(false);
   let temp = true;
   const location = useLocation();
@@ -46,7 +46,7 @@ const Project = ({file, i}) => {
   // const handleLoad = () => 
 
   useEffect(() => {
-    console.log("PREV", prevPath);
+    window.scrollTo(0,0)
   }, [])
 
   
@@ -142,11 +142,11 @@ const Project = ({file, i}) => {
       onClick={(e) => {
         setOffsetHeight(titleRef.current.getBoundingClientRect().top);
         setOffsetSub(subTitleRef.current.getBoundingClientRect().top);
-        setOffsetDesc1(descRef1.current.getBoundingClientRect().top);
-        setOffsetDesc2(descRef2.current.getBoundingClientRect().top);
+        // setOffsetDesc1(descRef1.current.getBoundingClientRect().top);
+        // setOffsetDesc2(descRef2.current.getBoundingClientRect().top);
       }}>
       <Link to={`/projects/${i}`}> 
-      <motion.div className={`layout-text ${file.id > 2 && "padding"}`} style={{y:parallax}}>
+      <motion.div className={`layout-text ${file.id <= 3 && "padding"}`} style={{y:parallax, top: 80 + 30 * (file.id * 1.3)}}>
         <motion.div className="layout-wrapper">
           <motion.div transition={{duration: 0, delay: 0, ease: "easeOut"}}>
             <motion.h2 ref={titleRef} initial={{y: 70,  skewX: -15}} animate={{y:0, skewY: 0, skewX: 0}}
@@ -163,24 +163,27 @@ const Project = ({file, i}) => {
           >{file.subtitle}
           </motion.h2>
         </div>
-        <p className={`item-desc`}>
-          <div className="text-wrapper">
-            <motion.span 
-              ref={descRef1}
-              initial={{y:30}} 
-              animate={{y:0}}
-              transition={{duration: 0.8, delay: 0.75, ease: [0.45, 0.35, 0.45, 0.95]}}
-              >{file.description1}</motion.span>
-          </div>
-          <div className="text-wrapper">
-            <motion.span
-              ref={descRef2}
-              initial={{y:30}} 
-              animate={{y:0}}
-              transition={{duration: 0.8, delay: 0.85, ease: [0.45, 0.35, 0.45, 0.95]}}
-            >{file.description2}</motion.span>
-          </div>
-        </p>
+        {
+        //   <p className={`item-desc`}>
+        //   <div className="text-wrapper">
+        //     <motion.span 
+        //       ref={descRef1}
+        //       initial={{y:30}} 
+        //       animate={{y:0}}
+        //       transition={{duration: 0.8, delay: 0.75, ease: [0.45, 0.35, 0.45, 0.95]}}
+        //       >{file.description1}</motion.span>
+        //   </div>
+        //   <div className="text-wrapper">
+        //     <motion.span
+        //       ref={descRef2}
+        //       initial={{y:30}} 
+        //       animate={{y:0}}
+        //       transition={{duration: 0.8, delay: 0.85, ease: [0.45, 0.35, 0.45, 0.95]}}
+        //     >{file.description2}</motion.span>
+        //   </div>
+        // </p>
+        }
+        
       </motion.div>
         <motion.div
           layoutId={ `file-${i}`}
@@ -226,13 +229,14 @@ const Project = ({file, i}) => {
             }
               <motion.div 
                 className="overlay" 
-                style={{backgroundColor:"#F2F2F2"}} 
+                style={{backgroundColor:"#FCFAF8"}} 
                 initial={"hidden"} 
                 animate={"visible"} 
                 variants={pageVariant}></motion.div>
                   
                   <motion.img 
                       className={`thumbnail ${file.id === 2 && "shadow"}` }
+                      style={file.id === 1 && {objectPosition: "top"}}
                       // whileHover={{
                       //   scale: 1,
                       //   transition:{

@@ -1,13 +1,17 @@
 .project-item-container{
-  width: 100%;
+  width: 60%;
+  // border: 1px solid red;
+  margin: 0 auto;
   height: 100%;
   // background-color: red;
   position: relative;
   // background-color: red;
+  z-index: 999;
   padding-top: 7vh;
-  z-index: 0;
   .padding{
-    padding-top: 7vh;
+    // padding-top: 7vh;
+    position: relative;
+    // bottom: 0vh;
     @media only screen and (max-width: 768px)  {
       padding-top: 0;
       // padding-bottom: 2vh;
@@ -24,6 +28,7 @@
     justify-content: center;
     z-index: 1;
     background: none;
+    
     // text-shadow: 3px 3px 10px rgb(0, 0, 0);
     // padding-top: 5vh;
     // bottom: 0vh;
@@ -92,7 +97,6 @@
   
 }
 .thumb {
-  z-index: 1;
   position: relative;
   z-index: 0;
   cursor: pointer;
@@ -105,20 +109,32 @@
   margin: 0 auto;
   // min-width: 350px !important;
   // min-height: 250px !important;
-  @media only screen and (max-width: 1366px)  {
-    min-width: 600px !important;
-    min-height: 350px !important;
-  }
-  @media only screen and (max-width: 767px)  {
-    min-width: 400px !important;
-    min-height: 250px !important;
+  // @media only screen and (max-width: 1366px)  {
+  //   min-width: 620px !important;
+  //   // min-height: 335px !important;
+  // }
+  // @media only screen and (max-width: 767px)  {
+  //   min-width: 450px !important;
+  //   // min-height: 250px !important;
+  //   transition: 1s;
+  // }
+
+  @media only screen and (max-width: 1024px)  {
+    min-width: 480px !important;
+    min-height: 260px !important;
     transition: 1s;
   }
+
   @media only screen and (max-width: 480px)  {
     min-width: 100vw !important;
-    min-height: 250px !important;
+    min-height: 220px !important;
     transition: 1s;
   }
+  // @media only screen and (max-width: 480px)  {
+  //   min-width: 100vw !important;
+  //   min-height: 250px !important;
+  //   transition: 1s;
+  // }
   // padding-top: 5vh;
   &:hover{
 
@@ -174,6 +190,7 @@
       position: relative;
       z-index: 1;
       filter: brightness(85%);
+      
       // aspect-ratio: 1 / 1;
       // transform: scale(2);
       // background-attachment: fixed;

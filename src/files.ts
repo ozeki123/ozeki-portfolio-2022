@@ -1,7 +1,8 @@
-import holo from "./assets/holo-full-screen.jpg";
+import holo from "./assets/nicolas-steave-eKlQ5CV6IMU-unsplash 1 (1).jpg";
 import bolt from "./assets/playground-final.jpg";
-import mfm from "./assets/mfm-full-screen.jpg";
-import mfw from "./assets/mfw-full-screen.jpg";
+import mfm from "./assets/hong-nguyen-fTsmxmjwvUk-unsplash 1 (1).jpg";
+import mfw from "./assets/chandri-anggara-JBOdWnzRMJA-unsplash 1 (1).jpg";
+import clpa from "./assets/thanh-tam-6krK7z2pjpY-unsplash 1 (1).jpg";
 import holoParallax from "./assets/holo-parallax.jpg";
 import holoHome from "./assets/holo-desktop.png";
 import holoPage from "./assets/holo-group-page.png";
@@ -21,9 +22,10 @@ export default [
     description: "A web app concept that allows people to book sports related spaces.",
     description1: "A web app concept that allows people to",
     description2: "book sports related spaces.",
-    full_description: "Sportify (creative name I know) is the first full project that I've tried creating as a developer. It has been recreated over and over again as part of my learning process a few years ago, and I recently decided to finish it in my spare time. Most of the development was done as when I was just starting out, so there is a lot of spaghetti code (currently refactoring). The app is built in the MERN stack (super original idea). As this project was for my learning, I've tried to use as little libraries and packages as possible, and built everything I could from scratch.",
-    feature_text1: "The apps main functionality is to allow users to browse sports related spaces and book them. Alternatively, partners of the app can host experiences, where an activity is offered as a service instead of renting a space. Users also have the group finder functionality available, allowing users to form groups to organize events and play together. The goal of holo was to conceptualize a sports platform that not only allows users the opportunity to play sports, but to connect with people and make friends along the way.",
-    feature_text2: "The app leverages a MongoDB/Express back end that uses JWT for authentication. React is used for the front end, together with the Context API  to persist login state. The app uses the stripe API to handle payment.",
+    full_description: "In Japan it has recently been difficult to find places to play sports, and to find people to play sports with. Especially during the Covid-19 pandemic, it has been difficult to be able to find the schedules of open gyms due to the lack of website availability and online information.",
+    full_description2: "Moreover, finding people to play with can also be difficult, especially for people who have not gone to school in Japan, or don't have many acquaintances. Apps like Meetup exist, but are limited to only a few groups per sport. Some groups can also be intimidating because a certain skill level is expected.",
+    feature_text1: "The app aims to solve the above issues by providing a service that allow users to browse sports related spaces, check its availability, and book it fully through the app. Alternatively, partners of the app can host experiences, where an activity is offered as a service instead of renting a space.",
+    feature_text2: "Users also have the group finder functionality available, allowing users to form groups to organize events and play together. The overall goal of holo was to conceptualize a sports platform that not only allows users the opportunity to play sports, but to connect with people and make friends.",
     // size: 5485,
     width: "100%",
     height: "70%",
@@ -32,9 +34,12 @@ export default [
     images: [holoHome, holoPage],
     screen1: holoHome,
     screens: [holoscreen1, holoscreen3],
-    website: "http://github.com/ozeki123/Oribit-Website"
+    website: "http://github.com/ozeki123/Oribit-Website",
+    front: "HTML・SCSS・JavaScript・React",
+    back: "NodeJS・Express・MongoDB",
+    design: "Figma・Adobe Illustrator",
+    technologies: "HTML, SCSS, JavaScript, React, Express, MongoDB, Figma, Adobe Illustrator"
   },
-  
   {
     id: 2,
     name: "Morph Men",
@@ -47,15 +52,23 @@ export default [
     description: "A website that allows users to purchase insurance policies tailored to men.",
     description1: "A website that allows users to purchase",
     description2: "insurance policies tailored to men.",
-    full_description: "Sportify (creative name I know) is the first full project that I've tried creating as a developer. It has been recreated over and over again as part of my learning process a few years ago, and I recently decided to finish it in my spare time. Most of the development was done as when I was just starting out, so there is a lot of spaghetti code (currently refactoring). The app is built in the MERN stack (super original idea). As this project was for my learning, I've tried to use as little libraries and packages as possible, and built everything I could from scratch.",
+    full_description: "Currently in Japan, insurance companies offer a large variety of insurance plans with numerous special packages, clauses, and contracts that can be difficult to navigate and often times confuses the consumer. ",
+    full_description2: "These insurance policies also cover the general population rather than a target demographic. Consequently, there are a lot of scenarios where custom tailored insurance packages specifically for a target demographic are more fitting to the needs of the consumer.",
+    feature_text1: "Morph for Men fills this gap by providing customizable insurance plans specifically aimed towards men in order to adequately cover specific scenarios otherwise unavailable in other generalized insurance plans",
+    feature_text2: "Morph for Men allows users to build a custom insurance plan, calculate prices, view all insurance policy related information, purchase the plan, and view all purchased insurance policies all through the website.",
+    
     // size: 82091,
     width: "100%",
     height: "70%",
     src: mfm,
-    screen1: holoHome,
-    screens: [holoscreen1, holoscreen3],
-    website: "https://www.americanhome-digital.jp/formen"
+    screen1: {},
+    screens: [],
+    website: "https://www.americanhome-digital.jp/formen",
+    front: "HTML・SCSS・JavaScript・Angular",
+    back: "Java, Spring Boot, MuleSoft",
+    design: "N/A",
   },
+  
   {
     id: 3,
     name: "Morph Women",
@@ -68,17 +81,53 @@ export default [
     description: "A website that allows users to purchase insurance policies tailored to women.",
     description1: "A website that allows users to purchase",
     description2: "insurance policies tailored to women.",
-    full_description: "Sportify (creative name I know) is the first full project that I've tried creating as a developer. It has been recreated over and over again as part of my learning process a few years ago, and I recently decided to finish it in my spare time. Most of the development was done as when I was just starting out, so there is a lot of spaghetti code (currently refactoring). The app is built in the MERN stack (super original idea). As this project was for my learning, I've tried to use as little libraries and packages as possible, and built everything I could from scratch.",
+    full_description: "Currently in Japan, insurance companies offer a large variety of insurance plans with numerous special packages, clauses, and contracts that can be difficult to navigate and often times confuses the consumer. ",
+    full_description2: "These insurance policies also cover the general population rather than a target demographic. Consequently, there are a lot of scenarios where custom tailored insurance packages specifically for a target demographic are more fitting to the needs of the consumer.",
+    feature_text1: "Morph for Women fills this gap by providing customizable insurance plans specifically aimed towards women in order to adequately cover specific scenarios otherwise unavailable in other generalized insurance plans",
+    feature_text2: "Morph for Women allows users to build a custom insurance plan, calculate prices, view all insurance policy related information, purchase the plan, and view all purchased insurance policies all through the website.",
     // size: 230752,
     width: "100%",
     height: "70%",
     src: mfw,
-    screen1: holoHome,
-    screens: [holoscreen1, holoscreen3],
-    website: "https://www.americanhome-morph.jp/guideline"
+    screen1: {},
+    screens: [],
+    website: "https://www.americanhome-morph.jp/guideline",
+    front: "HTML・SCSS・JavaScript・Angular",
+    back: "Java, Spring Boot, MuleSoft",
+    design: "N/A",
   },
   {
     id: 4,
+    date: "Japan ・ 2022",
+    name: "Lifestyle",
+    title: "Lifestyle",
+    subtitle: "Insurance",
+    category: "Web Development",
+    role: ["Front End Development", "Back End Development", "UI/UX Design"],
+    type: "image/jpeg",
+    description: "A web app concept that allows people to book sports related spaces.",
+    description1: "A web app concept that allows people to",
+    description2: "book sports related spaces.",
+    full_description: "Currently in Japan, insurance companies offer a large variety of insurance plans with numerous special packages, clauses, and contracts that can be difficult to navigate and often times confuses the consumer. ",
+    full_description2: "These insurance policies also cover the general population rather than a target demographic. Consequently, there are a lot of scenarios where custom tailored insurance packages specifically for a target demographic are more fitting to the needs of the consumer.",
+    feature_text1: "The app aims to solve the above issues by providing a service that allow users to browse sports related spaces, check its availability, and book it fully through the app. Alternatively, partners of the app can host experiences, where an activity is offered as a service instead of renting a space.",
+    feature_text2: "Users also have the group finder functionality available, allowing users to form groups to organize events and play together. The overall goal of holo was to conceptualize a sports platform that not only allows users the opportunity to play sports, but to connect with people and make friends.",
+    // size: 5485,
+    width: "100%",
+    height: "70%",
+    src: clpa,
+    bg1: holoParallax,
+    images: [],
+    screen1: {},
+    screens: [],
+    website: "http://github.com/ozeki123/Oribit-Website",
+    front: "HTML・SCSS・JavaScript・Angular",
+    back: "Java, Spring Boot, MuleSoft",
+    design: "N/A",
+  },
+  
+  {
+    id: 5,
     date: "Japan ・ 2022",
     name: "Playground",
     title: "Playground",
@@ -89,7 +138,7 @@ export default [
     description: "Some projects that I've never finished but thought ",
     description1: "Some projects that I've never finished but",
     description2: "thought were worth sharing.",
-    full_description: "Sportify (creative name I know) is the first full project that I've tried creating as a developer. It has been recreated over and over again as part of my learning process a few years ago, and I recently decided to finish it in my spare time. Most of the development was done as when I was just starting out, so there is a lot of spaghetti code (currently refactoring). The app is built in the MERN stack (super original idea). As this project was for my learning, I've tried to use as little libraries and packages as possible, and built everything I could from scratch.",
+    full_description: "Throughout my learning journey, there have been quite a few projects that I've started that weren't quite worth a full release, but nonetheless thought would be worth sharing.",
     feature_text1: "The apps main functionality is to allow users to browse sports related spaces and book them. Alternatively, partners of the app can host experiences, where an activity is offered as a service instead of renting a space. Users also have the group finder functionality available, allowing users to form groups to organize events and play together. The goal of holo was to conceptualize a sports platform that not only allows users the opportunity to play sports, but to connect with people and make friends along the way.",
     feature_text2: "The app leverages a MongoDB/Express back end that uses JWT for authentication. React is used for the front end, together with the Context API  to persist login state. The app uses the stripe API to handle payment.",
     // size: 5485,
@@ -97,9 +146,12 @@ export default [
     height: "70%",
     src: bolt,
     bg1: holoParallax,
-    images: [holoHome, holoPage],
-    screen1: holoHome,
-    screens: [holoscreen1, holoscreen3],
-    website: "http://github.com/ozeki123"
+    images: [],
+    screen1: {},
+    screens: [],
+    website: "http://github.com/ozeki123",
+    front: "HTML・SCSS・JavaScript・Angular",
+    back: "N/A",
+    design: "Figma, Adobe Illustrator, Adobe Photoshop",
   },
 ];

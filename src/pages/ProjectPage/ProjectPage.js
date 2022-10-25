@@ -27,7 +27,7 @@ const ProjectPage = ({navState}) => {
   const { scrollY } = useViewportScroll();
   const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
   useEffect(() => {
-    console.log(location);
+    console.log(files[id].id);
   }, [location])
 
   useEffect(() => {
@@ -103,7 +103,7 @@ const ProjectPage = ({navState}) => {
       <motion.div 
         className="transition-overlay"
         initial={{y: "100vh"}}
-        style={aboutFlag ? {backgroundColor: "#141414"} : {}}
+        style={aboutFlag ? {backgroundColor: "#141414"} : {backgroundColor: "#FCFAF8"}}
         exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} transition={{duration: 0}}
       ></motion.div>
       
@@ -263,26 +263,6 @@ const ProjectPage = ({navState}) => {
             {files[id].subtitle}
           </motion.h2>
         </div>
-        <div className="layout-wrapper" style={{top: offsetDesc1}}>
-          <motion.p
-            className="layout-desc"
-            initial={{opacity: 1, y:0, skewY:0}}
-            animate={{opacity:1, y: 35, skewY:0}}
-            transition={{duration: 0.5, delay:0.1, ease: "easeInOut"}}
-          >
-            {files[id].description1}
-          </motion.p>
-        </div>
-        <div className="layout-wrapper" style={{top: offsetDesc2}}>
-          <motion.p
-            className="layout-desc"
-            initial={{opacity: 1, y:0, skewY:0}}
-            animate={{opacity:1, y: 35, skewY:0}}
-            transition={{duration: 0.5, delay:0.1, ease: "easeInOut"}}
-          >
-            {files[id].description2}
-          </motion.p>
-        </div>
         
         <motion.div
           ref={layoutRef}
@@ -297,7 +277,7 @@ const ProjectPage = ({navState}) => {
         >
           <div className="item-image-wrapper">
           <div className="item-image">
-            <motion.img initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image" src={files[id].src}/>
+            <motion.img style={files[id].id === 1 && {objectPosition: "top"}} initial={{scale:1.2}} animate={{scale: 1}} transition={{ duration: 1.5, ease: [0.5, 0.1, 0.2, 1], }} className="project-image" src={files[id].src}/>
           </div>
           
             
@@ -305,15 +285,57 @@ const ProjectPage = ({navState}) => {
         </motion.div>
       </motion.div>
       <section className="features-section" ref={featuresRef}>
-        <div className="item-features" >
-        </div>
-        <div className="features-images">
+        <section className="item-features">
+          <div className="section-header">
+            <p>01</p>
+            <h3>Background</h3>
+          </div>
+          <div className="section-text">
+            <p>{files[id].full_description}
+              <br/><br/>
+              {files[id].full_description2}
+            </p>
+          </div>
+        </section>
+        <section className="item-features">
+          <div className="section-header">
+            <p>02</p>
+            <h3>Features</h3>
+          </div>
+          <div className="section-text">
+            <p>{files[id].feature_text1}
+              <br/><br/>
+               {files[id].feature_text2}
+            </p>
+          </div>
+        </section>
+        <section className="item-features">
+          <div className="section-header">
+            <p>03</p>
+            <h3>Technology</h3>
+          </div>
+          <div className="section-text">
+            <p className="technology">
+              <span>Front End</span>
+              <span>{files[id].front}</span>
+            </p>
+            <p className="technology">
+              <span>Back End</span>
+              <span>{files[id].back}</span>
+            </p>
+            <p className="technology">
+              <span>Design</span>
+              <span>{files[id].design}</span>
+            </p>
+          </div>
+        </section>
+        <section className="features-images">
             {
               files[id].screens.map((screen, index) => (
                 <img src={screen}/>
               ))
             }
-          </div>
+          </section>
       </section>
     </div>
     

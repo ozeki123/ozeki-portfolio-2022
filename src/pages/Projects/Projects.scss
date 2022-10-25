@@ -148,6 +148,9 @@
       margin: 20vh auto;
       height: 1px;
       background-color: #d6d6d6;
+      @media screen and (max-width: 1024px) {
+        min-width: 480px !important;
+      }
     }
     .projects-heading{
       width: 51.2%;

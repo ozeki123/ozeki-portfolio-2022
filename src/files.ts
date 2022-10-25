@@ -7,7 +7,10 @@ import holoParallax from "./assets/holo-parallax.jpg";
 import holoHome from "./assets/holo-desktop.png";
 import holoPage from "./assets/holo-group-page.png";
 import holoscreen1 from "./assets/holo-screen-1.jpg";
+import holoscreen2 from "./assets/holo-screen-2.jpg";
 import holoscreen3 from "./assets/holo-screen-3.jpg";
+import holoscreen4 from "./assets/holo-screen-4.jpg";
+import holoscreen5 from "./assets/holo-screen-5.jpg";
 
 export default [
   {
@@ -33,7 +36,7 @@ export default [
     bg1: holoParallax,
     images: [holoHome, holoPage],
     screen1: holoHome,
-    screens: [holoscreen1, holoscreen3],
+    screens: [holoscreen1, holoscreen5, holoscreen2, holoscreen3, holoscreen4],
     website: "http://github.com/ozeki123/Oribit-Website",
     front: "HTML・SCSS・JavaScript・React",
     back: "NodeJS・Express・MongoDB",

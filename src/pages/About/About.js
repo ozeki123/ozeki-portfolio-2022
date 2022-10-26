@@ -7,6 +7,7 @@ import boltScreensMock from "../../assets/bolt-mockup-screens.jpg";
 import "./About.scss";
 import Toc from "../../components/Toc/Toc";
 import { ScrollParallax } from "react-just-parallax";
+import { useMediaQuery } from 'react-responsive';
 
 const About = () => {
   const { scrollYProgress } = useViewportScroll();
@@ -43,6 +44,11 @@ const About = () => {
   const [skillView1, setSkillView1] = useState(false);
   const [skillView2, setSkillView2] = useState(false);
   const [skillView3, setSkillView3] = useState(false);
+
+  const screen1366 = useMediaQuery({ minWidth: 1024, maxWidth: 1366 });
+  const screen1024 = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
+  const screen768 = useMediaQuery({ minWidth: 480, maxWidth: 768 });
+  const screen480 = useMediaQuery({ maxWidth: 480});
 
   useEffect(() => {
     window.scrollTo(0,0)
@@ -189,10 +195,21 @@ const About = () => {
     hidden: {y:"100%"},
     visible: {y:0},
   }
-  const headerVariant = {
-    hidden: {y:67},
-    visible: {y:0},
-  }
+  // const headerVariant = {
+  //   hidden: {y:67},
+  //   visible: {y:0},
+  // }
+
+  const headerVariant = 
+    screen1366 ? { hidden:{y:58}, visible:{y:0} }
+    : 
+    screen1024 ? { hidden:{y: 63}, visible:{y:0}}
+    :  
+    screen768 ? { hidden:{y:52}, visible:{y:0}}
+    :
+    screen480 ? { hidden:{y:35}, visible:{y:0}}
+    :
+    { hidden:{y:67},visible:{y:0} }
 
   const scrollVariant = {
     hidden: {y:45},
@@ -312,9 +329,9 @@ const About = () => {
                     ref={headerRef}
                     className="experience-header"
                     initial="hidden" 
-                    animate={headerView && "visible"} 
-                    variants={headerVariant} 
-                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0}}
+                    animate="visible"
+                    variants={textVariant} 
+                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.74}}
                     >Working Experience</motion.p>
                 </div>
                 <div className="experience-contents">
@@ -324,8 +341,8 @@ const About = () => {
                         className="exp"
                         ref={expRef1}
                         initial="hidden"
-                        animate={expView1 && "visible"}
-                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.08}}
+                        animate="visible"
+                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.82}}
                         variants={textVariant}
                       >Software Engineer</motion.span>
                     </div>
@@ -333,8 +350,8 @@ const About = () => {
                       <motion.span
                         className="exp"
                         initial="hidden"
-                        animate={expView1 && "visible"}
-                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.16}}
+                        animate="visible"
+                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.90}}
                         variants={textVariant}
                       >American Home</motion.span>
                     </div>
@@ -343,8 +360,8 @@ const About = () => {
                     <motion.p 
                     className="date"
                     initial="hidden"
-                    animate={expView1 && "visible"}
-                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.24}}
+                    animate="visible"
+                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.98}}
                     variants={textVariant}
                     >2021-Present</motion.p>
                   </div>
@@ -357,8 +374,8 @@ const About = () => {
                       className="exp"
                       ref={expRef2}
                       initial="hidden"
-                      animate={expView2 && "visible"}
-                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.08}}
+                      animate="visible"
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.06}}
                       variants={textVariant}
                     >
                       Front End Engineer
@@ -368,8 +385,8 @@ const About = () => {
                       <motion.span
                         className="exp"
                         initial="hidden"
-                        animate={expView2 && "visible"}
-                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.16}}
+                        animate="visible"
+                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.14}}
                         variants={textVariant}
                       >AIG Japan</motion.span>
                     </div>
@@ -378,8 +395,8 @@ const About = () => {
                     <motion.p 
                     className="date"
                     initial="hidden"
-                    animate={expView2 && "visible"}
-                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.24}}
+                    animate="visible"
+                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.22}}
                     variants={textVariant}
                     >2020-2021</motion.p>
                   </div>
@@ -391,8 +408,8 @@ const About = () => {
                         className="exp"
                         ref={expRef3}
                         initial="hidden"
-                        animate={expView3 && "visible"}
-                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.08}}
+                        animate="visible"
+                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.3}}
                         variants={textVariant}
                       >Intern</motion.span>
                     </div>
@@ -400,8 +417,8 @@ const About = () => {
                       <motion.span
                         className="exp"
                         initial="hidden"
-                        animate={expView3 && "visible"}
-                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.16}}
+                        animate="visible"
+                        transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.38}}
                         variants={textVariant}
                       >Microsoft</motion.span>
                     </div>
@@ -410,8 +427,8 @@ const About = () => {
                     <motion.p 
                     className="date"
                     initial="hidden"
-                    animate={expView3 && "visible"}
-                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.24}}
+                    animate="visible"
+                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.46}}
                     variants={textVariant}
                     >2019-2020</motion.p>
                   </div>
@@ -423,9 +440,9 @@ const About = () => {
                     ref={skillHeaderRef}
                     className="skills-header"
                     initial="hidden" 
-                    animate={skillHeaderView && "visible"} 
-                    variants={headerVariant} 
-                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.08}}
+                    animate="visible" 
+                    variants={textVariant} 
+                    transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.54}}
                     >Skills・Technologies</motion.p>
                 </div>
                 <div className="skills-contents">
@@ -434,27 +451,27 @@ const About = () => {
                       className="skills-category"
                       ref={skillRef1}
                       initial="hidden" 
-                      animate={skillView1 && "visible"} 
-                      variants={headerVariant} 
-                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.16}}
+                      animate="visible" 
+                      variants={textVariant} 
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.62}}
                       >Front End Development</motion.p>
                   </div>
                   <div className="text-wrapper">
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView1 && "visible"} 
+                      animate="visible"
                       variants={textVariant} 
-                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 0.24}}
+                      transition={{duration: 0.7, ease: [0.15, 0.35, 0.20, 0.8], delay: 1.7}}
                       >Javascript, React/Next, Angular</motion.p>
                   </div>
                   <div className="text-wrapper">
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView1 && "visible"} 
+                      animate="visible" 
                       variants={textVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      transition={{duration: 0.6, ease: "easeOut", delay: 1.78}}
                       >HTML/CSS, SCSS</motion.p>
                   </div>
                 </div>
@@ -464,9 +481,9 @@ const About = () => {
                       className="skills-category"
                       ref={skillRef2}
                       initial="hidden" 
-                      animate={skillView2 && "visible"} 
-                      variants={headerVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                      animate="visible" 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 1.86}}
                       >Back End Development
                     </motion.p>
                   </div>
@@ -474,9 +491,9 @@ const About = () => {
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView2 && "visible"} 
+                      animate="visible" 
                       variants={textVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                      transition={{duration: 0.6, ease: "easeOut", delay: 1.94}}
                       >NodeJS, MongoDB, Python
                     </motion.p>
                   </div>
@@ -484,9 +501,9 @@ const About = () => {
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView2 && "visible"} 
+                      animate="visible" 
                       variants={textVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      transition={{duration: 0.6, ease: "easeOut", delay: 2.02}}
                       >SQL, PostgreSQL
                     </motion.p>
                   </div>
@@ -497,9 +514,9 @@ const About = () => {
                       className="skills-category"
                       ref={skillRef3}
                       initial="hidden" 
-                      animate={skillView3 && "visible"} 
-                      variants={headerVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.1}}
+                      animate="visible" 
+                      variants={textVariant} 
+                      transition={{duration: 0.6, ease: "easeOut", delay: 2.1}}
                       >UI/UX Design
                     </motion.p>
                   </div>
@@ -507,9 +524,9 @@ const About = () => {
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView3 && "visible"} 
+                      animate="visible" 
                       variants={textVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.2}}
+                      transition={{duration: 0.6, ease: "easeOut", delay: 2.18}}
                       >Adobe Illustrator, Photoshop, After Effects
                     </motion.p>
                   </div>
@@ -517,9 +534,9 @@ const About = () => {
                     <motion.p 
                       className="skills"
                       initial="hidden" 
-                      animate={skillView3 && "visible"} 
+                      animate="visible" 
                       variants={textVariant} 
-                      transition={{duration: 0.6, ease: "easeOut", delay: 0.3}}
+                      transition={{duration: 0.6, ease: "easeOut", delay: 2.26}}
                       >Figma, Sketch
                     </motion.p>
                   </div>

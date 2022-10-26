@@ -37,16 +37,11 @@ const Projects = ({navState}) => {
   //   }
   // }
 
-  const bannerVariant = 
-    screen1366 ? { hidden:{y:84}, visible:{y:0} }
-    : 
-    screen1024 ? { hidden:{y: 63}, visible:{y:0}}
-    :  
-    screen768 ? { hidden:{y:52}, visible:{y:0}}
-    :
-    screen480 ? { hidden:{y:35}, visible:{y:0}}
-    :
-    { hidden:{y:116},visible:{y:0} }
+  const bannerVariant = {
+    hidden: {y:"100%"},
+    visible: {y:0}
+  }
+    
   
   
   

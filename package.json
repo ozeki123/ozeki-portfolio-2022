@@ -1,7 +1,7 @@
 {
-  "name": "framer-motion-layout-shared-layout",
+  "name": "andrew-ozeki-portfolio-2022",
   "version": "1.0.0",
-  "description": "",
+  "description": "Portfolio for my work that I thought was worth sharing.",
   "keywords": [],
   "main": "src/index.js",
   "dependencies": {

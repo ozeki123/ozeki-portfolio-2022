@@ -2,23 +2,18 @@
   width: 100%;
   height: 100%;
   overflow-x: hidden;
-  // z-index: 999;
   .item-screen-section{
     width: 100%;
     height: 100%;
-    // overflow: hidden;
     display: none;
     .item-image{
       width: 100%;
       height: 100%;
       overflow: hidden;
       position: relative;
-      // background-color: red;
       .bg-image{
-        // will-change: transform;
         width: 100%;
         height: 100%;
-        // background-size: cover;
         object-fit: cover;
       }
   }
@@ -55,7 +50,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // backface-visibility: hidden;
   text-align: start;
   background: none;
   padding-bottom: 20vh;
@@ -90,11 +84,9 @@
     letter-spacing: 0.4px;
     font-size: clamp(0.7rem, 0.5723rem + 0.5677vw, 1.14rem);
   }
-  // overflow-y: hidden;
   .item-top{
     width: 100%;
     height: 100%;
-    // padding-bottom: 90vh;
   }
 
   .item-heading{
@@ -125,7 +117,6 @@
       width: 90%;
       height: 100%;
       padding-top: 2.5vw;
-      // padding-bottom: 0vh;
       display: flex;
       justify-content: space-between;
 
@@ -145,9 +136,6 @@
           padding: 0;
           margin-top: 1.2vw;
         }
-        .spacing{
-          // padding-top: 2vh;
-        }
         .category-title{
           overflow: hidden;
           width: 100%;
@@ -163,7 +151,6 @@
         }
         .category-role{
           height: 100%;
-          // padding-top: 10px;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -187,7 +174,6 @@
       h3{
         font-size: clamp(0.7rem, 0.5962rem + 0.4615vw, 1.15rem);
         letter-spacing: -0.2px;
-        // text-transform: uppercase;
         font-family: "Basis", sans-serif;
         font-weight: 400;
         margin: 0;
@@ -200,43 +186,21 @@
       }
     }
   }
-  // .item{
-  //   position: absolute;
-  //   top: 0;
-  // }
+
   .container{
     position: fixed;
     top: clamp(25rem, 20.3846rem + 20.5128vw, 45rem);
-    // min-width: 500px !important;
-    // min-height: 300px !important;
-    // aspect-ratio: 1 / 1;
-    // width: 100%;
-    // height: 100%;
-    // z-index: 999;
-    // background-color: white;
-    // overflow: hidden;
-    // @media only screen and (max-width: 1200px)  {
-    //   min-width: 90vw !important;
-    // }
-    // @media only screen and (max-width: 500px)  {
-    //   min-width: 100vw !important;
-    //   max-height: 50vh;
-    //   // height: 100vh;
 
     @media only screen and (max-width: 480px)  {
       min-width: 100vw !important;
       min-height: 220px !important;
-      // transition: 1s;
+
     }
-    // }
+
     .item-image-wrapper{
       width: 100%;
       height: 100%;
-      // overflow: hidden;
-      h1{
-        // position: fixed;
-        // will-change: transform;
-      }
+
     }
     .item-image{
       width: 100%;
@@ -244,13 +208,9 @@
       overflow: hidden;
       
       img{
-        // will-change: transform;
         width: 100%;
         height: 100%;
-        // background-size: cover;
         object-fit: cover;
-        // display: none;
-        // aspect-ratio: 1 / 1;
       }
     }
   }
@@ -264,7 +224,7 @@
   
   // margin-top: ;
   margin: 0 auto;
-  padding-top: clamp(0rem, -8.0769rem + 35.8974vw, 35rem);
+  // padding-top: clamp(0rem, -8.0769rem + 35.8974vw, 35rem);
   @media screen and (max-width: 1024px) {
     width: 81%;
   }
@@ -272,17 +232,14 @@
     width: 71%;
   }
   &:nth-of-type(1){
-    margin: clamp(12rem, 8.7692rem + 14.3590vw, 26rem) auto;
+    font-size: clamp(12rem, 0.9231rem + 49.2308vw, 60rem);
   }
   
   .item-features{
-    // border-top: 1px solid black;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     width: 100%;
-    // height: 100%;
-    // border: 1px solid red;
     text-align: start;
     @media screen and (max-width: 480px) {
       flex-direction: column;
@@ -294,8 +251,7 @@
       padding-top: 8vw;
       padding-bottom: 15vw;
     }
-    
-    // border: 1px solid red;
+
     .section-header{
       height: 100%;
       width: 37%;

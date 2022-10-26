@@ -205,15 +205,15 @@ const About = () => {
   }
   
   return (
-    <div className="about-container" data-scroll-section>
+    <div className="about-container">
       <motion.div initial={{y: "100vh"}} exit={{y:0, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}} className="transition-overlay"></motion.div>
         <motion.section className="about-info" exit={{y:-150, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
-          <div className="toc-section">
+          <aside className="toc-section">
             <Toc introRef={introRef} expRef={expRef} aboutView1={aboutView1} headerView={headerView} skillHeaderView={skillHeaderView}/>
-          </div>
+          </aside>
           <div className="info-section" ref={infoRef}>
             <div className="info-text">
-              <div className="introduction" ref={introRef}>
+              <section className="introduction" ref={introRef}>
                 <p className="intro-text">
                   <div>
                     <div className="text-wrapper">
@@ -305,8 +305,8 @@ const About = () => {
                     </motion.span>
                   </div>
                 </p>
-              </div>
-              <div className="experience" ref={expRef}>
+              </section>
+              <section className="experience" ref={expRef}>
                 <div className="header-wrapper">
                     <motion.p 
                     ref={headerRef}
@@ -416,9 +416,9 @@ const About = () => {
                     >2019-2020</motion.p>
                   </div>
                 </div>
-              </div>    
-              <div className="skills">
-              <div className="header-wrapper">
+              </section>    
+              <section className="skills">
+                <div className="header-wrapper">
                     <motion.p 
                     ref={skillHeaderRef}
                     className="skills-header"
@@ -524,9 +524,8 @@ const About = () => {
                     </motion.p>
                   </div>
                 </div>
-              </div> 
+              </section> 
             </div>
-                
           </div>
         </motion.section>
       

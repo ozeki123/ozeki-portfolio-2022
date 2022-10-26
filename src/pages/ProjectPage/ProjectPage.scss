@@ -232,7 +232,7 @@
     width: 71%;
   }
   &:nth-of-type(1){
-    font-size: clamp(12rem, 0.9231rem + 49.2308vw, 60rem);
+    margin: clamp(12rem, 0.9231rem + 49.2308vw, 60rem) auto;
   }
   
   .item-features{

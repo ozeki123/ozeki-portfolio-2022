@@ -66,7 +66,7 @@
       font-weight: 400;
       letter-spacing: 0px;
       visibility: visible !important;
-      color: #F2F2F2;
+      color: #FCFAF8;
       z-index: 998;
     }
     p{
@@ -76,13 +76,6 @@
   }
   .layout-subtitle{
     font-family: "Rosindale";
-  }
-  .layout-desc{
-    font-weight: 300;
-    text-transform: uppercase;
-    color: #F2F2F2;
-    letter-spacing: 0.4px;
-    font-size: clamp(0.7rem, 0.5723rem + 0.5677vw, 1.14rem);
   }
   .item-top{
     width: 100%;

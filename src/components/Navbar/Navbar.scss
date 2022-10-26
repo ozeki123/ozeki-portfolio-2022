@@ -75,7 +75,10 @@
       position: absolute;
       left: 4.5vw;
       bottom: 9vh;
-      display: flex;
+      
+      ul{
+        display: flex;
+      }
       li{
         padding-right: 2vw;
       }

@@ -1,18 +1,8 @@
 import React, { useEffect, useState, useRef, useContext } from 'react';
-import {
-  motion,
-  useViewportScroll,
-  useElementScroll,
-  useTransform
-} from "framer-motion";
-import { useParams, Link, useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
+import { useParams } from "react-router-dom";
 import files from "../../files";
-import useIntersectionObserver from '../../hooks/useIntersectionObserver';
 import "./ProjectPage.scss";
-import ScrollContainer from '../../hooks/ScrollContainer';
-import { ScrollParallax, ScrollParallaxHandle} from 'react-just-parallax';
-import Gallery from '../../components/Gallery/Gallery';
-import simpleParallax from 'simple-parallax-js';
 import { AppContext } from '../../context';
 const ProjectPage = ({navState}) => {
   const params = useParams();
@@ -20,27 +10,8 @@ const ProjectPage = ({navState}) => {
   const layoutRef = useRef(null);
   const ref = useRef(null);
   const featuresRef = useRef(null);
-  const footerRef = useRef(null);
   const [aboutFlag, setAboutFlag] = useState(false);
-  const location = useLocation();
-  const { offsetHeight, offsetSub, offsetDesc1, offsetDesc2 } = useContext(AppContext);
-  const { scrollY } = useViewportScroll();
-  const y1 = useTransform(scrollY, [0, 1000], [0, -60]);
-  useEffect(() => {
-    console.log(files[id].id);
-  }, [location])
-
-  useEffect(() => {
-    console.log("offset", offsetHeight);
-  }, [])
-  
-
-  useEffect(() => {
-    
-    setTimeout(function () {
-      window.scrollTo(0, 0);
-  },500);
-  }, [])
+  const { offsetHeight, offsetSub, } = useContext(AppContext);
 
   useEffect(() => {
     if(navState === "about"){
@@ -48,12 +19,6 @@ const ProjectPage = ({navState}) => {
     }
     
   }, [navState])
-
-  useEffect(() => {
-    console.log(aboutFlag)
-    
-  }, [aboutFlag])
-  
 
   useEffect(() => {
     setTimeout(() => {
@@ -70,11 +35,11 @@ const ProjectPage = ({navState}) => {
     }),
   }
   const categoryTitleVariant = {
-    hidden: {y:30},
+    hidden: {y:"100%"},
     visible: {y:0},
   }
   const categoryItemVariant = {
-    hidden: {y:60},
+    hidden: {y:"100%"},
     visible: {y:0},
   }
 
@@ -88,7 +53,7 @@ const ProjectPage = ({navState}) => {
       },
     },
     hidden: {
-      y: -165,
+      y: "-100%",
       transition: {
         duration: 0.9,
         ease: "easeInOut"
@@ -114,7 +79,7 @@ const ProjectPage = ({navState}) => {
             
               <div className="item-link">
                 <a href={files[id].website} target="_blank" rel="noreferrer">
-                  <motion.h3 initial={{y: 50}} animate={{y:0}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>Visit Site</motion.h3>
+                  <motion.h3 initial={{y: "100%"}} animate={{y:0}} transition={{delay: 0.9, duration: 0.8, ease: "easeOut"}}>Visit Site</motion.h3>
                 </a>
                 
               </div>
@@ -187,8 +152,8 @@ const ProjectPage = ({navState}) => {
                   transition={{duration: 1.5, ease: "easeOut", delay:1}} 
                 ></motion.div>
                   <div className="category-role">
-                    {files[id].role.map(role => (
-                      <div className="category-item">
+                    {files[id].role.map((role, index) => (
+                      <div key={index} className="category-item">
                         <motion.p 
                           className="category-item-inner"
                           initial="hidden"
@@ -338,7 +303,7 @@ const ProjectPage = ({navState}) => {
         <section className="features-images">
             {
               files[id].screens.map((screen, index) => (
-                <img src={screen} alt="Project Screens"/>
+                <img src={screen} key={index} alt="Project Screens"/>
               ))
             }
           </section>

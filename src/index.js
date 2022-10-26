@@ -1,17 +1,11 @@
 import React from "react";
+import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router-dom";
-import ReactDOM from "react-dom";
-
 import App from "./App";
-import { CustomRouter } from "./routing/CustomRouter";
-import { YScroll } from "./routing/YScroll";
 
-const rootElement = document.getElementById("root");
-ReactDOM.render(
-  <CustomRouter>
-    <YScroll>
+const rootElement = ReactDOM.createRoot(document.getElementById("root"));
+rootElement.render(
+  <BrowserRouter>
       <App />
-    </YScroll>
-  </CustomRouter>,
-  rootElement
+  </BrowserRouter>,
 );

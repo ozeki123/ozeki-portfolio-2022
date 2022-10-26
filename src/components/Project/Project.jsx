@@ -1,110 +1,32 @@
-import React, { useState, useEffect, useRef, useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import {
-  motion, useAnimation, useViewportScroll, useTransform, 
-} from "framer-motion";
-import { ScrollParallax } from 'react-just-parallax';
+import React, { useEffect, useRef, useContext } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { motion, useViewportScroll, useTransform } from "framer-motion";
 import "./Project.scss";
 import { AppContext } from "../../context";
 
 const Project = ({file, i}) => {
-  const [titleView, setTitleView] = useState(false);
-  const [subTitleView, setSubTitleView] = useState(false);
   const titleRef = useRef();
   const subTitleRef = useRef();
-  const descRef1 = useRef();
-  const descRef2 = useRef();
   const { scrollYProgress } = useViewportScroll();
   const parallax = useTransform(scrollYProgress, [0, 1], [0, -250]);
-  const [transitionFlag, setTransitionFlag] = useState(false);
-  let temp = true;
   const location = useLocation();
-  const prevPath = location.state?.from;
-  const { scrollY } = useViewportScroll();
-  const navigate = useNavigate();
-  const [offset, setOffset] = useState();
-  const { offsetHeight, 
-          setOffsetHeight, 
-          offsetSub, 
-          setOffsetSub,
-          offsetDesc1,
-          setOffsetDesc1,
-          offsetDesc2,
-          setOffsetDesc2 } = useContext(AppContext);
-  // const parallaxController = useParallaxController();
-  const parallaxRef = useRef(null);
-  const projectRef = useRef(null);
-  const [projectView, setProjectView] = useState(false);
+  const { setOffsetHeight, setOffsetSub } = useContext(AppContext);
 
   useEffect(() => {
     window.scrollTo(0,0)
   }, [])
 
-  const titleVariant = {
+  const pageVariant = {
     hidden: {
-      y: 145, 
-      skewY:12
+      opacity: 1,
+      y: 0
     },
     visible: {
-      y: 0,
-      skewY: 0,
-      transition:{ duration: 0.8, 
-        ease: "easeOut", 
-        delay: 0.4}
-      }
+      y: "-100%",
+      opacity: 1,
+      transition: { delay: 0.2, duration: 1.7, ease: [0.65, 0.1, 0.25, 0.95],}
     }
-    const transition = { duration: 0.8, 
-      ease: "easeOut", 
-      delay: 0.6}
-    
-  const subTitleVariant = {
-    hidden: {
-      y: 145, 
-      skewY:12,
-      
-    },
-    visible: {
-      y: 0,
-      skewY: 0,
-      transition:{ duration: 0.8, 
-        ease: "easeOut", 
-        delay: 0.6}
-      }
-    }
-    const descVariant1 = {
-      hidden: {
-        y: 30, 
-      },
-      visible: {
-        y: 0,
-        transition:{ duration: 0.6, 
-          ease: "easeOut", 
-          delay: 0.9}
-      }
-    }
-    const descVariant2 = {
-      hidden: {
-        y: 30 , 
-      },
-      visible: {
-        y: 0,
-        transition:{ duration: 0.6, 
-          ease: "easeOut", 
-          delay: 1}
-      }
-    }
-
-    const pageVariant = {
-      hidden: {
-        opacity: 1,
-        y: 0
-      },
-      visible: {
-        y: "-100%",
-        opacity: 1,
-        transition: { delay: 0.2, duration: 1.7, ease: [0.65, 0.1, 0.25, 0.95],}
-      }
-    }
+  }
   return (
     <motion.div 
       className="project-item-container" 

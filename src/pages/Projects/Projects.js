@@ -1,9 +1,8 @@
 import { motion } from "framer-motion";
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import files from "../../files";
 import "./Projects.scss";
 import Project from "../../components/Project/Project";
-import { useMediaQuery } from 'react-responsive';
 import { ScrollParallax } from "react-just-parallax";
 import { ReactComponent as Arrow } from "../../assets/Arrow.svg";
 
@@ -11,11 +10,6 @@ const Projects = ({navState}) => {
   const [selected, setSelected] = useState(false);
   const [aboutFlag, setAboutFlag] = useState(false);
 
-  const screen1366 = useMediaQuery({ minWidth: 1024, maxWidth: 1366 });
-  const screen1024 = useMediaQuery({ minWidth: 768, maxWidth: 1024 });
-  const screen768 = useMediaQuery({ minWidth: 480, maxWidth: 768 });
-  const screen480 = useMediaQuery({ maxWidth: 480});
-  
   useEffect(() => {
     window.scrollTo(0,0)
   }, [])
@@ -25,28 +19,11 @@ const Projects = ({navState}) => {
     }
   }, [navState])
 
-  // if(screen1366){
-  //   bannerVariant = {
-  //     hidden: {y:80},
-  //     visible: {y:0}
-  //   }
-  // } else {
-  //   bannerVariant = {
-  //     hidden: {y:116},
-  //     visible: {y:0}
-  //   }
-  // }
-
   const bannerVariant = {
     hidden: {y:"100%"},
     visible: {y:0}
   }
     
-  
-  
-  
-  
-
   return (
     <div className="projects-container">
       <motion.div 

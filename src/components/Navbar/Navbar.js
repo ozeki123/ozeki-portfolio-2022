@@ -7,19 +7,6 @@ const Navbar = ({navState, setNavState}) => {
   const navigate = useNavigate();
   let activeStyle = 
     pathname.includes("projects") ? {color: "black"} : {color: "white"}
-  
-  const handleClick = (e) => {
-    e.preventDefault();
-    
-  }
-  
-  //   useEffect(() => {
-  //   // console.log(pathname);
-  //   // setNavState(pathname);
-  // }, [pathname])
-  
-    
-  
   return (
     <nav className="nav-container">
       <ul className="nav-items">
@@ -40,11 +27,14 @@ const Navbar = ({navState, setNavState}) => {
             <p>About</p>
           </NavLink>
         </li>
-        <div className="bottom-left">
-          <li>Linkedin</li>
-          <li>Github</li>
-          <li>Blog</li>
-        </div>
+        <li className="bottom-left">
+          <ul>
+            <li>Linkedin</li>
+            <li>Github</li>
+            <li>Blog</li>
+          </ul>
+          
+        </li>
       </ul>
     </nav>
   )

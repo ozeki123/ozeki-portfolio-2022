@@ -38,7 +38,8 @@
     background: none;
     @media only screen and (max-width: 768px)  {
       transform: none !important;
-      top: 15%;
+      justify-content: flex-start;
+      top: 40% !important;
     }
   }
   .layout-wrapper{

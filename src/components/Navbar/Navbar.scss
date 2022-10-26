@@ -4,6 +4,9 @@
   position: fixed;
   top: 0;
   z-index: 998;
+  @media screen and (max-width: 768px) {
+    position: absolute;
+  }
   // z-index: 9;
   // background-color: red;
   
@@ -22,7 +25,7 @@
       padding: 0;
       position: relative;
       z-index: 999;
-      font-size: 1.2rem;
+      font-size: clamp(0.8rem, 0.7077rem + 0.4103vw, 1.2rem);
       letter-spacing: 0.1px;
       color: rgb(151, 151, 151);
       p{
@@ -48,7 +51,7 @@
       p{
         color: rgb(48, 48, 48) !important;
         font-family: "Ginger";
-        font-size: 2rem;
+        font-size: clamp(1.4rem, 1.2615rem + 0.6154vw, 2rem);
         
       }
       // z-index: 999;
@@ -76,7 +79,7 @@
       li{
         padding-right: 2vw;
       }
-      @media screen and (max-width: 480px) {
+      @media screen and (max-width: 768px) {
         display: none;
       }
       

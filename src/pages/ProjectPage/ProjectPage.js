@@ -98,8 +98,6 @@ const ProjectPage = ({navState}) => {
   
   return (
     <div className="item-container" ref={ref}>
-    
-    
       <motion.div 
         className="transition-overlay"
         initial={{y: "100vh"}}
@@ -292,7 +290,7 @@ const ProjectPage = ({navState}) => {
           </div>
         </motion.div>
       </motion.div>
-      <section className="features-section" ref={featuresRef}>
+      <motion.section className="features-section" ref={featuresRef} exit={{y:-180, transition:{duration: 0.9, ease: [0.65, 0.1, 0.25, 0.95]}}}>
         <section className="item-features">
           <div className="section-header">
             <p>01</p>
@@ -344,7 +342,7 @@ const ProjectPage = ({navState}) => {
               ))
             }
           </section>
-      </section>
+      </motion.section>
     </div>
     
   

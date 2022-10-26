@@ -27,6 +27,9 @@
       @media only screen and (max-width: 768px) {
         text-align: start !important;
       }
+      @media only screen and (max-width: 480px) {
+        letter-spacing: 1.5px;
+      }
       .text-top{
         float: left;
         overflow: hidden;
@@ -67,9 +70,15 @@
             }
             &:nth-of-type(1){
               padding-top: 1vw;
+              @media only screen and (max-width: 768px) {
+                padding-top: 4vw;
+              }
             }
             &:nth-of-type(2){
               margin-top: 0.2vw;
+              @media only screen and (max-width: 768px) {
+                padding-top: 0.5vw;
+              }
             }
             p{
               font-size: clamp(0.6rem, 0.5538rem + 0.2051vw, 0.8rem);
@@ -87,6 +96,7 @@
         font-weight: 400;
         @media only screen and (max-width: 768px) {
           float: none;
+          line-height: 7.8vw;
         }
        
       }
@@ -99,10 +109,15 @@
       bottom: 2vw;
       p{
         padding-bottom: 1vw;
-        font-size: 0.8rem;
+        font-size: clamp(0.5rem, 0.4308rem + 0.3077vw, 0.8rem);
+      }
+      svg{
+        height: 2vw;
+        width: 2vw;
       }
       path{
         fill: rgb(168, 168, 168);
+        
       }
     }
   }
@@ -121,21 +136,29 @@
       @media screen and (max-width: 1024px) {
         min-width: 480px !important;
       }
+      
     }
     .projects-heading{
       width: 51.2%;
       padding-bottom: 9vh;
       text-align: start;
       margin: 0 auto;
+      @media screen and (max-width: 1024px) {
+        min-width: 480px !important;
+      }
+      @media screen and (max-width: 570px) {
+        min-width: 350px !important;
+      }
       h2{
         font-family: "Ginger";
         font-weight: 400;
         text-transform: uppercase;
-        font-size: clamp(1rem, -0.1538rem + 5.1282vw, 6rem);
+        font-size: clamp(2rem, -0.6667rem + 5.5556vw, 6rem);
         color: #2e2e2e;
       }
       p{
         color: rgb(163, 163, 163);
+        font-size: clamp(0.6rem, 0.3333rem + 0.5556vw, 1rem);
       }
     }
     

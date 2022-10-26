@@ -42,6 +42,7 @@
         float: right;
         display: flex;
         color: #317fc9;
+        
         h2:nth-of-type(2){
           color: rgb(41, 41, 41);
         }
@@ -58,6 +59,9 @@
           float: none;
           margin-left: 0;
           flex-direction: column;
+        }
+        .text-wrapper{
+          overflow: hidden;
         }
 
         .banner-about{

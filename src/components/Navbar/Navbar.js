@@ -29,9 +29,9 @@ const Navbar = ({navState, setNavState}) => {
         </li>
         <li className="bottom-left">
           <ul>
-            <li>Linkedin</li>
-            <li>Github</li>
-            <li>Blog</li>
+            <li><a target="_blank" href="https://www.linkedin.com/in/andrew-ozeki-86984b172/">Linkedin</a></li>
+            <li><a target="_blank" href="https://github.com/ozeki123">Github</a></li>
+            <li><a target="_blank" href="https://github.com/ozeki123/ozeki-blog">Blog</a></li>
           </ul>
           
         </li>
